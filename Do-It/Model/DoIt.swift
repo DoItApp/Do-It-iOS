@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+
+class DoIt {
+    
+    
+}
