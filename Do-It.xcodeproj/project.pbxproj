@@ -14,6 +14,16 @@
 		89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */; };
 		89AA5BCC219E456800821B26 /* Do_ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BCB219E456800821B26 /* Do_ItTests.swift */; };
 		89AA5BD7219E456800821B26 /* Do_ItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BD6219E456800821B26 /* Do_ItUITests.swift */; };
+		89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BE7219E46BD00821B26 /* DoIt.swift */; };
+		89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */; };
+		89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */; };
+		89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BED219E46D900821B26 /* DoItPriority.swift */; };
+		89AA5BF0219E46DF00821B26 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BEF219E46DF00821B26 /* Course.swift */; };
+		89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */; };
+		89AA5BF4219E46F500821B26 /* DoItOrganizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */; };
+		89AA5BF6219E46FC00821B26 /* DoItOrganizationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */; };
+		89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF7219E470A00821B26 /* GroupingSetting.swift */; };
+		89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF9219E470F00821B26 /* SortSetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,16 @@
 		89AA5BD2219E456800821B26 /* Do-ItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Do-ItUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA5BD6219E456800821B26 /* Do_ItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Do_ItUITests.swift; sourceTree = "<group>"; };
 		89AA5BD8219E456800821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89AA5BE7219E46BD00821B26 /* DoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoIt.swift; sourceTree = "<group>"; };
+		89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPersistenceManager.swift; sourceTree = "<group>"; };
+		89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItSharingManager.swift; sourceTree = "<group>"; };
+		89AA5BED219E46D900821B26 /* DoItPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPriority.swift; sourceTree = "<group>"; };
+		89AA5BEF219E46DF00821B26 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePersistenceManager.swift; sourceTree = "<group>"; };
+		89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItOrganizationManager.swift; sourceTree = "<group>"; };
+		89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItOrganizationSettings.swift; sourceTree = "<group>"; };
+		89AA5BF7219E470A00821B26 /* GroupingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingSetting.swift; sourceTree = "<group>"; };
+		89AA5BF9219E470F00821B26 /* SortSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +151,16 @@
 		89AA5BE4219E457300821B26 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89AA5BEF219E46DF00821B26 /* Course.swift */,
+				89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */,
+				89AA5BE7219E46BD00821B26 /* DoIt.swift */,
+				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
+				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
+				89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */,
+				89AA5BED219E46D900821B26 /* DoItPriority.swift */,
+				89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */,
+				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
+				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,8 +310,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */,
+				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
+				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
+				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
+				89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */,
+				89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */,
+				89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */,
+				89AA5BF6219E46FC00821B26 /* DoItOrganizationSettings.swift in Sources */,
+				89AA5BF4219E46F500821B26 /* DoItOrganizationManager.swift in Sources */,
+				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
