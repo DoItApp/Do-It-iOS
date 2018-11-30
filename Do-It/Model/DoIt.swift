@@ -10,6 +10,7 @@ import Foundation
 
 
 struct DoIt {
+    let id = DoItId()
     var course: Course
     var dueDate: Date
     var description: String
