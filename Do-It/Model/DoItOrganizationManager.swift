@@ -6,4 +6,14 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-import Foundation
+final class DoItOrganizationManager {
+    var organizationSettings: DoItOrganizationSettings
+
+    init(organizationSettings: DoItOrganizationSettings) {
+        self.organizationSettings = organizationSettings
+    }
+
+    func organize(_ doIts: [DoIt]) -> [DoIt] {
+        fatalError("not implemented")
+    }
+}

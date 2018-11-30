@@ -7,3 +7,36 @@
 //
 
 import Foundation
+
+
+final class DoItPersistenceManager {
+    var doIts: [DoIt] {
+        didSet {
+            saveDoItsToDisk()
+        }
+    }
+
+    init() {
+        doIts = DoItPersistenceManager.loadDoItsFromDisk()
+    }
+
+    func save(_ doIt: DoIt) {
+
+    }
+
+    func update(_ doIt: DoIt) {
+
+    }
+
+    func delete(_ doIt: DoIt) {
+
+    }
+
+    private static func loadDoItsFromDisk() -> [DoIt] {
+        fatalError("not implemented")
+    }
+
+    private func saveDoItsToDisk() {
+
+    }
+}

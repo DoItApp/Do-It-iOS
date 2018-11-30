@@ -9,7 +9,10 @@
 import Foundation
 
 
-class DoIt {
-    
-    
+struct DoIt {
+    var course: Course
+    var dueDate: Date
+    var description: String
+    var name: String
+    var priority: DoItPriority
 }
