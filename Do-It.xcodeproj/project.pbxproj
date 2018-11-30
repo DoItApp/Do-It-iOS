@@ -96,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8999CD6A21B0CB2600279BEA /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */,
+				89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */,
+				89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		89AA5BAA219E456600821B26 = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +133,6 @@
 				89AA5BE5219E457700821B26 /* View */,
 				89AA5BE4219E457300821B26 /* Model */,
 				89AA5BB6219E456600821B26 /* AppDelegate.swift */,
-				89AA5BB8219E456600821B26 /* ViewController.swift */,
 				89AA5BBA219E456600821B26 /* Main.storyboard */,
 				89AA5BBD219E456800821B26 /* Assets.xcassets */,
 				89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */,
@@ -153,14 +162,12 @@
 		89AA5BE4219E457300821B26 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8999CD6A21B0CB2600279BEA /* Persistence */,
 				89AA5BEF219E46DF00821B26 /* Course.swift */,
-				89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */,
 				89AA5BE7219E46BD00821B26 /* DoIt.swift */,
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
-				89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */,
 				89AA5BED219E46D900821B26 /* DoItPriority.swift */,
-				89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
 				8999CD6821B0CA9100279BEA /* DoItId.swift */,
@@ -178,6 +185,7 @@
 		89AA5BE6219E457C00821B26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				89AA5BB8219E456600821B26 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
