@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+
+final class DoItSharingManager {
+    var persistenceManager: DoItPersistenceManager
+
+    init(persistenceManager: DoItPersistenceManager) {
+        self.persistenceManager = persistenceManager
+    }
+
+    func send(_ doIts: [DoIt]) {
+
+    }
+
+    func receive(_ doItData: Data) {
+        
+    }
+}

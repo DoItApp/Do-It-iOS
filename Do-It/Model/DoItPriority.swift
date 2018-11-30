@@ -6,4 +6,8 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-import Foundation
+enum DoItPriority {
+    case low
+    case `default`
+    case high
+}

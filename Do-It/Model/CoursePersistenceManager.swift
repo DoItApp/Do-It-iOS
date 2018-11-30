@@ -7,3 +7,28 @@
 //
 
 import Foundation
+
+
+final class CoursePersistenceManager {
+    var courses: [Course] {
+        didSet {
+            saveCoursesToDisk()
+        }
+    }
+
+    init() {
+        courses = CoursePersistenceManager.loadCoursesFromDisk()
+    }
+
+    func save(_ course: Course) {
+
+    }
+
+    private static func loadCoursesFromDisk() -> [Course] {
+        fatalError("not implemented")
+    }
+
+    private func saveCoursesToDisk() {
+
+    }
+}

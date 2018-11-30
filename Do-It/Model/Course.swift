@@ -9,5 +9,5 @@
 import Foundation
 
 struct Course {
-    
+    var name: String
 }
