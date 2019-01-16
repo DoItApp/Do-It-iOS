@@ -18,17 +18,4 @@ struct ReadingDoIt : DoIt {
     
     let pageStart : Int
     let pageEnd : Int
-    
-    
-    init(id: DoItId, course: Course, dueDate: Date, description: String,
-         name: String, priority: DoItPriority, pageStart: Int, pageEnd: Int) {
-        self.id = id
-        self.course = course
-        self.dueDate = dueDate
-        self.description = description
-        self.name = name
-        self.priority = priority
-        self.pageStart = pageStart
-        self.pageEnd = pageEnd
-    }
 }

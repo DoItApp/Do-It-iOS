@@ -15,16 +15,4 @@ struct HomeworkDoIt : DoIt {
     var description: String
     var name: String
     var priority: DoItPriority
-    
-    
-    init(id: DoItId, course: Course, dueDate: Date, description: String,
-         name: String, priority: DoItPriority) {
-        self.id = id
-        self.course = course
-        self.dueDate = dueDate
-        self.description = description
-        self.name = name
-        self.priority = priority
-    }
-    
 }

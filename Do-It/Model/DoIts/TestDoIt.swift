@@ -17,17 +17,4 @@ struct TestDoIt : DoIt {
     var priority: DoItPriority
     
     var pointValue : Int
-    
-    
-    init(id: DoItId, course: Course, dueDate: Date, description: String,
-         name: String, priority: DoItPriority, pointValue: Int) {
-        self.id = id
-        self.course = course
-        self.dueDate = dueDate
-        self.description = description
-        self.name = name
-        self.priority = priority
-        self.pointValue = pointValue
-    }
-    
 }
