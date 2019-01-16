@@ -10,6 +10,7 @@ import Foundation
 
 protocol DoIt {
     var id : DoItId { get }
+    
     var course: Course { get set }
     var dueDate: Date { get set }
     var description: String { get set }
