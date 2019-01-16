@@ -26,6 +26,9 @@
 		89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF7219E470A00821B26 /* GroupingSetting.swift */; };
 		89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF9219E470F00821B26 /* SortSetting.swift */; };
 		89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB093621EEC3C300C32841 /* ExampleTests.swift */; };
+		9347A74721EFBA60003F6F86 /* TestDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74621EFBA60003F6F86 /* TestDoIt.swift */; };
+		9347A74921EFBA70003F6F86 /* HomeworkDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */; };
+		9347A74B21EFBA7C003F6F86 /* ReadingDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		89AA5BF7219E470A00821B26 /* GroupingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingSetting.swift; sourceTree = "<group>"; };
 		89AA5BF9219E470F00821B26 /* SortSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSetting.swift; sourceTree = "<group>"; };
 		89CB093621EEC3C300C32841 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		9347A74621EFBA60003F6F86 /* TestDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoIt.swift; sourceTree = "<group>"; };
+		9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkDoIt.swift; sourceTree = "<group>"; };
+		9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDoIt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,13 +173,12 @@
 			children = (
 				8999CD6A21B0CB2600279BEA /* Persistence */,
 				89AA5BEF219E46DF00821B26 /* Course.swift */,
-				89AA5BE7219E46BD00821B26 /* DoIt.swift */,
+				9347A74521EFB9FF003F6F86 /* DoIts */,
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
 				89AA5BED219E46D900821B26 /* DoItPriority.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
-				8999CD6821B0CA9100279BEA /* DoItId.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +196,18 @@
 				89AA5BB8219E456600821B26 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9347A74521EFB9FF003F6F86 /* DoIts */ = {
+			isa = PBXGroup;
+			children = (
+				8999CD6821B0CA9100279BEA /* DoItId.swift */,
+				89AA5BE7219E46BD00821B26 /* DoIt.swift */,
+				9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */,
+				9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */,
+				9347A74621EFBA60003F6F86 /* TestDoIt.swift */,
+			);
+			path = DoIts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,9 +345,12 @@
 				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
+				9347A74921EFBA70003F6F86 /* HomeworkDoIt.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
+				9347A74B21EFBA7C003F6F86 /* ReadingDoIt.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */,
+				9347A74721EFBA60003F6F86 /* TestDoIt.swift in Sources */,
 				89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */,
 				89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */,
 				89AA5BF6219E46FC00821B26 /* DoItOrganizationSettings.swift in Sources */,
