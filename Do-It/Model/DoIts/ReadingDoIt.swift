@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ReadingDoIt : DoIt {
+struct ReadingDoIt: DoIt {
     var id: DoItId
     var course: Course
     var dueDate: Date
@@ -16,6 +16,6 @@ struct ReadingDoIt : DoIt {
     var name: String
     var priority: DoItPriority
     
-    let pageStart : Int
-    let pageEnd : Int
+    let pageStart: Int
+    let pageEnd: Int
 }

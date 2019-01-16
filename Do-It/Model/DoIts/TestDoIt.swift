@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TestDoIt : DoIt {
+struct TestDoIt: DoIt {
     var id: DoItId
     var course: Course
     var dueDate: Date
@@ -16,5 +16,5 @@ struct TestDoIt : DoIt {
     var name: String
     var priority: DoItPriority
     
-    var pointValue : Int
+    var pointValue: Int
 }

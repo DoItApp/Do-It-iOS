@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HomeworkDoIt : DoIt {
+struct HomeworkDoIt: DoIt {
     var id: DoItId
     var course: Course
     var dueDate: Date
