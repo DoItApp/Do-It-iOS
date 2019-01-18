@@ -26,8 +26,8 @@
 		89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF7219E470A00821B26 /* GroupingSetting.swift */; };
 		89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF9219E470F00821B26 /* SortSetting.swift */; };
 		89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB093621EEC3C300C32841 /* ExampleTests.swift */; };
-		89CB793D21F1619400904FD3 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB793B21F1619400904FD3 /* TextFieldTableViewCell.swift */; };
-		89CB793E21F1619400904FD3 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CB793C21F1619400904FD3 /* TextFieldTableViewCell.xib */; };
+		89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */; };
+		89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */; };
 		9347A74721EFBA60003F6F86 /* TestDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74621EFBA60003F6F86 /* TestDoIt.swift */; };
 		9347A74921EFBA70003F6F86 /* HomeworkDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */; };
 		9347A74B21EFBA7C003F6F86 /* ReadingDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */; };
@@ -76,8 +76,8 @@
 		89AA5BF7219E470A00821B26 /* GroupingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingSetting.swift; sourceTree = "<group>"; };
 		89AA5BF9219E470F00821B26 /* SortSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSetting.swift; sourceTree = "<group>"; };
 		89CB093621EEC3C300C32841 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		89CB793B21F1619400904FD3 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldTableViewCell.swift; path = "Do-ItTests/TextFieldTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		89CB793C21F1619400904FD3 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TextFieldTableViewCell.xib; path = "Do-ItTests/TextFieldTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		9347A74621EFBA60003F6F86 /* TestDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoIt.swift; sourceTree = "<group>"; };
 		9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkDoIt.swift; sourceTree = "<group>"; };
 		9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDoIt.swift; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 		89AA5BE5219E457700821B26 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89CB793B21F1619400904FD3 /* TextFieldTableViewCell.swift */,
-				89CB793C21F1619400904FD3 /* TextFieldTableViewCell.xib */,
+				89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */,
+				89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,8 +322,8 @@
 			files = (
 				89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
+				89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */,
 				89AA5BBC219E456600821B26 /* Main.storyboard in Resources */,
-				89CB793E21F1619400904FD3 /* TextFieldTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +348,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CB793D21F1619400904FD3 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */,
 				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
@@ -363,6 +362,7 @@
 				89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */,
 				89AA5BF6219E46FC00821B26 /* DoItOrganizationSettings.swift in Sources */,
 				89AA5BF4219E46F500821B26 /* DoItOrganizationManager.swift in Sources */,
+				89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
 				8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */,
 			);
