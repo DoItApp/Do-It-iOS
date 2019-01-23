@@ -9,7 +9,12 @@
 import UIKit
 
 class DoItTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var courseLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
