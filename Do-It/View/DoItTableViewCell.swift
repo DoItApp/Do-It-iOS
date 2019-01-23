@@ -15,9 +15,15 @@ class DoItTableViewCell: UITableViewCell {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
+    @IBOutlet var priorityView: UIView! {
+        didSet {
+            priorityView.layer.cornerRadius = priorityView.frame.size.width/2
+            priorityView.clipsToBounds = true
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
