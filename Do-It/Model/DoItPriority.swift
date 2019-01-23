@@ -6,8 +6,12 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-enum DoItPriority {
-    case low
-    case `default`
-    case high
+enum DoItPriority : Int, Comparable {
+    case low = 1
+    case `default` = 2
+    case high = 3
+    
+    static func < (lhs: DoItPriority, rhs: DoItPriority) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
 }
