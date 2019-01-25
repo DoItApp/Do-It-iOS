@@ -6,7 +6,7 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-enum DoItPriority {
+enum DoItPriority: Int, Codable {
     case low
     case `default`
     case high

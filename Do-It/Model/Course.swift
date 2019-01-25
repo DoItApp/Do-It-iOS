@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Course {
+struct Course: Codable {
     var name: String
 }
