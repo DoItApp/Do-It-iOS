@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3127B821FA9D0000EBAE1B /* Do-ItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3127B721FA9D0000EBAE1B /* Do-ItUITests.swift */; };
 		8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8999CD6821B0CA9100279BEA /* DoItId.swift */; };
 		89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB6219E456600821B26 /* AppDelegate.swift */; };
 		89AA5BB9219E456600821B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB8219E456600821B26 /* ViewController.swift */; };
@@ -14,7 +15,6 @@
 		89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBD219E456800821B26 /* Assets.xcassets */; };
 		89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */; };
 		89AA5BCC219E456800821B26 /* Do_ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BCB219E456800821B26 /* Do_ItTests.swift */; };
-		89AA5BD7219E456800821B26 /* Do_ItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BD6219E456800821B26 /* Do_ItUITests.swift */; };
 		89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BE7219E46BD00821B26 /* DoIt.swift */; };
 		89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */; };
 		89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */; };
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A3127B721FA9D0000EBAE1B /* Do-ItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do-ItUITests.swift"; sourceTree = "<group>"; };
 		8999CD6821B0CA9100279BEA /* DoItId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItId.swift; sourceTree = "<group>"; };
 		89AA5BB3219E456600821B26 /* Do-It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do-It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA5BB6219E456600821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		89AA5BCB219E456800821B26 /* Do_ItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Do_ItTests.swift; sourceTree = "<group>"; };
 		89AA5BCD219E456800821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89AA5BD2219E456800821B26 /* Do-ItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Do-ItUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		89AA5BD6219E456800821B26 /* Do_ItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Do_ItUITests.swift; sourceTree = "<group>"; };
 		89AA5BD8219E456800821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89AA5BE7219E46BD00821B26 /* DoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoIt.swift; sourceTree = "<group>"; };
 		89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPersistenceManager.swift; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 		89AA5BD5219E456800821B26 /* Do-ItUITests */ = {
 			isa = PBXGroup;
 			children = (
-				89AA5BD6219E456800821B26 /* Do_ItUITests.swift */,
 				89AA5BD8219E456800821B26 /* Info.plist */,
+				5A3127B721FA9D0000EBAE1B /* Do-ItUITests.swift */,
 			);
 			path = "Do-ItUITests";
 			sourceTree = "<group>";
@@ -297,6 +297,7 @@
 					};
 					89AA5BD1219E456800821B26 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 						TestTargetID = 89AA5BB2219E456600821B26;
 					};
 				};
@@ -389,7 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89AA5BD7219E456800821B26 /* Do_ItUITests.swift in Sources */,
+				5A3127B821FA9D0000EBAE1B /* Do-ItUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +623,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Do-ItUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -631,6 +633,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spu.Do-ItUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Do-It";
@@ -641,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Do-ItUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
