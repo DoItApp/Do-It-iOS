@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A3127B821FA9D0000EBAE1B /* Do-ItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3127B721FA9D0000EBAE1B /* Do-ItUITests.swift */; };
 		8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8999CD6821B0CA9100279BEA /* DoItId.swift */; };
 		89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB6219E456600821B26 /* AppDelegate.swift */; };
 		89AA5BB9219E456600821B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB8219E456600821B26 /* ViewController.swift */; };
@@ -53,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A3127B721FA9D0000EBAE1B /* Do-ItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do-ItUITests.swift"; sourceTree = "<group>"; };
 		8999CD6821B0CA9100279BEA /* DoItId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItId.swift; sourceTree = "<group>"; };
 		89AA5BB3219E456600821B26 /* Do-It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do-It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA5BB6219E456600821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				89AA5BD8219E456800821B26 /* Info.plist */,
-				5A3127B721FA9D0000EBAE1B /* Do-ItUITests.swift */,
 			);
 			path = "Do-ItUITests";
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A3127B821FA9D0000EBAE1B /* Do-ItUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
