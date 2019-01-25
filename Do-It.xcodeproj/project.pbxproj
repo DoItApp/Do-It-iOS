@@ -28,6 +28,8 @@
 		89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB093621EEC3C300C32841 /* ExampleTests.swift */; };
 		89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */; };
 		89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */; };
+		930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CD51321F164A70069DD62 /* DoItTableViewCell.swift */; };
+		930CD51621F164A70069DD62 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930CD51421F164A70069DD62 /* DoItTableViewCell.xib */; };
 		9347A74721EFBA60003F6F86 /* TestDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74621EFBA60003F6F86 /* TestDoIt.swift */; };
 		9347A74921EFBA70003F6F86 /* HomeworkDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */; };
 		9347A74B21EFBA7C003F6F86 /* ReadingDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */; };
@@ -78,6 +80,8 @@
 		89CB093621EEC3C300C32841 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		930CD51321F164A70069DD62 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
+		930CD51421F164A70069DD62 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
 		9347A74621EFBA60003F6F86 /* TestDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoIt.swift; sourceTree = "<group>"; };
 		9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkDoIt.swift; sourceTree = "<group>"; };
 		9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDoIt.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			children = (
 				89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */,
 				89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */,
+				930CD51321F164A70069DD62 /* DoItTableViewCell.swift */,
+				930CD51421F164A70069DD62 /* DoItTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */,
+				930CD51621F164A70069DD62 /* DoItTableViewCell.xib in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
 				89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */,
 				89AA5BBC219E456600821B26 /* Main.storyboard in Resources */,
@@ -365,6 +372,7 @@
 				89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
 				8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */,
+				930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

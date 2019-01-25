@@ -1,0 +1,6 @@
+language: swift
+xcode_project: Do-It.xcodeproj # path to your xcodeproj folder
+xcode_scheme: Do-It
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+osx_image: xcode10.1
+os: osx
