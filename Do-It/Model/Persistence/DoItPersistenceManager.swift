@@ -44,7 +44,7 @@ final class DoItPersistenceManager {
     }
 
     private func saveDoItsToDisk() {
-        //let data = encoder.encode(doIts)
+        //let jsonData = try encoder.encode(doIts)
 
     }
 }

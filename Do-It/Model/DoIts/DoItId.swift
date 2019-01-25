@@ -9,6 +9,6 @@
 import Foundation
 
 
-struct DoItId {
+struct DoItId: Codable {
     private let id = UUID()
 }
