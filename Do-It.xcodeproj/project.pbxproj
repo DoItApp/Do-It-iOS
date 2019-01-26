@@ -29,6 +29,10 @@
 		9347A74721EFBA60003F6F86 /* TestDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74621EFBA60003F6F86 /* TestDoIt.swift */; };
 		9347A74921EFBA70003F6F86 /* HomeworkDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */; };
 		9347A74B21EFBA7C003F6F86 /* ReadingDoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */; };
+		C6EBFF5B21F163DD00F17E70 /* DoItSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EBFF5A21F163DD00F17E70 /* DoItSort.swift */; };
+		C6EBFF5D21F7F0E600F17E70 /* DoItGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EBFF5C21F7F0E600F17E70 /* DoItGroup.swift */; };
+		C6EBFF5F21F7F3B200F17E70 /* TestSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EBFF5E21F7F3B200F17E70 /* TestSort.swift */; };
+		C6FF027B21FA6FA500EBB065 /* TestGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FF027A21FA6FA500EBB065 /* TestGrouping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		9347A74621EFBA60003F6F86 /* TestDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoIt.swift; sourceTree = "<group>"; };
 		9347A74821EFBA70003F6F86 /* HomeworkDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkDoIt.swift; sourceTree = "<group>"; };
 		9347A74A21EFBA7C003F6F86 /* ReadingDoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDoIt.swift; sourceTree = "<group>"; };
+		C6EBFF5A21F163DD00F17E70 /* DoItSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItSort.swift; sourceTree = "<group>"; };
+		C6EBFF5C21F7F0E600F17E70 /* DoItGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItGroup.swift; sourceTree = "<group>"; };
+		C6EBFF5E21F7F3B200F17E70 /* TestSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSort.swift; sourceTree = "<group>"; };
+		C6FF027A21FA6FA500EBB065 /* TestGrouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGrouping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,8 @@
 				89AA5BCB219E456800821B26 /* Do_ItTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
+				C6EBFF5E21F7F3B200F17E70 /* TestSort.swift */,
+				C6FF027A21FA6FA500EBB065 /* TestGrouping.swift */,
 			);
 			path = "Do-ItTests";
 			sourceTree = "<group>";
@@ -175,6 +185,8 @@
 				89AA5BEF219E46DF00821B26 /* Course.swift */,
 				9347A74521EFB9FF003F6F86 /* DoIts */,
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
+				C6EBFF5A21F163DD00F17E70 /* DoItSort.swift */,
+				C6EBFF5C21F7F0E600F17E70 /* DoItGroup.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
 				89AA5BED219E46D900821B26 /* DoItPriority.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
@@ -342,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */,
+				C6EBFF5B21F163DD00F17E70 /* DoItSort.swift in Sources */,
 				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
@@ -353,6 +366,7 @@
 				9347A74721EFBA60003F6F86 /* TestDoIt.swift in Sources */,
 				89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */,
 				89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */,
+				C6EBFF5D21F7F0E600F17E70 /* DoItGroup.swift in Sources */,
 				89AA5BF6219E46FC00821B26 /* DoItOrganizationSettings.swift in Sources */,
 				89AA5BF4219E46F500821B26 /* DoItOrganizationManager.swift in Sources */,
 				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
@@ -364,7 +378,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6FF027B21FA6FA500EBB065 /* TestGrouping.swift in Sources */,
 				89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */,
+				C6EBFF5F21F7F3B200F17E70 /* TestSort.swift in Sources */,
 				89AA5BCC219E456800821B26 /* Do_ItTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
