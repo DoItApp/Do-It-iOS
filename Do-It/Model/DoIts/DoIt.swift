@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol DoIt {
-    var id: DoItId { get }
-    
-    var course: Course { get set }
-    var dueDate: Date { get set }
-    var description: String { get set }
-    var name: String { get set }
-    var priority: DoItPriority { get set }
+struct DoIt: Codable {
+    var id: DoItId 
+    var course: Course
+    var dueDate: Date
+    var description: String
+    var name: String
+    var priority: DoItPriority
+    var kind: DoItKind
 }
