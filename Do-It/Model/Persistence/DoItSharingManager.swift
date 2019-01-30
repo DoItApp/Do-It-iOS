@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class DoItSharingManager {
     var persistenceManager: DoItPersistenceManager
 
@@ -21,6 +20,6 @@ final class DoItSharingManager {
     }
 
     func receive(_ doItData: Data) {
-        
+
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct DoIt: Codable {
-    var id: DoItId 
+    var identifier: DoItId
     var course: Course
     var dueDate: Date
     var description: String

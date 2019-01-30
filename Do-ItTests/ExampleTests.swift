@@ -8,7 +8,6 @@
 
 import XCTest
 
-
 // This is a dummy struct to demonstrate testing
 struct Person {
     var firstName: String

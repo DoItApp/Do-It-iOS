@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class DoItPersistenceManager {
     var encoder = JSONEncoder()
     var decoder = JSONDecoder()
@@ -22,13 +21,18 @@ final class DoItPersistenceManager {
     }
     // add creating file if it does not already exist
     init() {
-        docsURL = try! fileManager.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        do {
+            docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
+                                          appropriateFor: nil, create: false)
+        } catch {
+            fatalError("Unable to locate app documents directory")
+        }
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
         doIts = DoItPersistenceManager.loadDoItsFromDisk()
     }
 
     func save(_ doIt: DoIt) {
-        
+
     }
 
     func update(_ doIt: DoIt) {
