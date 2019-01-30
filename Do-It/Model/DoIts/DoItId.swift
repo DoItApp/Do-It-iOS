@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct DoItId: Codable {
-    private let id = UUID()
+    private let identifier = UUID()
 }
