@@ -7,4 +7,4 @@ install:
 
 script:
    - swiftlint
-   - xctool test -project Do-It.xcodeproj -scheme Do-It -sdk iphonesimulator
+   - set -o pipefail && xcodebuild -project Do-It.xcodeproj -scheme Do-ItTests -destination 'name=iPhone X' test | xcpretty
