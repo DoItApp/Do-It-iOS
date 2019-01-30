@@ -4,3 +4,9 @@ xcode_scheme: Do-It
 xcode_destination: platform=iOS Simulator,OS=12.0,name=iPhone X
 osx_image: xcode10.1
 os: osx
+
+install:
+   - ./install_swiftlint.sh
+
+script:
+   - swiftlint
