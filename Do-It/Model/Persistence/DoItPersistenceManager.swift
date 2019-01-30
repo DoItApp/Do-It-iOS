@@ -20,8 +20,7 @@ final class DoItPersistenceManager {
         }
     }
     
-    // add creating file if it does not already exist
-    init()
+    init() {
         docsURL = try! fileManager.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
         doIts = DoItPersistenceManager.loadDoItsFromDisk()
