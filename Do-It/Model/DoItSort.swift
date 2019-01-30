@@ -9,7 +9,7 @@
 import Foundation
 
 struct DoItSort {
-    
+
     func sortBy(setting: SortSetting, unsortedList: [DoIt]) -> [DoIt] {
         return unsortedList.sorted(by: { lhs, rhs -> Bool in
             switch setting {

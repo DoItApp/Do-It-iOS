@@ -21,12 +21,36 @@ final class DoItPersistenceManager {
     }
     
     // add creating file if it does not already exist
-    init()
+    init() {
+<<<<<<< HEAD
         docsURL = try! fileManager.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+=======
+        do {
+            docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
+                                          appropriateFor: nil, create: false)
+        } catch {
+            fatalError("Unable to locate app documents directory")
+        }
+>>>>>>> af048b5a04df03c65912a87a95ad7b9f5af1a614
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
         doIts = DoItPersistenceManager.loadDoItsFromDisk()
     }
 
+<<<<<<< HEAD
+=======
+    func save(_ doIt: DoIt) {
+
+    }
+
+    func update(_ doIt: DoIt) {
+
+    }
+
+    func delete(_ doIt: DoIt) {
+
+    }
+
+>>>>>>> af048b5a04df03c65912a87a95ad7b9f5af1a614
     private static func loadDoItsFromDisk() -> [DoIt] {
         // Read data from .json file and transform data into an array
         do {

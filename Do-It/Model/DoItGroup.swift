@@ -10,22 +10,19 @@ import Foundation
 
 struct DoItGroup {
     func groupByCourse(ungroupedList: [DoIt]) -> [(key: String, value: [DoIt])] {
-        return Dictionary(grouping: ungroupedList, by: { $0.course.name }).sorted(by: {
-            lhs, rhs -> Bool in
+        return Dictionary(grouping: ungroupedList, by: { $0.course.name }).sorted(by: { lhs, rhs in
             return lhs.key < rhs.key
         })
     }
-    
+
     func groupByDate(ungroupedList: [DoIt]) -> [(key: Date, value: [DoIt])] {
-        return Dictionary(grouping: ungroupedList, by: { $0.dueDate }).sorted(by: {
-            lhs, rhs -> Bool in
+        return Dictionary(grouping: ungroupedList, by: { $0.dueDate }).sorted(by: { lhs, rhs in
             return lhs.key < rhs.key
         })
     }
-    
+
     func groupByPriority(ungroupedList: [DoIt]) -> [(key: DoItPriority, value: [DoIt])] {
-        return Dictionary(grouping: ungroupedList, by: { $0.priority }).sorted(by: {
-            lhs, rhs -> Bool in
+        return Dictionary(grouping: ungroupedList, by: { $0.priority }).sorted(by: { lhs, rhs in
             return lhs.key.rawValue > rhs.key.rawValue
         })
     }

@@ -25,7 +25,23 @@ final class CoursePersistenceManager {
         courseURL = docsURL.appendingPathComponent("Courses.json")
         courses = CoursePersistenceManager.loadCoursesFromDisk()
     }
+<<<<<<< HEAD
+    
+=======
 
+    func save(_ course: Course) {
+
+    }
+
+    func update(_ doIt: DoIt) {
+
+    }
+
+    func delete(_ doIt: DoIt) {
+
+    }
+
+>>>>>>> af048b5a04df03c65912a87a95ad7b9f5af1a614
     private static func loadCoursesFromDisk() -> [Course] {
         // Read data from .json file and transform data into an array
         do {

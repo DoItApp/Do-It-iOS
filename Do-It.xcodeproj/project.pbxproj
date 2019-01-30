@@ -17,7 +17,7 @@
 		89AA5BBC219E456600821B26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBA219E456600821B26 /* Main.storyboard */; };
 		89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBD219E456800821B26 /* Assets.xcassets */; };
 		89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */; };
-		89AA5BCC219E456800821B26 /* Do_ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BCB219E456800821B26 /* Do_ItTests.swift */; };
+		89AA5BCC219E456800821B26 /* DoItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BCB219E456800821B26 /* DoItTests.swift */; };
 		89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BE7219E46BD00821B26 /* DoIt.swift */; };
 		89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */; };
 		89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */; };
@@ -59,7 +59,7 @@
 		89AA5BC0219E456800821B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89AA5BC2219E456800821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89AA5BC7219E456800821B26 /* Do-ItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Do-ItTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		89AA5BCB219E456800821B26 /* Do_ItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Do_ItTests.swift; sourceTree = "<group>"; };
+		89AA5BCB219E456800821B26 /* DoItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItTests.swift; sourceTree = "<group>"; };
 		89AA5BCD219E456800821B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89AA5BE7219E46BD00821B26 /* DoIt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoIt.swift; sourceTree = "<group>"; };
 		89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPersistenceManager.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		89AA5BCA219E456800821B26 /* Do-ItTests */ = {
 			isa = PBXGroup;
 			children = (
-				89AA5BCB219E456800821B26 /* Do_ItTests.swift */,
+				89AA5BCB219E456800821B26 /* DoItTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
 				345FFA2B22012A500023E0FE /* TestGroup.swift */,
 				345FFA2922012A380023E0FE /* TestSorting.swift */,
@@ -206,6 +206,7 @@
 				89AA5BAF219E456600821B26 /* Sources */,
 				89AA5BB0219E456600821B26 /* Frameworks */,
 				89AA5BB1219E456600821B26 /* Resources */,
+				895FE09822012D4C00FCF18A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -293,6 +294,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		895FE09822012D4C00FCF18A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89AA5BAF219E456600821B26 /* Sources */ = {
