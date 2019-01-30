@@ -10,33 +10,44 @@ import Foundation
 
 
 final class CoursePersistenceManager {
+    var encoder = JSONEncoder()
+    var decoder = JSONDecoder()
+    var fileManager = FileManager.default
+    var docsURL: URL
+    var courseURL: URL
     var courses: [Course] {
         didSet {
             saveCoursesToDisk()
         }
     }
-
+    
     init() {
+        docsURL = try! fileManager.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        courseURL = docsURL.appendingPathComponent("Courses.json")
         courses = CoursePersistenceManager.loadCoursesFromDisk()
     }
-
-    func save(_ course: Course) {
-
-    }
     
-    func update(_ doIt: DoIt) {
-        
-    }
-    
-    func delete(_ doIt: DoIt) {
-        
-    }
-
     private static func loadCoursesFromDisk() -> [Course] {
-        fatalError("not implemented")
+        // Read data from .json file and transform data into an array
+        do {
+            let docsURL = try! FileManager.default.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let courseURL = docsURL.appendingPathComponent("Courses.json")
+            let data = try Data(contentsOf: courseURL, options: [])
+            let courseArray =  try JSONSerialization.jsonObject(with: data, options: []) as! [Course]
+            return courseArray
+        } catch {
+            print("Failed to read JSON data")
+            return []
+        }
     }
-
+    
     private func saveCoursesToDisk() {
-
+        do {
+            let data = try JSONSerialization.data(withJSONObject: courses, options: [])
+            try data.write(to: courseURL, options: [])
+        } catch {
+            print("Failed to write JSON data")
+        }
     }
 }
+

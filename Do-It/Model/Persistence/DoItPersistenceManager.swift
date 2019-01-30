@@ -27,19 +27,6 @@ final class DoItPersistenceManager {
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
         doIts = DoItPersistenceManager.loadDoItsFromDisk()
     }
-    
-    // ask Michael what these functions should do exactly
-    func save(_ doIt: DoIt) {
-        
-    }
-
-    func update(_ doIt: DoIt) {
-
-    }
-
-    func delete(_ doIt: DoIt) {
-
-    }
 
     private static func loadDoItsFromDisk() -> [DoIt] {
         // Read data from .json file and transform data into an array
