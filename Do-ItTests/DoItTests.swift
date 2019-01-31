@@ -1,5 +1,5 @@
 //
-//  Do_ItTests.swift
+//  DoItTests.swift
 //  Do-ItTests
 //
 //  Created by Michael Pangburn on 11/15/18.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Do_It
 
-class Do_ItTests: XCTestCase {
+class DoItTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

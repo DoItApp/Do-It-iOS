@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class CoursePersistenceManager {
     var courses: [Course] {
         didSet {
@@ -23,13 +22,13 @@ final class CoursePersistenceManager {
     func save(_ course: Course) {
 
     }
-    
+
     func update(_ doIt: DoIt) {
-        
+
     }
-    
+
     func delete(_ doIt: DoIt) {
-        
+
     }
 
     private static func loadCoursesFromDisk() -> [Course] {
