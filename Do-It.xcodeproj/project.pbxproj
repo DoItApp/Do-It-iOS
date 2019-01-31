@@ -30,6 +30,7 @@
 		89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */; };
 		930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CD51321F164A70069DD62 /* DoItTableViewCell.swift */; };
 		930CD51621F164A70069DD62 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930CD51421F164A70069DD62 /* DoItTableViewCell.xib */; };
+		96A4C4EF2201355500235891 /* DoItFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A4C4EE2201355500235891 /* DoItFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		930CD51321F164A70069DD62 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
 		930CD51421F164A70069DD62 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
+		96A4C4EE2201355500235891 /* DoItFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoItFilter.swift; path = "Do-It/Model/DoItFilter.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		89AA5BE4219E457300821B26 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				96A4C4EE2201355500235891 /* DoItFilter.swift */,
 				8999CD6A21B0CB2600279BEA /* Persistence */,
 				89AA5BEF219E46DF00821B26 /* Course.swift */,
 				9347A74521EFB9FF003F6F86 /* DoIts */,
@@ -294,6 +297,7 @@
 				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
+				96A4C4EF2201355500235891 /* DoItFilter.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */,
