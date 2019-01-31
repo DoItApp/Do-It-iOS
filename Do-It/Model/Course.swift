@@ -10,7 +10,7 @@ import Foundation
 
 struct Course: Codable, Equatable {
     var name: String
-    
+
     static func == (lhs: Course, rhs: Course) -> Bool {
         return lhs.name == rhs.name
     }
