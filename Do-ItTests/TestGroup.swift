@@ -58,17 +58,17 @@ class TestGrouping: XCTestCase {
         let fifthDate = formatter.date(from: "2017/7/07")
         let sixthDate = formatter.date(from: "2017/7/07")
 
-        let first = DoIt(id: DoItId(), course: Course(name: "CSC309"), dueDate: firstDate!,
+        let first = DoIt(identifier: DoItId(), course: Course(name: "CSC309"), dueDate: firstDate!,
                          description: "Finish hw", name: "test", priority: DoItPriority.low, kind: .homework)
-        let second = DoIt(id: DoItId(), course: Course(name: "ENGR234"), dueDate: secondDate!,
+        let second = DoIt(identifier: DoItId(), course: Course(name: "ENGR234"), dueDate: secondDate!,
                           description: "finish hw", name: "test", priority: DoItPriority.high, kind: .test)
-        let third = DoIt(id: DoItId(), course: Course(name: "BUS313"), dueDate: thirdDate!,
+        let third = DoIt(identifier: DoItId(), course: Course(name: "BUS313"), dueDate: thirdDate!,
                          description: "finish hw", name: "test", priority: DoItPriority.default, kind: .test)
-        let fourth = DoIt(id: DoItId(), course: Course(name: "CSC349"), dueDate: fourthDate!,
+        let fourth = DoIt(identifier: DoItId(), course: Course(name: "CSC349"), dueDate: fourthDate!,
                           description: "finish hw", name: "test", priority: DoItPriority.default, kind: .reading)
-        let fifth = DoIt(id: DoItId(), course: Course(name: "BUS313"), dueDate: fifthDate!,
+        let fifth = DoIt(identifier: DoItId(), course: Course(name: "BUS313"), dueDate: fifthDate!,
                          description: "finish hw", name: "test", priority: DoItPriority.default, kind: .test)
-        let sixth = DoIt(id: DoItId(), course: Course(name: "CSC349"), dueDate: sixthDate!,
+        let sixth = DoIt(identifier: DoItId(), course: Course(name: "CSC349"), dueDate: sixthDate!,
                          description: "finish hw", name: "test", priority: DoItPriority.default, kind: .homework)
         let lst = [first, second, third, fourth, fifth, sixth]
         let groupAlg = DoItGroup()
