@@ -9,11 +9,29 @@
 import Foundation
 
 final class DoItSharingManager {
-    var persistenceManager: DoItPersistenceManager
+    var persistenceManager: DoItPersistenceManager?
 
-    init(persistenceManager: DoItPersistenceManager) {
-        self.persistenceManager = persistenceManager
+    static let shared = DoItPersistenceManager()
+
+    private var observers: [ObjectIdentifier: DoItSharingObserver] = [:]
+
+    func addObserver(_ observer: DoItSharingObserver) {
+        let identifier = ObjectIdentifier(observer)
+        observers[identifier] = observer
     }
+
+    func removeObserver(_ observer: DoItSharingObserver) {
+        let identifier = ObjectIdentifier(observer)
+        observers.removeValue(forKey: identifier)
+    }
+
+    private func notifyObservers(forReceptionOf doIts: [DoIt]) {
+        for observer in observers.values {
+            observer.sharingManager(self, didReceiveDoIts: doIts)
+        }
+    }
+
+    private init() { }
 
     func send(_ doIts: [DoIt]) {
 

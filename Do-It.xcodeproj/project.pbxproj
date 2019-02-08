@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34BBCD6B21FAA1F700685E31 /* DoItKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BBCD6A21FAA1F700685E31 /* DoItKind.swift */; };
+		892FB4CB220390A6005293EC /* DoItSharingObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FB4CA220390A6005293EC /* DoItSharingObserver.swift */; };
 		8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8999CD6821B0CA9100279BEA /* DoItId.swift */; };
 		89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB6219E456600821B26 /* AppDelegate.swift */; };
 		89AA5BB9219E456600821B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB8219E456600821B26 /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		34BBCD6A21FAA1F700685E31 /* DoItKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItKind.swift; sourceTree = "<group>"; };
+		892FB4CA220390A6005293EC /* DoItSharingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItSharingObserver.swift; sourceTree = "<group>"; };
 		8999CD6821B0CA9100279BEA /* DoItId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItId.swift; sourceTree = "<group>"; };
 		89AA5BB3219E456600821B26 /* Do-It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do-It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA5BB6219E456600821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */,
 				89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */,
 				89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */,
+				892FB4CA220390A6005293EC /* DoItSharingObserver.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -197,7 +200,7 @@
 				89AA5BAF219E456600821B26 /* Sources */,
 				89AA5BB0219E456600821B26 /* Frameworks */,
 				89AA5BB1219E456600821B26 /* Resources */,
-				895FE09822012D4C00FCF18A /* ShellScript */,
+				895FE09822012D4C00FCF18A /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -287,7 +290,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		895FE09822012D4C00FCF18A /* ShellScript */ = {
+		895FE09822012D4C00FCF18A /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -296,6 +299,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -316,6 +320,7 @@
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
+				892FB4CB220390A6005293EC /* DoItSharingObserver.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */,
 				89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */,
