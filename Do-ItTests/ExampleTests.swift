@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Do_It  // This line tells the compiler it's OK to use 'internal' (not just 'public') symbols.
 
 // This is a dummy struct to demonstrate testing
 struct Person {
