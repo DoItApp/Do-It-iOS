@@ -93,10 +93,11 @@
                             <outlet property="delegate" destination="LPI-LX-aFd" id="X5w-fO-7Xx"/>
                         </connections>
                     </tableView>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccV-67-byi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182" y="23"/>
+            <point key="canvasLocation" x="-78" y="20"/>
         </scene>
     </scenes>
 </document>

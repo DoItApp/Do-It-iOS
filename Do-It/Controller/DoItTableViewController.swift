@@ -9,7 +9,6 @@
 import UIKit
 
 class DoItTableViewController: UITableViewController {
-
     // add fake DoIt data
     var doits = [DoIt]()
 
@@ -26,7 +25,7 @@ class DoItTableViewController: UITableViewController {
 
         doits.append(DoIt(identifier: DoItId(),
                           course: Course(name: "fake"),
-                          dueDate: Calendar.current.date(byAdding: .day, value: 20, to: Date())!,
+                          dueDate: Calendar.current.date(byAdding: .hour, value: 20, to: Date())!,
                           description: "description here",
                           name: "YO",
                           priority: DoItPriority.low,
@@ -34,12 +33,37 @@ class DoItTableViewController: UITableViewController {
 
         doits.append(DoIt(identifier: DoItId(),
                           course: Course(name: "fake"),
-                          dueDate: Calendar.current.date(byAdding: .day, value: 10, to: Date())!,
+                          dueDate: Calendar.current.date(byAdding: .minute, value: 10, to: Date())!,
                           description: "description here",
                           name: "DIFF",
                           priority: DoItPriority.low,
                           kind: DoItKind.homework))
 
+        let toolBar = UIToolbar()
+        var items = [UIBarButtonItem]()
+        items.append(
+            UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
+        )
+        items.append(
+            // UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tapsOnAdd))
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(testFunction))
+        )
+        toolBar.setItems(items, animated: true)
+        toolBar.tintColor = .red
+        view.addSubview(toolBar)
+
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+
+        let guide = self.view.safeAreaLayoutGuide
+        toolBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        toolBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+        toolBar.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+        toolBar.heightAnchor.constraint(equalToConstant: 44).isActive = true
+
+    }
+
+    @objc func testFunction(){
+        print("yoooo")
     }
 
     override func viewDidLoad() {
@@ -51,8 +75,8 @@ class DoItTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-        tableView.delegate = self
-        tableView.dataSource = self
+        //tableView.delegate = self
+        //tableView.dataSource = self
     }
 
     // MARK: - Table view data source
@@ -72,20 +96,8 @@ class DoItTableViewController: UITableViewController {
         }
 
         cell.titleLabel?.text = doits[indexPath.item].name
-
-        // cell.courseLabel?.text = doits[indexPath.item].course
-
-        let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(),
-                                                                 to: doits[indexPath.item].dueDate)
-
-        // let countdown = "\(diffDateComponents.day) d: \(diffDateComponents.hour) h: \(diffDateComponents.minute) min"
-
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.day]
-
-        cell.dateLabel?.text = formatter.string(from: diffDateComponents)
-
+        cell.courseLabel?.text = doits[indexPath.item].course.name
+        cell.dateLabel?.text = formatted_date(index: indexPath.item)
         cell.descriptionLabel?.text = doits[indexPath.item].description
 
         return cell
@@ -93,6 +105,23 @@ class DoItTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
+    }
+
+    func formatted_date(index: Int) -> String? {
+        let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(),
+                                                                 to: doits[index].dueDate)
+
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.day]
+
+        if diffDateComponents.day == 0 && diffDateComponents.hour == 0 {
+            formatter.allowedUnits = [.minute]
+        } else if diffDateComponents.day == 0 {
+            formatter.allowedUnits = [.hour]
+        }
+
+        return formatter.string(from: diffDateComponents)
     }
 
     /*
