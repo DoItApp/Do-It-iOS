@@ -8,7 +8,39 @@
 
 import UIKit
 
-class DoItTableViewController: UITableViewController  {
+class DoItTableViewController: UITableViewController {
+
+    // add fake DoIt data
+    var doits = [DoIt]()
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        // JUST FOR TESTING
+        doits.append(DoIt(identifier: DoItId(),
+                          course: Course(name: "fake"),
+                          dueDate: Calendar.current.date(byAdding: .day, value: 30, to: Date())!,
+                          description: "description here",
+                          name: "YO",
+                          priority: DoItPriority.low,
+                          kind: DoItKind.homework))
+
+        doits.append(DoIt(identifier: DoItId(),
+                          course: Course(name: "fake"),
+                          dueDate: Calendar.current.date(byAdding: .day, value: 20, to: Date())!,
+                          description: "description here",
+                          name: "YO",
+                          priority: DoItPriority.low,
+                          kind: DoItKind.homework))
+
+        doits.append(DoIt(identifier: DoItId(),
+                          course: Course(name: "fake"),
+                          dueDate: Calendar.current.date(byAdding: .day, value: 10, to: Date())!,
+                          description: "description here",
+                          name: "DIFF",
+                          priority: DoItPriority.low,
+                          kind: DoItKind.homework))
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,17 +62,31 @@ class DoItTableViewController: UITableViewController  {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return doits.count
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:DoItTableViewCell = tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell",
-                                                                   for: indexPath) as! DoItTableViewCell
 
-        cell.titleLabel?.text = "HEY"
-        cell.courseLabel?.text = "course"
-        cell.dateLabel?.text = "42 Days"
-        cell.descriptionLabel?.text = "I'm here!!!!"
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell",
+                                                       for: indexPath) as? DoItTableViewCell else {
+            return tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell", for: indexPath)
+        }
+
+        cell.titleLabel?.text = doits[indexPath.item].name
+
+        // cell.courseLabel?.text = doits[indexPath.item].course
+
+        let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(),
+                                                                 to: doits[indexPath.item].dueDate)
+
+        // let countdown = "\(diffDateComponents.day) d: \(diffDateComponents.hour) h: \(diffDateComponents.minute) min"
+
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.day]
+
+        cell.dateLabel?.text = formatter.string(from: diffDateComponents)
+
+        cell.descriptionLabel?.text = doits[indexPath.item].description
 
         return cell
     }
@@ -59,12 +105,15 @@ class DoItTableViewController: UITableViewController  {
 
     /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                                commit editingStyle: UITableViewCellEditingStyle,
+                                forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            // Create a new instance of the appropriate class, insert it into the array,
+            // and add a new row to the table view
         }    
     }
     */
@@ -93,5 +142,4 @@ class DoItTableViewController: UITableViewController  {
         // Pass the selected object to the new view controller.
     }
     */
-    
 }
