@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var doits = [DoIt]()
@@ -96,21 +95,20 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
 }
 
-
-// Interacting with button on the screen
+// Methods called when buttons pressed
 extension DoItTableViewController {
 
-    func searchButtonPressed() {
-        // IMPLEMENT ME
-        print("search button pressed")
-    }
-
-    func editButtonPressed() {
+    @IBAction func editButtonPressed() {
         // IMPLEMENT ME
         print("edit button pressed")
     }
 
-    func composeButtonPressed() {
+    @IBAction func searchButtonPressed() {
+        // IMPLEMENT ME
+        print("search button pressed")
+    }
+
+    @IBAction func composeButtonPressed() {
         // IMPLEMENT ME
         print("compose button pressed")
     }
