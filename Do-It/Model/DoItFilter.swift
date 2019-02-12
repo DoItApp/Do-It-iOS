@@ -18,7 +18,7 @@ class DoItsFilter {
     }
 }
 
-class CourseFilter: FilterSpecification {
+struct CourseFilter: FilterSpecification {
     var filterCourse: Course
 
     init (_ input: Course) {
@@ -30,11 +30,11 @@ class CourseFilter: FilterSpecification {
     }
 }
 
-class DueDateFilter: FilterSpecification {
+struct DueDateFilter: FilterSpecification {
     var firstDate: Date
     var lastDate: Date
 
-    init(between firstDay: Date, lastDay: Date) {
+    init(firstDay: Date, lastDay: Date) {
         firstDate = firstDay
         lastDate = lastDay
     }
@@ -46,7 +46,7 @@ class DueDateFilter: FilterSpecification {
     }
 }
 
-class PriorityFilter: FilterSpecification {
+struct PriorityFilter: FilterSpecification {
     var filterPriority: DoItPriority
 
     init(input: DoItPriority) {

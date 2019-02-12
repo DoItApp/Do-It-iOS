@@ -30,6 +30,9 @@
 		89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */; };
 		930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CD51321F164A70069DD62 /* DoItTableViewCell.swift */; };
 		930CD51621F164A70069DD62 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930CD51421F164A70069DD62 /* DoItTableViewCell.xib */; };
+		9639ED55220D049000FC43E7 /* TestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639ED53220D049000FC43E7 /* TestGroup.swift */; };
+		9639ED56220D049000FC43E7 /* TestSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639ED54220D049000FC43E7 /* TestSorting.swift */; };
+		9639ED58220D04CE00FC43E7 /* TestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9639ED57220D04CE00FC43E7 /* TestFilter.swift */; };
 		96A4C4EF2201355500235891 /* DoItFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A4C4EE2201355500235891 /* DoItFilter.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		930CD51321F164A70069DD62 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
 		930CD51421F164A70069DD62 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
+		9639ED53220D049000FC43E7 /* TestGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGroup.swift; sourceTree = "<group>"; };
+		9639ED54220D049000FC43E7 /* TestSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSorting.swift; sourceTree = "<group>"; };
+		9639ED57220D04CE00FC43E7 /* TestFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFilter.swift; sourceTree = "<group>"; };
 		96A4C4EE2201355500235891 /* DoItFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoItFilter.swift; path = "Do-It/Model/DoItFilter.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -138,6 +144,9 @@
 		89AA5BCA219E456800821B26 /* Do-ItTests */ = {
 			isa = PBXGroup;
 			children = (
+				9639ED53220D049000FC43E7 /* TestGroup.swift */,
+				9639ED57220D04CE00FC43E7 /* TestFilter.swift */,
+				9639ED54220D049000FC43E7 /* TestSorting.swift */,
 				89AA5BCB219E456800821B26 /* DoItTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
@@ -340,6 +349,9 @@
 			files = (
 				89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */,
 				89AA5BCC219E456800821B26 /* DoItTests.swift in Sources */,
+				9639ED58220D04CE00FC43E7 /* TestFilter.swift in Sources */,
+				9639ED56220D049000FC43E7 /* TestSorting.swift in Sources */,
+				9639ED55220D049000FC43E7 /* TestGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9885,7 +9885,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFopgdWFoUawII="
 							},
-							"name": "firstDate"
+							"name": "firstDate",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -9893,7 +9894,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFopgdWFoUawII="
 							},
-							"name": "lastDate"
+							"name": "lastDate",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -9936,7 +9938,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFopgd4f4eOJgA="
 							},
-							"name": "filterPriority"
+							"name": "filterPriority",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -10007,7 +10010,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFopge3vIp4cZs="
 							},
-							"name": "filterCourse"
+							"name": "filterCourse",
+							"type": ""
 						}
 					],
 					"operations": [
