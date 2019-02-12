@@ -22,19 +22,19 @@ class TestSort: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let first = DoIt(id: DoItId(), course: Course(name: "CSC309"),
+        let first = DoIt(identifier: DoItId(), course: Course(name: "CSC309"),
                          dueDate: Date(timeIntervalSinceReferenceDate: 1000.0),
                          description: "Finish hw", name: "test", priority: .low, kind: .homework)
-        let second = DoIt(id: DoItId(), course: Course(name: "ENGR234"),
+        let second = DoIt(identifier: DoItId(), course: Course(name: "ENGR234"),
                           dueDate: Date(timeIntervalSinceReferenceDate: 1500.0),
                           description: "finish hw", name: "test", priority: .high, kind: .test)
-        let third = DoIt(id: DoItId(), course: Course(name: "BUS313"),
+        let third = DoIt(identifier: DoItId(), course: Course(name: "BUS313"),
                          dueDate: Date(timeIntervalSinceReferenceDate: 100.0),
                          description: "finish hw", name: "test", priority: .default, kind: .reading)
-        let fourth = DoIt(id: DoItId(), course: Course(name: "CSC349"),
+        let fourth = DoIt(identifier: DoItId(), course: Course(name: "CSC349"),
                           dueDate: Date(timeIntervalSinceReferenceDate: 2000.0),
                           description: "finish hw", name: "test", priority: .default, kind: .homework)
-        var lst = [first, second, third, fourth]
+        let lst = [first, second, third, fourth]
         let sortAlg = DoItSort()
         let sortedByCourse = sortAlg.sortBy(setting: .course, unsortedList: lst)
         XCTAssertEqual(sortedByCourse[0].course.name, "BUS313")
