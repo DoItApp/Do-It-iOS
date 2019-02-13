@@ -57,7 +57,7 @@ class TesFilter: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let filterAlg = DoItsFilter()
-        let courseFilter = CourseFilter(Course.init(name: "CSC349"))
+        let courseFilter = CourseFilter(Course(name: "CSC349"))
         let byCourse = filterAlg.filter(doIts, filterType: courseFilter)
         XCTAssertEqual(byCourse[0].course.name, "CSC349", "DoIt course was not CSC349.")
     }
@@ -66,7 +66,7 @@ class TesFilter: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let filterAlg = DoItsFilter()
-        let courseFilter1 = CourseFilter(Course.init(name: "BUS313"))
+        let courseFilter1 = CourseFilter(Course(name: "BUS313"))
         let byCourse = filterAlg.filter(doIts, filterType: courseFilter1)
         XCTAssertEqual(byCourse[0].course.name, "BUS313", "DoIt course was not BUS313.")
     }
