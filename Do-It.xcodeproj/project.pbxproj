@@ -11,6 +11,11 @@
 		345FFA2A22012A380023E0FE /* TestSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345FFA2922012A380023E0FE /* TestSorting.swift */; };
 		345FFA2C22012A500023E0FE /* TestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345FFA2B22012A500023E0FE /* TestGroup.swift */; };
 		34BBCD6B21FAA1F700685E31 /* DoItKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BBCD6A21FAA1F700685E31 /* DoItKind.swift */; };
+		892FB4CB220390A6005293EC /* DoItSharingObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FB4CA220390A6005293EC /* DoItSharingObserver.swift */; };
+		8974AFB9220D07180043F01B /* DoItGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8974AFB7220D07180043F01B /* DoItGroup.swift */; };
+		8974AFBA220D07180043F01B /* DoItSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8974AFB8220D07180043F01B /* DoItSort.swift */; };
+		8974AFBD220D07370043F01B /* TestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8974AFBB220D07370043F01B /* TestGroup.swift */; };
+		8974AFBE220D07370043F01B /* TestSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8974AFBC220D07370043F01B /* TestSorting.swift */; };
 		8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8999CD6821B0CA9100279BEA /* DoItId.swift */; };
 		89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB6219E456600821B26 /* AppDelegate.swift */; };
 		89AA5BB9219E456600821B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB8219E456600821B26 /* ViewController.swift */; };
@@ -50,6 +55,11 @@
 		345FFA2922012A380023E0FE /* TestSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSorting.swift; sourceTree = "<group>"; };
 		345FFA2B22012A500023E0FE /* TestGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGroup.swift; sourceTree = "<group>"; };
 		34BBCD6A21FAA1F700685E31 /* DoItKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItKind.swift; sourceTree = "<group>"; };
+		892FB4CA220390A6005293EC /* DoItSharingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItSharingObserver.swift; sourceTree = "<group>"; };
+		8974AFB7220D07180043F01B /* DoItGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItGroup.swift; sourceTree = "<group>"; };
+		8974AFB8220D07180043F01B /* DoItSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItSort.swift; sourceTree = "<group>"; };
+		8974AFBB220D07370043F01B /* TestGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGroup.swift; sourceTree = "<group>"; };
+		8974AFBC220D07370043F01B /* TestSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSorting.swift; sourceTree = "<group>"; };
 		8999CD6821B0CA9100279BEA /* DoItId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItId.swift; sourceTree = "<group>"; };
 		89AA5BB3219E456600821B26 /* Do-It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do-It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA5BB6219E456600821B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +112,7 @@
 				89AA5BF1219E46EA00821B26 /* CoursePersistenceManager.swift */,
 				89AA5BE9219E46C700821B26 /* DoItPersistenceManager.swift */,
 				89AA5BEB219E46D000821B26 /* DoItSharingManager.swift */,
+				892FB4CA220390A6005293EC /* DoItSharingObserver.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -148,6 +159,8 @@
 				345FFA2922012A380023E0FE /* TestSorting.swift */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
 				345FFA272201290F0023E0FE /* PersistenceTest.swift */,
+				8974AFBB220D07370043F01B /* TestGroup.swift */,
+				8974AFBC220D07370043F01B /* TestSorting.swift */,
 			);
 			path = "Do-ItTests";
 			sourceTree = "<group>";
@@ -163,6 +176,8 @@
 				89AA5BED219E46D900821B26 /* DoItPriority.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
+				8974AFB7220D07180043F01B /* DoItGroup.swift */,
+				8974AFB8220D07180043F01B /* DoItSort.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,7 +221,7 @@
 				89AA5BAF219E456600821B26 /* Sources */,
 				89AA5BB0219E456600821B26 /* Frameworks */,
 				89AA5BB1219E456600821B26 /* Resources */,
-				895FE09822012D4C00FCF18A /* ShellScript */,
+				895FE09822012D4C00FCF18A /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -296,7 +311,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		895FE09822012D4C00FCF18A /* ShellScript */ = {
+		895FE09822012D4C00FCF18A /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,6 +320,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -325,6 +341,7 @@
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
+				892FB4CB220390A6005293EC /* DoItSharingObserver.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */,
 				89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */,
@@ -332,8 +349,10 @@
 				34BBCD6B21FAA1F700685E31 /* DoItKind.swift in Sources */,
 				89AA5BF6219E46FC00821B26 /* DoItOrganizationSettings.swift in Sources */,
 				89AA5BF4219E46F500821B26 /* DoItOrganizationManager.swift in Sources */,
+				8974AFB9220D07180043F01B /* DoItGroup.swift in Sources */,
 				89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
+				8974AFBA220D07180043F01B /* DoItSort.swift in Sources */,
 				8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */,
 				930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */,
 			);
@@ -344,10 +363,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */,
+<<<<<<< HEAD
 				89AA5BCC219E456800821B26 /* Do_ItTests.swift in Sources */,
 				345FFA2A22012A380023E0FE /* TestSorting.swift in Sources */,
 				345FFA282201290F0023E0FE /* PersistenceTest.swift in Sources */,
 				345FFA2C22012A500023E0FE /* TestGroup.swift in Sources */,
+=======
+				89AA5BCC219E456800821B26 /* DoItTests.swift in Sources */,
+				8974AFBE220D07370043F01B /* TestSorting.swift in Sources */,
+				8974AFBD220D07370043F01B /* TestGroup.swift in Sources */,
+>>>>>>> deac4b8c6bc8b4a0ec9a8fafc800ec9deab30dc0
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
