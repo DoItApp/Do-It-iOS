@@ -9,5 +9,13 @@
 import Foundation
 
 struct DoItId: Codable {
-    private let identifier = UUID()
+    private let identifier: UUID
+
+    init() {
+        self.init(uuid: UUID())
+    }
+
+    private init(uuid: UUID) {
+        self.identifier = uuid
+    }
 }
