@@ -33,7 +33,7 @@ class TesFilter: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testFilter() {
         testCourseFilter()
         testPriorityFilter()
@@ -59,7 +59,7 @@ class TesFilter: XCTestCase {
         let filterAlg = DoItsFilter.init()
         let courseFilter = CourseFilter.init(Course.init(name: "CSC349"))
         let byCourse = filterAlg.filter(doIts, filterType: courseFilter)
-        XCTAssertEqual(byCourse[0].course.name, "CSC349")
+        XCTAssertEqual(byCourse[0].course.name, "CSC349", "DoIt course was not CSC349.")
     }
 
     func testCourseFilterTwo() {
@@ -68,7 +68,7 @@ class TesFilter: XCTestCase {
         let filterAlg = DoItsFilter.init()
         let courseFilter1 = CourseFilter.init(Course.init(name: "BUS313"))
         let byCourse = filterAlg.filter(doIts, filterType: courseFilter1)
-        XCTAssertEqual(byCourse[0].course.name, "BUS313")
+        XCTAssertEqual(byCourse[0].course.name, "BUS313", "DoIt course was not BUS313.")
     }
 
     func testPriorityFilterSingle() {
@@ -77,7 +77,7 @@ class TesFilter: XCTestCase {
         let filterAlg = DoItsFilter.init()
         let priorityFilter = PriorityFilter.init(input: .high)
         let byPriority = filterAlg.filter(doIts, filterType: priorityFilter)
-        XCTAssertEqual(byPriority[0].priority, .high)
+        XCTAssertEqual(byPriority[0].priority, .high, "DoIt priority was not high.")
     }
 
     func testDueDateFilterSingle() {
@@ -86,6 +86,7 @@ class TesFilter: XCTestCase {
         let filterAlg = DoItsFilter.init()
         let dueDateFilter = DueDateFilter.init(firstDay: date1, lastDay: date2)
         let filteredByDueDate = filterAlg.filter(doIts, filterType: dueDateFilter)
-        XCTAssertEqual(filteredByDueDate[0].dueDate, Date(timeIntervalSinceReferenceDate: 2000.0))
+        XCTAssertEqual(filteredByDueDate[0].dueDate,
+            Date(timeIntervalSinceReferenceDate: 2000.0), "DoIt due date did not include 2000.0")
     }
 }
