@@ -28,7 +28,6 @@ final class DoItPersistenceManager {
             fatalError("The app docs directory wil always exist")
         }
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
-        print(doItsURL)
         doIts = DoItPersistenceManager.loadDoItsFromDisk()
     }
 

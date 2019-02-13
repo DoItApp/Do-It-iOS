@@ -8,7 +8,11 @@
 
 import Foundation
 
+<<<<<<< HEAD
 struct DoItId: Codable, Equatable {
+    private let identifier = UUID()
+=======
+struct DoItId: Codable {
     private let identifier: UUID
 
     init() {
@@ -18,4 +22,5 @@ struct DoItId: Codable, Equatable {
     private init(uuid: UUID) {
         self.identifier = uuid
     }
+>>>>>>> 86d456a8955a6711985c78fe600405e6adbd9466
 }

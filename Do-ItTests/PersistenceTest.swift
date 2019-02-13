@@ -33,8 +33,7 @@ class PersistenceTests: XCTestCase {
                           dueDate: Date(timeIntervalSinceReferenceDate: 2000.0),
                           description: "finish hw", name: "test", priority: .default, kind: .homework)
         let persistence = DoItPersistenceManager()
-        let lst = [first]
-        print(first)
+        let lst = [first, second, third, fourth]
         persistence.doIts = lst
         let reload = DoItPersistenceManager.self.testLoad()
         XCTAssertEqual(lst, reload)
