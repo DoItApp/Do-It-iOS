@@ -10,12 +10,13 @@ import UIKit
 
 class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var doits = [DoIt]()
+    var doIts = [DoIt]()
     @IBOutlet var tableView: UITableView!
+    let formatter = DateComponentsFormatter()
 
     override func viewWillAppear(_ animated: Bool) {
 
-        doits.append(DoIt(identifier: DoItId(),
+        doIts.append(DoIt(identifier: DoItId(),
                           course: Course(name: "fake"),
                           dueDate: Calendar.current.date(byAdding: .day, value: 30, to: Date())!,
                           description: "description here",
@@ -23,7 +24,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                           priority: DoItPriority.low,
                           kind: DoItKind.homework))
 
-        doits.append(DoIt(identifier: DoItId(),
+        doIts.append(DoIt(identifier: DoItId(),
                           course: Course(name: "fake"),
                           dueDate: Calendar.current.date(byAdding: .hour, value: 20, to: Date())!,
                           description: "description here",
@@ -31,7 +32,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                           priority: DoItPriority.low,
                           kind: DoItKind.homework))
 
-        doits.append(DoIt(identifier: DoItId(),
+        doIts.append(DoIt(identifier: DoItId(),
                           course: Course(name: "fake"),
                           dueDate: Calendar.current.date(byAdding: .minute, value: 10, to: Date())!,
                           description: "description here",
@@ -55,42 +56,49 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return doits.count
+        return doIts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell",
                                                        for: indexPath) as? DoItTableViewCell else {
-            return tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell", for: indexPath)
+            fatalError("The TableViewCell could not be cast to DoItTableViewCell")
         }
 
-        cell.titleLabel?.text = doits[indexPath.item].name
-        cell.courseLabel?.text = doits[indexPath.item].course.name
-        cell.dateLabel?.text = formatted_date(index: indexPath.item)
-        cell.descriptionLabel?.text = doits[indexPath.item].description
+        cell.titleLabel?.text = doIts[indexPath.item].name
+        cell.courseLabel?.text = doIts[indexPath.item].course.name
+        cell.dateLabel?.text = formattedDate(index: indexPath.item)
+        cell.descriptionLabel?.text = doIts[indexPath.item].description
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(80)
+        return 80
     }
 
-    func formatted_date(index: Int) -> String? {
-        let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(),
-                                                                 to: doits[index].dueDate)
+    func formattedDate(index: Int) -> String? {
+        let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute],
+                                                                 from: Date(),
+                                                                 to: doIts[index].dueDate)
 
-        let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .full
-        formatter.allowedUnits = [.day]
 
         if diffDateComponents.day == 0 && diffDateComponents.hour == 0 {
             formatter.allowedUnits = [.minute]
         } else if diffDateComponents.day == 0 {
             formatter.allowedUnits = [.hour]
+        } else {
+            formatter.allowedUnits = [.day]
         }
 
         return formatter.string(from: diffDateComponents)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You selected cell number: \(indexPath.row)!")
+        // perform segue to detailed view controller
+        // self.performSegue(withIdentifier: "yourIdentifier", sender: self)
     }
 
 }
