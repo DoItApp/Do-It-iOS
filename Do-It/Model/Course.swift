@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Course: Codable {
+struct Course: Codable, Equatable {
     var name: String
 }

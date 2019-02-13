@@ -363,16 +363,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */,
-<<<<<<< HEAD
 				89AA5BCC219E456800821B26 /* Do_ItTests.swift in Sources */,
 				345FFA2A22012A380023E0FE /* TestSorting.swift in Sources */,
 				345FFA282201290F0023E0FE /* PersistenceTest.swift in Sources */,
 				345FFA2C22012A500023E0FE /* TestGroup.swift in Sources */,
-=======
-				89AA5BCC219E456800821B26 /* DoItTests.swift in Sources */,
-				8974AFBE220D07370043F01B /* TestSorting.swift in Sources */,
-				8974AFBD220D07370043F01B /* TestGroup.swift in Sources */,
->>>>>>> deac4b8c6bc8b4a0ec9a8fafc800ec9deab30dc0
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct DoItId: Codable {
+struct DoItId: Codable, Equatable {
     private let identifier = UUID()
 }

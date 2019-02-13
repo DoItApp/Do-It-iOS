@@ -19,30 +19,42 @@ final class DoItPersistenceManager {
             saveDoItsToDisk()
         }
     }
-    
+
     init() {
-        docsURL = try! fileManager.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        do {
+            docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
+                                          appropriateFor: nil, create: true)
+        } catch {
+            fatalError("The app docs directory wil always exist")
+        }
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
+        print(doItsURL)
         doIts = DoItPersistenceManager.loadDoItsFromDisk()
     }
 
     private static func loadDoItsFromDisk() -> [DoIt] {
         // Read data from .json file and transform data into an array
         do {
-            let docsURL = try! FileManager.default.url(for:.documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let docsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
+                                                      appropriateFor: nil, create: false)
             let doItsURL = docsURL.appendingPathComponent("DoIts.json")
             let data = try Data(contentsOf: doItsURL, options: [])
-            let doItsArray =  try JSONSerialization.jsonObject(with: data, options: []) as! [DoIt]
+            let decoder = JSONDecoder()
+            let doItsArray =  try decoder.decode([DoIt].self, from: data)
             return doItsArray
         } catch {
             print("Failed to read JSON data")
             return []
         }
     }
-    
+
+    public static func testLoad() -> [DoIt] {
+        return loadDoItsFromDisk()
+    }
+
     private func saveDoItsToDisk() {
         do {
-            let data = try JSONSerialization.data(withJSONObject: doIts, options: [])
+            let data = try encoder.encode(doIts)
             try data.write(to: doItsURL, options: [])
         } catch {
             print("Failed to write JSON data")
