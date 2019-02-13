@@ -9,7 +9,7 @@
 import XCTest
 @testable import Do_It
 
-class PersistenceTests: XCTestCase {
+class DoItPersistenceTests: XCTestCase {
 
     override func setUp() {
         // put code here if needed
@@ -35,19 +35,7 @@ class PersistenceTests: XCTestCase {
         let persistence = DoItPersistenceManager()
         let lst = [first, second, third, fourth]
         persistence.doIts = lst
-        let reload = DoItPersistenceManager.self.testLoad()
-        XCTAssertEqual(lst, reload)
-    }
-
-    func testCoursePersistence() {
-        let first = Course(name: "CSC305")
-        let second = Course(name: "PHIL231")
-        let third = Course(name: "MU301")
-        let fourth = Course(name: "BUS313")
-        let persistence = CoursePersistenceManager()
-        let lst = [first, second, third, fourth]
-        persistence.courses = lst
-        let reload = CoursePersistenceManager.self.testLoad()
+        let reload = persistence.testLoad()
         XCTAssertEqual(lst, reload)
     }
 }

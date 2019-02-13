@@ -9,11 +9,11 @@
 import Foundation
 
 final class DoItPersistenceManager {
-    var encoder = JSONEncoder()
-    var decoder = JSONDecoder()
-    var fileManager = FileManager.default
-    var docsURL: URL
-    var doItsURL: URL
+    let encoder = JSONEncoder()
+    let decoder = JSONDecoder()
+    let fileManager = FileManager.default
+    let docsURL: URL
+    let doItsURL: URL
     var doIts: [DoIt] {
         didSet {
             saveDoItsToDisk()
@@ -28,27 +28,23 @@ final class DoItPersistenceManager {
             fatalError("The app docs directory wil always exist")
         }
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
-        doIts = DoItPersistenceManager.loadDoItsFromDisk()
+        doIts = []
+        loadDoItsFromDisk()
     }
 
-    private static func loadDoItsFromDisk() -> [DoIt] {
+    private func loadDoItsFromDisk() {
         // Read data from .json file and transform data into an array
         do {
-            let docsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
-                                                      appropriateFor: nil, create: false)
-            let doItsURL = docsURL.appendingPathComponent("DoIts.json")
             let data = try Data(contentsOf: doItsURL, options: [])
-            let decoder = JSONDecoder()
-            let doItsArray =  try decoder.decode([DoIt].self, from: data)
-            return doItsArray
+            doIts =  try decoder.decode([DoIt].self, from: data)
         } catch {
             print("Failed to read JSON data")
-            return []
         }
     }
 
-    public static func testLoad() -> [DoIt] {
-        return loadDoItsFromDisk()
+    public func testLoad() -> [DoIt] {
+        loadDoItsFromDisk()
+        return doIts
     }
 
     private func saveDoItsToDisk() {

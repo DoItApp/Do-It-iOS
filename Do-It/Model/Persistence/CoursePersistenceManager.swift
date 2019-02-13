@@ -9,11 +9,11 @@
 import Foundation
 
 final class CoursePersistenceManager {
-    var encoder = JSONEncoder()
-    var decoder = JSONDecoder()
-    var fileManager = FileManager.default
-    var docsURL: URL
-    var courseURL: URL
+    let encoder = JSONEncoder()
+    let decoder = JSONDecoder()
+    let fileManager = FileManager.default
+    let docsURL: URL
+    let courseURL: URL
     var courses: [Course] {
         didSet {
             saveCoursesToDisk()
@@ -28,27 +28,23 @@ final class CoursePersistenceManager {
             fatalError("The app docs directory wil always exist")
         }
         courseURL = docsURL.appendingPathComponent("Courses.json")
-        courses = CoursePersistenceManager.loadCoursesFromDisk()
+        courses = []
+        loadCoursesFromDisk()
     }
 
-    private static func loadCoursesFromDisk() -> [Course] {
+    private func loadCoursesFromDisk() {
         // Read data from .json file and transform data into an array
         do {
-            let docsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
-                                                      appropriateFor: nil, create: false)
-            let courseURL = docsURL.appendingPathComponent("Courses.json")
-            let decoder = JSONDecoder()
             let data = try Data(contentsOf: courseURL, options: [])
-            let courseArray =  try decoder.decode([Course].self, from: data)
-            return courseArray
+            courses =  try decoder.decode([Course].self, from: data)
         } catch {
             print("Failed to read JSON data")
-            return []
         }
     }
 
-    public static func testLoad() -> [Course] {
-        return loadCoursesFromDisk()
+    public func testLoad() -> [Course] {
+        loadCoursesFromDisk()
+        return courses
     }
 
     private func saveCoursesToDisk() {
