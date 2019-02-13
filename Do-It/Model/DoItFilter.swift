@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FilterSpecification {
-    func applyFilter (_ doIts: [DoIt]) -> [DoIt]
+    func applyFilter(_ doIts: [DoIt]) -> [DoIt]
 }
 
 class DoItsFilter {
@@ -21,7 +21,7 @@ class DoItsFilter {
 struct CourseFilter: FilterSpecification {
     var filterCourse: Course
 
-    init (_ input: Course) {
+    init(_ input: Course) {
         filterCourse = input
     }
 

@@ -56,8 +56,8 @@ class TesFilter: XCTestCase {
     func testCourseFilterSingle() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let filterAlg = DoItsFilter.init()
-        let courseFilter = CourseFilter.init(Course.init(name: "CSC349"))
+        let filterAlg = DoItsFilter()
+        let courseFilter = CourseFilter(Course.init(name: "CSC349"))
         let byCourse = filterAlg.filter(doIts, filterType: courseFilter)
         XCTAssertEqual(byCourse[0].course.name, "CSC349", "DoIt course was not CSC349.")
     }
@@ -65,8 +65,8 @@ class TesFilter: XCTestCase {
     func testCourseFilterTwo() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let filterAlg = DoItsFilter.init()
-        let courseFilter1 = CourseFilter.init(Course.init(name: "BUS313"))
+        let filterAlg = DoItsFilter()
+        let courseFilter1 = CourseFilter(Course.init(name: "BUS313"))
         let byCourse = filterAlg.filter(doIts, filterType: courseFilter1)
         XCTAssertEqual(byCourse[0].course.name, "BUS313", "DoIt course was not BUS313.")
     }
@@ -74,8 +74,8 @@ class TesFilter: XCTestCase {
     func testPriorityFilterSingle() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let filterAlg = DoItsFilter.init()
-        let priorityFilter = PriorityFilter.init(input: .high)
+        let filterAlg = DoItsFilter()
+        let priorityFilter = PriorityFilter(input: .high)
         let byPriority = filterAlg.filter(doIts, filterType: priorityFilter)
         XCTAssertEqual(byPriority[0].priority, .high, "DoIt priority was not high.")
     }
@@ -83,8 +83,8 @@ class TesFilter: XCTestCase {
     func testDueDateFilterSingle() {
         let date1 = Date(timeIntervalSinceReferenceDate: 1600.0)
         let date2 = Date(timeIntervalSinceReferenceDate: 2100.0)
-        let filterAlg = DoItsFilter.init()
-        let dueDateFilter = DueDateFilter.init(firstDay: date1, lastDay: date2)
+        let filterAlg = DoItsFilter()
+        let dueDateFilter = DueDateFilter(firstDay: date1, lastDay: date2)
         let filteredByDueDate = filterAlg.filter(doIts, filterType: dueDateFilter)
         XCTAssertEqual(filteredByDueDate[0].dueDate,
             Date(timeIntervalSinceReferenceDate: 2000.0), "DoIt due date did not include 2000.0")
