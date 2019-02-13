@@ -36,8 +36,9 @@
 		89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB093621EEC3C300C32841 /* ExampleTests.swift */; };
 		89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */; };
 		89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */; };
-		930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930CD51321F164A70069DD62 /* DoItTableViewCell.swift */; };
-		930CD51621F164A70069DD62 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930CD51421F164A70069DD62 /* DoItTableViewCell.xib */; };
+		93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365EB22013BB600938467 /* DoItTableViewController.swift */; };
+		93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365ED22013BCD00938467 /* DoItTableViewCell.swift */; };
+		93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D365EE22013BCD00938467 /* DoItTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +85,9 @@
 		89CB093621EEC3C300C32841 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
-		930CD51321F164A70069DD62 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
-		930CD51421F164A70069DD62 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
+		93D365EB22013BB600938467 /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
+		93D365ED22013BCD00938467 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
+		93D365EE22013BCD00938467 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +189,8 @@
 			children = (
 				89CB794021F1634B00904FD3 /* TextFieldTableViewCell.swift */,
 				89CB794121F1634B00904FD3 /* TextFieldTableViewCell.xib */,
-				930CD51321F164A70069DD62 /* DoItTableViewCell.swift */,
-				930CD51421F164A70069DD62 /* DoItTableViewCell.xib */,
+				93D365ED22013BCD00938467 /* DoItTableViewCell.swift */,
+				93D365EE22013BCD00938467 /* DoItTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				89AA5BB8219E456600821B26 /* ViewController.swift */,
+				93D365EB22013BB600938467 /* DoItTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,7 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */,
-				930CD51621F164A70069DD62 /* DoItTableViewCell.xib in Resources */,
+				93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
 				89CB794321F1634B00904FD3 /* TextFieldTableViewCell.xib in Resources */,
 				89AA5BBC219E456600821B26 /* Main.storyboard in Resources */,
@@ -344,6 +347,7 @@
 				892FB4CB220390A6005293EC /* DoItSharingObserver.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				89AA5BEC219E46D000821B26 /* DoItSharingManager.swift in Sources */,
+				93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */,
 				89AA5BEA219E46C700821B26 /* DoItPersistenceManager.swift in Sources */,
 				89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */,
 				34BBCD6B21FAA1F700685E31 /* DoItKind.swift in Sources */,
@@ -354,7 +358,7 @@
 				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
 				8974AFBA220D07180043F01B /* DoItSort.swift in Sources */,
 				8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */,
-				930CD51521F164A70069DD62 /* DoItTableViewCell.swift in Sources */,
+				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C637P2G5HF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Do-It/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C637P2G5HF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Do-It/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
