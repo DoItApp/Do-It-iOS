@@ -9,46 +9,50 @@
 import Foundation
 
 final class DoItPersistenceManager {
-    var encoder = JSONEncoder()
-    var decoder = JSONDecoder()
-    var fileManager = FileManager.default
-    var docsURL: URL
-    var doItsURL: URL
+    let encoder = JSONEncoder()
+    let decoder = JSONDecoder()
+    let fileManager = FileManager.default
+    let docsURL: URL
+    let doItsURL: URL
     var doIts: [DoIt] {
         didSet {
             saveDoItsToDisk()
         }
     }
-    // add creating file if it does not already exist
+
     init() {
         do {
             docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
-                                          appropriateFor: nil, create: false)
+                                          appropriateFor: nil, create: true)
         } catch {
-            fatalError("Unable to locate app documents directory")
+            fatalError("The app docs directory wil always exist")
         }
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
-        doIts = DoItPersistenceManager.loadDoItsFromDisk()
+        doIts = []
+        loadDoItsFromDisk()
     }
 
-    func save(_ doIt: DoIt) {
-
+    private func loadDoItsFromDisk() {
+        // Read data from .json file and transform data into an array
+        do {
+            let data = try Data(contentsOf: doItsURL, options: [])
+            doIts =  try decoder.decode([DoIt].self, from: data)
+        } catch {
+            print("Failed to read JSON data")
+        }
     }
 
-    func update(_ doIt: DoIt) {
-
-    }
-
-    func delete(_ doIt: DoIt) {
-
-    }
-
-    private static func loadDoItsFromDisk() -> [DoIt] {
-        fatalError("not implemented")
+    public func testLoad() -> [DoIt] {
+        loadDoItsFromDisk()
+        return doIts
     }
 
     private func saveDoItsToDisk() {
-        //let jsonData = try encoder.encode(doIts)
-
+        do {
+            let data = try encoder.encode(doIts)
+            try data.write(to: doItsURL, options: [])
+        } catch {
+            print("Failed to write JSON data")
+        }
     }
 }
