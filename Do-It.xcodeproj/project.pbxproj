@@ -38,6 +38,8 @@
 		93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365EB22013BB600938467 /* DoItTableViewController.swift */; };
 		93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365ED22013BCD00938467 /* DoItTableViewCell.swift */; };
 		93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D365EE22013BCD00938467 /* DoItTableViewCell.xib */; };
+		96001493221E120A0002767E /* DoItFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96001492221E120A0002767E /* DoItFilter.swift */; };
+		96001495221E12170002767E /* TestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96001494221E12170002767E /* TestFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		93D365EB22013BB600938467 /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
 		93D365ED22013BCD00938467 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
 		93D365EE22013BCD00938467 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
+		96001492221E120A0002767E /* DoItFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItFilter.swift; sourceTree = "<group>"; };
+		96001494221E12170002767E /* TestFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			children = (
 				89AA5BCB219E456800821B26 /* DoItTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
+				96001494221E12170002767E /* TestFilter.swift */,
 				345FFA2B22012A500023E0FE /* TestGroup.swift */,
 				345FFA2922012A380023E0FE /* TestSorting.swift */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
@@ -175,6 +180,7 @@
 				89AA5BEF219E46DF00821B26 /* Course.swift */,
 				9347A74521EFB9FF003F6F86 /* DoIts */,
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
+				96001492221E120A0002767E /* DoItFilter.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
 				89AA5BED219E46D900821B26 /* DoItPriority.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
@@ -357,6 +363,7 @@
 				8974AFB9220D07180043F01B /* DoItGroup.swift in Sources */,
 				89CB794221F1634B00904FD3 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BEE219E46D900821B26 /* DoItPriority.swift in Sources */,
+				96001493221E120A0002767E /* DoItFilter.swift in Sources */,
 				8974AFBA220D07180043F01B /* DoItSort.swift in Sources */,
 				8999CD6921B0CA9100279BEA /* DoItId.swift in Sources */,
 				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
@@ -367,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96001495221E12170002767E /* TestFilter.swift in Sources */,
 				89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */,
 				89AA5BCC219E456800821B26 /* DoItTests.swift in Sources */,
 				345FFA2A22012A380023E0FE /* TestSorting.swift in Sources */,
