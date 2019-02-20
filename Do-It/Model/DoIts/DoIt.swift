@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DoIt: Codable {
+struct DoIt: Codable, Equatable {
     var identifier: DoItId
     var course: Course
     var dueDate: Date
