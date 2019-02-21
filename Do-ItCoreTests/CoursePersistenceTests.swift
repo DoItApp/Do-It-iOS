@@ -6,7 +6,7 @@
 //  Copyright © 2019 The Swifter Picker-Uppers. All rights reserved.
 //
 import XCTest
-@testable import Do_It
+@testable import Do_ItCore
 
 class CoursePersistenceTests: XCTestCase {
     func testCoursePersistence() {

@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Course: Codable, Equatable {
-    var name: String
+public struct Course: Codable, Equatable {
+    public var name: String
 
-    static func == (lhs: Course, rhs: Course) -> Bool {
-        return lhs.name == rhs.name
+    public init(name: String) {
+        self.name = name
     }
 }

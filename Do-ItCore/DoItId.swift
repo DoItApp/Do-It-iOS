@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct DoItId: Codable, Equatable {
+public struct DoItId: Codable, Equatable {
     private let identifier: UUID
 
-    init() {
+    public init() {
         self.init(uuid: UUID())
     }
 

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol DoItSharingObserver: AnyObject {
+public protocol DoItSharingObserver: AnyObject {
     func sharingManager(_ sharingManager: DoItSharingManager, didReceiveDoIts doIts: [DoIt])
 }

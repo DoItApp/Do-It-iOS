@@ -7,10 +7,10 @@
 //
 
 import XCTest
-@testable import Do_It
+@testable import Do_ItCore
 
 class SortingTests: XCTestCase {
-    let doIts: DoIt = {
+    let doIts: [DoIt] = {
         let first = DoIt(identifier: DoItId(), course: Course(name: "CSC309"),
                          dueDate: Date(timeIntervalSinceReferenceDate: 1000.0),
                          description: "Finish hw", name: "test", priority: .low, kind: .homework)

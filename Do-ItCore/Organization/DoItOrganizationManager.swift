@@ -6,7 +6,7 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-final class DoItOrganizationManager {
+public final class DoItOrganizationManager {
     var organizationSettings: DoItOrganizationSettings
 
     init(organizationSettings: DoItOrganizationSettings) {
