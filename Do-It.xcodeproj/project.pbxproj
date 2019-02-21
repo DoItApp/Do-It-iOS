@@ -39,6 +39,8 @@
 		96F9F7AD221E4B400011CC51 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */; };
 		96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7AF221E4CF80011CC51 /* TextFieldTableViewCell.swift */; };
 		96F9F7B2221E4CF80011CC51 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */; };
+		96F9F7B5221E506F0011CC51 /* PriorityPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7B3221E506F0011CC51 /* PriorityPickerTableViewCell.swift */; };
+		96F9F7B6221E506F0011CC51 /* PriorityPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B4221E506F0011CC51 /* PriorityPickerTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
 		96F9F7AF221E4CF80011CC51 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		96F9F7B3221E506F0011CC51 /* PriorityPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityPickerTableViewCell.swift; sourceTree = "<group>"; };
+		96F9F7B4221E506F0011CC51 /* PriorityPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriorityPickerTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */,
+				96F9F7B3221E506F0011CC51 /* PriorityPickerTableViewCell.swift */,
+				96F9F7B4221E506F0011CC51 /* PriorityPickerTableViewCell.xib */,
 				96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */,
 				93D365ED22013BCD00938467 /* DoItTableViewCell.swift */,
 				93D365EE22013BCD00938467 /* DoItTableViewCell.xib */,
@@ -302,6 +308,7 @@
 			files = (
 				89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */,
 				96F9F7B2221E4CF80011CC51 /* TextFieldTableViewCell.xib in Resources */,
+				96F9F7B6221E506F0011CC51 /* PriorityPickerTableViewCell.xib in Resources */,
 				96F9F7AD221E4B400011CC51 /* DatePickerTableViewCell.xib in Resources */,
 				93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
@@ -344,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F9F7B5221E506F0011CC51 /* PriorityPickerTableViewCell.swift in Sources */,
 				89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */,
 				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
