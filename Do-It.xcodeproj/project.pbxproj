@@ -35,10 +35,10 @@
 		93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D365EE22013BCD00938467 /* DoItTableViewCell.xib */; };
 		96001493221E120A0002767E /* DoItFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96001492221E120A0002767E /* DoItFilter.swift */; };
 		96001495221E12170002767E /* FilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96001494221E12170002767E /* FilterTests.swift */; };
-		96F9F7AB221E4B400011CC51 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7A7221E4B3F0011CC51 /* TextFieldTableViewCell.xib */; };
 		96F9F7AC221E4B400011CC51 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */; };
 		96F9F7AD221E4B400011CC51 /* DatePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */; };
-		96F9F7AE221E4B400011CC51 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7AA221E4B400011CC51 /* TextFieldTableViewCell.swift */; };
+		96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7AF221E4CF80011CC51 /* TextFieldTableViewCell.swift */; };
+		96F9F7B2221E4CF80011CC51 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,10 +86,10 @@
 		93D365EE22013BCD00938467 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
 		96001492221E120A0002767E /* DoItFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItFilter.swift; sourceTree = "<group>"; };
 		96001494221E12170002767E /* FilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTests.swift; sourceTree = "<group>"; };
-		96F9F7A7221E4B3F0011CC51 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldTableViewCell.xib; path = ../../../TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerTableViewCell.xib; sourceTree = "<group>"; };
-		96F9F7AA221E4B400011CC51 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldTableViewCell.swift; path = ../../../TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		96F9F7AF221E4CF80011CC51 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,10 +191,10 @@
 			children = (
 				96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */,
 				96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */,
-				96F9F7AA221E4B400011CC51 /* TextFieldTableViewCell.swift */,
-				96F9F7A7221E4B3F0011CC51 /* TextFieldTableViewCell.xib */,
 				93D365ED22013BCD00938467 /* DoItTableViewCell.swift */,
 				93D365EE22013BCD00938467 /* DoItTableViewCell.xib */,
+				96F9F7AF221E4CF80011CC51 /* TextFieldTableViewCell.swift */,
+				96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */,
-				96F9F7AB221E4B400011CC51 /* TextFieldTableViewCell.xib in Resources */,
+				96F9F7B2221E4CF80011CC51 /* TextFieldTableViewCell.xib in Resources */,
 				96F9F7AD221E4B400011CC51 /* DatePickerTableViewCell.xib in Resources */,
 				93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
@@ -344,12 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96F9F7AE221E4B400011CC51 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BE8219E46BD00821B26 /* DoIt.swift in Sources */,
 				89AA5BF0219E46DF00821B26 /* Course.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				96F9F7AC221E4B400011CC51 /* DatePickerTableViewCell.swift in Sources */,
 				89AA5BF2219E46EA00821B26 /* CoursePersistenceManager.swift in Sources */,
+				96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
 				892FB4CB220390A6005293EC /* DoItSharingObserver.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
