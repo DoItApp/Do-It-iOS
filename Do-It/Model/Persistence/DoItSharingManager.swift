@@ -11,7 +11,7 @@ import Foundation
 final class DoItSharingManager {
     var persistenceManager: DoItPersistenceManager?
 
-    static let shared = DoItPersistenceManager()
+    static let shared = DoItSharingManager()
 
     private var observers: [ObjectIdentifier: DoItSharingObserver] = [:]
 
