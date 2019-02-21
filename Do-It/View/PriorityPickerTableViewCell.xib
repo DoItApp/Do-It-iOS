@@ -18,21 +18,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K5-W8-SIf">
-                        <rect key="frame" x="16" y="5" width="55" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K5-W8-SIf">
+                        <rect key="frame" x="16" y="11" width="55" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-Ba-D7K">
-                        <rect key="frame" x="20" y="30" width="288" height="29"/>
+                        <rect key="frame" x="20" y="36" width="288" height="23"/>
                         <segments>
                             <segment title="Low"/>
                             <segment title="Default"/>
                             <segment title="High"/>
                         </segments>
                         <connections>
-                            <action selector="selectPriorityWithSender:" destination="KGk-i7-Jjw" eventType="valueChanged" id="hPV-Xc-Ypl"/>
+                            <action selector="selectPriorityWithSender:" destination="KGk-i7-Jjw" eventType="valueChanged" id="b5U-d7-IJ8"/>
                         </connections>
                     </segmentedControl>
                 </subviews>
@@ -41,6 +41,7 @@
                     <constraint firstItem="G1E-Ba-D7K" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="4" id="5aI-0Q-CRR"/>
                     <constraint firstItem="G1E-Ba-D7K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="mZc-az-jrh"/>
                     <constraint firstItem="G1E-Ba-D7K" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="4" id="o6Z-Xd-pUs"/>
+                    <constraint firstItem="0K5-W8-SIf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="qfB-Tg-qy5"/>
                     <constraint firstItem="0K5-W8-SIf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="sD0-bH-3Nj"/>
                 </constraints>
             </tableViewCellContentView>

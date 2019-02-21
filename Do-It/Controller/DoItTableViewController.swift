@@ -11,15 +11,22 @@ import Do_ItCore
 
 class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var doIts = [DoIt]()
-    var filteredDoIts = [DoIt]()
+    let persistenceManager = DoItPersistenceManager.shared
+
+    let launchDate = Date()
+    var doIts: [DoIt] {
+        return persistenceManager.doIts.filter { $0.dueDate > launchDate }
+    }
+
+    var visibleDoIts: [DoIt] = []
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var navigationEditItem: UINavigationItem!
     var searchBar: UISearchBar!
     let formatter = DateComponentsFormatter()
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    private let mockDoIts: [DoIt] = {
+        var doIts: [DoIt] = []
         doIts.append(DoIt(identifier: DoItId(),
                           course: Course(name: "CSC 309"),
                           dueDate: Calendar.current.date(byAdding: .minute, value: 10, to: Date())!,
@@ -42,10 +49,15 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                           name: "Review 2",
                           priority: DoItPriority.low,
                           kind: DoItKind.homework))
-        filteredDoIts = doIts
+        return doIts
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.registerNib(for: DoItTableViewCell.self)
 
         navigationEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
                                                                 style: UIBarButtonItem.Style.plain,
@@ -56,53 +68,48 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                                                size: CGSize(width: UIScreen.main.bounds.width,
                                                             height: 44)))
         searchBar.delegate = self
-    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        visibleDoIts = doIts
     }
-
 }
 
 // MARK: - Table view data source
 extension DoItTableViewController {
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return doIts.count
-        return filteredDoIts.count
+        return visibleDoIts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell",
-                                                       for: indexPath) as? DoItTableViewCell else {
-            fatalError("The reusableCell could not be cast to DoItTableViewCell")
+        let cell = tableView.dequeueReusableCell(for: indexPath, as: DoItTableViewCell.self)
+        let doIt = visibleDoIts[indexPath.row]
+
+        cell.titleLabel?.text = doIt.name
+        cell.courseLabel?.text = doIt.course.name
+        cell.dateLabel?.text = formattedDate(doIt.dueDate)
+        cell.descriptionLabel?.text = doIt.description
+
+        let priorityAccentColor: UIColor
+        switch doIt.priority {
+        case .low:
+            priorityAccentColor = .green
+        case .default:
+            priorityAccentColor = .yellow
+        case .high:
+            priorityAccentColor = .red
         }
-
-        //        cell.titleLabel?.text = doIts[indexPath.item].name
-        //        cell.courseLabel?.text = doIts[indexPath.item].course.name
-        //        cell.dateLabel?.text = formattedDate(index: indexPath.item)
-        //        cell.descriptionLabel?.text = doIts[indexPath.item].description
-
-        cell.titleLabel?.text = filteredDoIts[indexPath.item].name
-        cell.courseLabel?.text = filteredDoIts[indexPath.item].course.name
-        cell.dateLabel?.text = formattedDate(index: indexPath.item)
-        cell.descriptionLabel?.text = filteredDoIts[indexPath.item].description
+        cell.setPriorityAccentColor(priorityAccentColor)
 
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-
-    func formattedDate(index: Int) -> String? {
+    func formattedDate(_ date: Date) -> String? {
         let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute],
                                                                  from: Date(),
-                                                                 to: doIts[index].dueDate)
+                                                                 to: date)
 
         formatter.unitsStyle = .full
 
@@ -119,22 +126,17 @@ extension DoItTableViewController {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell number: \(indexPath.row)!")
-        // perform segue to detailed view controller
-        // self.performSegue(withIdentifier: "yourIdentifier", sender: self)
     }
 
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            doIts.remove(at: indexPath.row)
-            filteredDoIts = doIts
+            let removed = visibleDoIts.remove(at: indexPath.row)
+            persistenceManager.deleteDoIt(matching: removed.identifier)
+            visibleDoIts = doIts
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        //        } else if editingStyle == .insert {
-        //            // Create a new instance of the appropriate class,
-        //        // insert it into the array, and add a new row to the table view.
-        //        }
 
         tableView.reloadData()
     }
@@ -168,9 +170,9 @@ extension DoItTableViewController {
     }
 
     @IBAction func composeButtonPressed() {
-        // IMPLEMENT ME
-        // go to addDoItViewController
-        print("compose button pressed")
+        let (parentNavigationVC, createDoItVC) = CreateDoItTableViewController.instantiateFromStoryboard()
+        createDoItVC.delegate = self
+        present(parentNavigationVC!, animated: true)
     }
 
 }
@@ -179,7 +181,7 @@ extension DoItTableViewController {
 extension DoItTableViewController {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        filteredDoIts = searchText.isEmpty ? doIts : doIts.filter { (item: DoIt) -> Bool in
+        visibleDoIts = searchText.isEmpty ? doIts : doIts.filter { (item: DoIt) -> Bool in
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
 
@@ -193,5 +195,16 @@ extension DoItTableViewController {
         navigationEditItem.title = "Do-Its"
         navigationEditItem.titleView = nil
     }
+}
 
+extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
+    func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt) {
+        persistenceManager.save(doIt)
+        visibleDoIts = doIts
+        tableView.reloadData()
+
+        // FIXME: We should just use `insertRows` instead of `reloadData` here
+//        let lastIndexPath = IndexPath(row: doIts.index(before: doIts.endIndex), section: 0)
+//        tableView.insertRows(at: [lastIndexPath], with: .automatic)
+    }
 }

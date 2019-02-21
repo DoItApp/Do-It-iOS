@@ -29,6 +29,8 @@ class PriorityPickerTableViewCell: UITableViewCell {
         default:
             fatalError()
         }
+
+        delegate?.priorityPickerTableViewCellDidUpdatePriority(self)
     }
 
     override func awakeFromNib() {
