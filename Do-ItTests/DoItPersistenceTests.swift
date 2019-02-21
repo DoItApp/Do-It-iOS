@@ -10,15 +10,6 @@ import XCTest
 @testable import Do_It
 
 class DoItPersistenceTests: XCTestCase {
-
-    override func setUp() {
-        // put code here if needed
-    }
-
-    override func tearDown() {
-        // put code here if needed
-    }
-
     func testDoItPersistence() {
         let first = DoIt(identifier: DoItId(), course: Course(name: "CSC309"),
                          dueDate: Date(timeIntervalSinceReferenceDate: 1000.0),

@@ -9,15 +9,6 @@ import XCTest
 @testable import Do_It
 
 class CoursePersistenceTests: XCTestCase {
-
-    override func setUp() {
-        // put code here if needed
-    }
-
-    override func tearDown() {
-        // put code here if needed
-    }
-
     func testCoursePersistence() {
         let first = Course(name: "CSC305")
         let second = Course(name: "PHIL231")
