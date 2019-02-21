@@ -1,5 +1,5 @@
 //
-//  TestFilter.swift
+//  FilterTests.swift
 //  Do-ItTests
 //
 //  Created by Jett Moy on 2/7/19.
@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 @testable import Do_It
 
-class TesFilter: XCTestCase {
+class FilterTests: XCTestCase {
     var doIts: [DoIt] = []
 
     override func setUp() {

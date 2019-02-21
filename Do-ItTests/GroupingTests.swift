@@ -1,5 +1,5 @@
 //
-//  TestGrouping.swift
+//  GroupingTests.swift
 //  Do-ItTests
 //
 //  Created by Cesar F. Chacon on 1/24/19.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Do_It
 
-class TestGrouping: XCTestCase {
+class GroupingTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
