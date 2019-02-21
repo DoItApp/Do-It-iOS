@@ -32,7 +32,7 @@ class DoItPersistenceTests: XCTestCase {
         let fourth = DoIt(identifier: DoItId(), course: Course(name: "CSC349"),
                           dueDate: Date(timeIntervalSinceReferenceDate: 2000.0),
                           description: "finish hw", name: "test", priority: .default, kind: .homework)
-        let persistence = DoItPersistenceManager()
+        let persistence = DoItPersistenceManager.shared
         let lst = [first, second, third, fourth]
         persistence.doIts = lst
         let reload = persistence.testLoad()

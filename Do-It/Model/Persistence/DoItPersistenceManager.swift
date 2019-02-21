@@ -14,13 +14,14 @@ final class DoItPersistenceManager {
     let fileManager = FileManager.default
     let docsURL: URL
     let doItsURL: URL
+    static let shared = DoItPersistenceManager()
     var doIts: [DoIt] {
         didSet {
             saveDoItsToDisk()
         }
     }
 
-    init() {
+    private init() {
         do {
             docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
                                           appropriateFor: nil, create: true)

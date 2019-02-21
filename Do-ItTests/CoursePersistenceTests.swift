@@ -23,7 +23,7 @@ class CoursePersistenceTests: XCTestCase {
         let second = Course(name: "PHIL231")
         let third = Course(name: "MU301")
         let fourth = Course(name: "BUS313")
-        let persistence = CoursePersistenceManager()
+        let persistence = CoursePersistenceManager.shared
         let lst = [first, second, third, fourth]
         persistence.courses = lst
         let reload = persistence.testLoad()

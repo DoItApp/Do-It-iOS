@@ -14,13 +14,14 @@ final class CoursePersistenceManager {
     let fileManager = FileManager.default
     let docsURL: URL
     let courseURL: URL
+    static let shared = CoursePersistenceManager()
     var courses: [Course] {
         didSet {
             saveCoursesToDisk()
         }
     }
 
-    init() {
+    private init() {
         do {
             docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
                                           appropriateFor: nil, create: true)
