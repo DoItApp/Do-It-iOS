@@ -30,6 +30,9 @@
 		89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF7219E470A00821B26 /* GroupingSetting.swift */; };
 		89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BF9219E470F00821B26 /* SortSetting.swift */; };
 		89CB093721EEC3C300C32841 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB093621EEC3C300C32841 /* ExampleTests.swift */; };
+		89CB6BEB221E53D8005C3795 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB6BEA221E53D8005C3795 /* NibLoadable.swift */; };
+		89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB6BEC221E53E7005C3795 /* IdentifiableClass.swift */; };
+		89CB6BEF221E5421005C3795 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB6BEE221E5421005C3795 /* UITableViewCell.swift */; };
 		93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365EB22013BB600938467 /* DoItTableViewController.swift */; };
 		93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365ED22013BCD00938467 /* DoItTableViewCell.swift */; };
 		93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D365EE22013BCD00938467 /* DoItTableViewCell.xib */; };
@@ -81,6 +84,9 @@
 		89AA5BF7219E470A00821B26 /* GroupingSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingSetting.swift; sourceTree = "<group>"; };
 		89AA5BF9219E470F00821B26 /* SortSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSetting.swift; sourceTree = "<group>"; };
 		89CB093621EEC3C300C32841 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		89CB6BEA221E53D8005C3795 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		89CB6BEC221E53E7005C3795 /* IdentifiableClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableClass.swift; sourceTree = "<group>"; };
+		89CB6BEE221E5421005C3795 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		93D365EB22013BB600938467 /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
 		93D365ED22013BCD00938467 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
 		93D365EE22013BCD00938467 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				89AA5BE6219E457C00821B26 /* Controller */,
+				89CB6BE9221E53BB005C3795 /* Extensions */,
 				89AA5BE4219E457300821B26 /* Model */,
 				89AA5BE5219E457700821B26 /* View */,
 				89AA5BB6219E456600821B26 /* AppDelegate.swift */,
@@ -206,6 +213,16 @@
 				89AA5BB8219E456600821B26 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		89CB6BE9221E53BB005C3795 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89CB6BEC221E53E7005C3795 /* IdentifiableClass.swift */,
+				89CB6BEA221E53D8005C3795 /* NibLoadable.swift */,
+				89CB6BEE221E5421005C3795 /* UITableViewCell.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9347A74521EFB9FF003F6F86 /* DoIts */ = {
@@ -363,8 +380,11 @@
 				93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */,
 				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
 				89AA5BF8219E470A00821B26 /* GroupingSetting.swift in Sources */,
+				89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */,
+				89CB6BEB221E53D8005C3795 /* NibLoadable.swift in Sources */,
 				89AA5BFA219E470F00821B26 /* SortSetting.swift in Sources */,
 				96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */,
+				89CB6BEF221E5421005C3795 /* UITableViewCell.swift in Sources */,
 				89AA5BB9219E456600821B26 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
