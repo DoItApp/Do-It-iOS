@@ -9,67 +9,88 @@
 import UIKit
 import Do_ItCore
 
-class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     var doIts = [DoIt]()
+    var filteredDoIts = [DoIt]()
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var navigationEditItem: UINavigationItem!
+    var searchBar: UISearchBar!
     let formatter = DateComponentsFormatter()
 
     override func viewWillAppear(_ animated: Bool) {
 
         doIts.append(DoIt(identifier: DoItId(),
-                          course: Course(name: "fake"),
-                          dueDate: Calendar.current.date(byAdding: .day, value: 30, to: Date())!,
-                          description: "description here",
-                          name: "YO",
-                          priority: DoItPriority.low,
-                          kind: DoItKind.homework))
-
-        doIts.append(DoIt(identifier: DoItId(),
-                          course: Course(name: "fake"),
-                          dueDate: Calendar.current.date(byAdding: .hour, value: 20, to: Date())!,
-                          description: "description here",
-                          name: "YO",
-                          priority: DoItPriority.low,
-                          kind: DoItKind.homework))
-
-        doIts.append(DoIt(identifier: DoItId(),
-                          course: Course(name: "fake"),
+                          course: Course(name: "CSC 309"),
                           dueDate: Calendar.current.date(byAdding: .minute, value: 10, to: Date())!,
                           description: "description here",
-                          name: "DIFF",
+                          name: "HW 1",
                           priority: DoItPriority.low,
                           kind: DoItKind.homework))
+        doIts.append(DoIt(identifier: DoItId(),
+                          course: Course(name: "CSC 3000"),
+                          dueDate: Calendar.current.date(byAdding: .day, value: 30, to: Date())!,
+                          description: "description here",
+                          name: "Test 2",
+                          priority: DoItPriority.low,
+                          kind: DoItKind.homework))
+
+        doIts.append(DoIt(identifier: DoItId(),
+                          course: Course(name: "CSC 42"),
+                          dueDate: Calendar.current.date(byAdding: .hour, value: 20, to: Date())!,
+                          description: "description here",
+                          name: "Review 2",
+                          priority: DoItPriority.low,
+                          kind: DoItKind.homework))
+        filteredDoIts = doIts
 
         tableView.delegate = self
         tableView.dataSource = self
 
+        navigationEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                                                                style: UIBarButtonItem.Style.plain,
+                                                                target: self,
+                                                                action: #selector(editButtonPressed))
+
+        searchBar  = UISearchBar(frame: CGRect(origin: .zero,
+                                               size: CGSize(width: UIScreen.main.bounds.width,
+                                                            height: 44)))
+        searchBar.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    // MARK: - Table view data source
+}
+
+// MARK: - Table view data source
+extension DoItTableViewController {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return doIts.count
+        // return doIts.count
+        return filteredDoIts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DoItTableViewCell",
                                                        for: indexPath) as? DoItTableViewCell else {
-            fatalError("The TableViewCell could not be cast to DoItTableViewCell")
+            fatalError("The reusableCell could not be cast to DoItTableViewCell")
         }
 
-        cell.titleLabel?.text = doIts[indexPath.item].name
-        cell.courseLabel?.text = doIts[indexPath.item].course.name
+        //        cell.titleLabel?.text = doIts[indexPath.item].name
+        //        cell.courseLabel?.text = doIts[indexPath.item].course.name
+        //        cell.dateLabel?.text = formattedDate(index: indexPath.item)
+        //        cell.descriptionLabel?.text = doIts[indexPath.item].description
+
+        cell.titleLabel?.text = filteredDoIts[indexPath.item].name
+        cell.courseLabel?.text = filteredDoIts[indexPath.item].course.name
         cell.dateLabel?.text = formattedDate(index: indexPath.item)
-        cell.descriptionLabel?.text = doIts[indexPath.item].description
+        cell.descriptionLabel?.text = filteredDoIts[indexPath.item].description
 
         return cell
     }
@@ -102,24 +123,75 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
         // self.performSegue(withIdentifier: "yourIdentifier", sender: self)
     }
 
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            doIts.remove(at: indexPath.row)
+            filteredDoIts = doIts
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        //        } else if editingStyle == .insert {
+        //            // Create a new instance of the appropriate class,
+        //        // insert it into the array, and add a new row to the table view.
+        //        }
+
+        tableView.reloadData()
+    }
 }
 
-// Methods called when buttons pressed
+// MARK: - Methods called when buttons pressed
 extension DoItTableViewController {
 
-    @IBAction func editButtonPressed() {
-        // IMPLEMENT ME
-        print("edit button pressed")
+    @objc func editButtonPressed() {
+
+        if navigationEditItem.rightBarButtonItem?.title == "Cancel" {
+            navigationEditItem.rightBarButtonItem?.title = "Edit"
+            navigationEditItem.title = "Do-Its"
+            navigationEditItem.titleView = nil
+        } else {
+            tableView.setEditing(!tableView.isEditing, animated: true)
+            navigationEditItem.rightBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
+        }
+
     }
 
     @IBAction func searchButtonPressed() {
-        // IMPLEMENT ME
-        print("search button pressed")
+
+            // IMPLEMENT ME
+            // present search bar
+            // change
+
+        navigationEditItem.titleView = searchBar
+        navigationEditItem.title = ""
+        navigationEditItem.rightBarButtonItem?.title = "Cancel"
     }
 
     @IBAction func composeButtonPressed() {
         // IMPLEMENT ME
+        // go to addDoItViewController
         print("compose button pressed")
+    }
+
+}
+
+// Mark: - Search Bar Delegate
+extension DoItTableViewController {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        filteredDoIts = searchText.isEmpty ? doIts : doIts.filter { (item: DoIt) -> Bool in
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+
+        tableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+
+        navigationEditItem.rightBarButtonItem?.title = "Edit"
+        navigationEditItem.title = "Do-Its"
+        navigationEditItem.titleView = nil
     }
 
 }
