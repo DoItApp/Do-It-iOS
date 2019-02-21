@@ -15,7 +15,7 @@ protocol PriorityPickerTableViewCellDelegate: AnyObject {
 class PriorityPickerTableViewCell: UITableViewCell {
 
     var doItPriority: DoItPriority = .default
-    
+
     weak var delegate: PriorityPickerTableViewCellDelegate?
 
     @IBAction func selectPriority(sender: UISegmentedControl) {
@@ -30,7 +30,7 @@ class PriorityPickerTableViewCell: UITableViewCell {
             fatalError()
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,7 +41,7 @@ class PriorityPickerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     @IBAction func priorityChanged(_ sender: UISegmentedControl) {
         delegate?.priorityPickerTableViewCellDidUpdatePriority(self)
     }
