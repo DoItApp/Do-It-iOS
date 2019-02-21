@@ -13,8 +13,7 @@ class PriorityPickerTableViewCell: UITableViewCell {
     var doItPriority: DoItPriority = .default
 
     @IBAction func selectPriority(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex
-        {
+        switch sender.selectedSegmentIndex {
         case 0:
             doItPriority = .low
         case 1:
@@ -36,5 +35,5 @@ class PriorityPickerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
