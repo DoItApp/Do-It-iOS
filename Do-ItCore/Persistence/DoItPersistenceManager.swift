@@ -9,13 +9,15 @@
 import Foundation
 
 public final class DoItPersistenceManager {
-    let encoder = JSONEncoder()
-    let decoder = JSONDecoder()
-    let fileManager = FileManager.default
-    let docsURL: URL
-    let doItsURL: URL
-    static let shared = DoItPersistenceManager()
-    var doIts: [DoIt] {
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
+    private let fileManager = FileManager.default
+    private let docsURL: URL
+    private let doItsURL: URL
+
+    public static let shared = DoItPersistenceManager()
+
+    public var doIts: [DoIt] {
         didSet {
             saveDoItsToDisk()
         }
@@ -31,6 +33,18 @@ public final class DoItPersistenceManager {
         doItsURL = docsURL.appendingPathComponent("DoIts.json")
         doIts = []
         loadDoItsFromDisk()
+    }
+
+    public func save(_ doIt: DoIt) {
+        doIts.append(doIt)
+    }
+
+    @discardableResult
+    public func deleteDoIt(matching identifier: DoItId) -> DoIt? {
+        guard let index = doIts.firstIndex(where: { $0.identifier == identifier }) else {
+            return nil
+        }
+        return doIts.remove(at: index)
     }
 
     private func loadDoItsFromDisk() {

@@ -32,4 +32,7 @@ class DoItTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func setPriorityAccentColor(_ color: UIColor) {
+        priorityView.backgroundColor = color
+    }
 }
