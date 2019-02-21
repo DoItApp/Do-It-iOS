@@ -1,5 +1,5 @@
 //
-//  CoursePersistenceManager.swift
+//  DoItPersistenceManager.swift
 //  Do-It
 //
 //  Created by Michael Pangburn on 11/15/18.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-final class CoursePersistenceManager {
+public final class DoItPersistenceManager {
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()
     let fileManager = FileManager.default
     let docsURL: URL
-    let courseURL: URL
-    static let shared = CoursePersistenceManager()
-    var courses: [Course] {
+    let doItsURL: URL
+    static let shared = DoItPersistenceManager()
+    var doIts: [DoIt] {
         didSet {
-            saveCoursesToDisk()
+            saveDoItsToDisk()
         }
     }
 
@@ -28,30 +28,30 @@ final class CoursePersistenceManager {
         } catch {
             fatalError("The app docs directory wil always exist")
         }
-        courseURL = docsURL.appendingPathComponent("Courses.json")
-        courses = []
-        loadCoursesFromDisk()
+        doItsURL = docsURL.appendingPathComponent("DoIts.json")
+        doIts = []
+        loadDoItsFromDisk()
     }
 
-    private func loadCoursesFromDisk() {
+    private func loadDoItsFromDisk() {
         // Read data from .json file and transform data into an array
         do {
-            let data = try Data(contentsOf: courseURL, options: [])
-            courses =  try decoder.decode([Course].self, from: data)
+            let data = try Data(contentsOf: doItsURL, options: [])
+            doIts =  try decoder.decode([DoIt].self, from: data)
         } catch {
             print("Failed to read JSON data")
         }
     }
 
-    public func testLoad() -> [Course] {
-        loadCoursesFromDisk()
-        return courses
+    public func testLoad() -> [DoIt] {
+        loadDoItsFromDisk()
+        return doIts
     }
 
-    private func saveCoursesToDisk() {
+    private func saveDoItsToDisk() {
         do {
-            let data = try encoder.encode(courses)
-            try data.write(to: courseURL, options: [])
+            let data = try encoder.encode(doIts)
+            try data.write(to: doItsURL, options: [])
         } catch {
             print("Failed to write JSON data")
         }

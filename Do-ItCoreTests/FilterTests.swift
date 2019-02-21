@@ -8,7 +8,7 @@
 
 import Foundation
 import XCTest
-@testable import Do_It
+@testable import Do_ItCore
 
 class FilterTests: XCTestCase {
     var doIts: [DoIt] = []

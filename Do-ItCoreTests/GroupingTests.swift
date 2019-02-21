@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Do_It
+@testable import Do_ItCore
 
 class GroupingTests: XCTestCase {
     let formatter: DateFormatter = {
@@ -23,7 +23,7 @@ class GroupingTests: XCTestCase {
     lazy var fifthDate = formatter.date(from: "2017/7/07")
     lazy var sixthDate = formatter.date(from: "2017/7/07")
 
-    lazy var doIts: [Doit] = {
+    lazy var doIts: [DoIt] = {
         let first = DoIt(identifier: DoItId(), course: Course(name: "CSC309"), dueDate: firstDate!,
                          description: "Finish hw", name: "test", priority: DoItPriority.low, kind: .homework)
         let second = DoIt(identifier: DoItId(), course: Course(name: "ENGR234"), dueDate: secondDate!,

@@ -6,7 +6,7 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-struct DoItOrganizationSettings {
+public struct DoItOrganizationSettings {
     var includedCourses: [Course]
     var groupingSetting: GroupingSetting
     var sortSetting: SortSetting

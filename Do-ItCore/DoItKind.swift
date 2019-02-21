@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DoItKind: Int, Codable, Equatable {
+public enum DoItKind: Int, Codable, Equatable {
     case homework
     case test
     case reading
