@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class DoItSharingManager {
+public final class DoItSharingManager {
     var persistenceManager: DoItPersistenceManager?
 
     static let shared = DoItSharingManager()

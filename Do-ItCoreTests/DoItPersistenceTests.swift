@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Do_It
+@testable import Do_ItCore
 
 class DoItPersistenceTests: XCTestCase {
     func testDoItPersistence() {

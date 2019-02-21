@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Do_ItCore
 
 class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
