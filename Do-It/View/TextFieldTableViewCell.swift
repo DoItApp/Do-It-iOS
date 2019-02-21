@@ -8,6 +8,7 @@
 
 import UIKit
 
+// === INSTRUCTIONS: MAKING A CUSTOM TABLE VIEW CELL ===
 // To create a custom table view cell,
 // File > New > File > Cocoa Touch Class
 // then choose the correct subclass (e.g. UITableViewCell)
@@ -18,10 +19,20 @@ import UIKit
 // To design, read into UI design using storyboards or XIBs,
 // including IBOutlet and IBAction.
 
+protocol TextFieldTableViewCellDelegate: AnyObject {
+    func textFieldTableViewCellDidUpdateText(_ cell: TextFieldTableViewCell)
+}
+
 class TextFieldTableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var textInput: UITextField!
+    @IBOutlet var textField: UITextField! {
+        didSet {
+            textField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        }
+    }
+
+    weak var delegate: TextFieldTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,4 +45,7 @@ class TextFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @objc private func textChanged(_ sender: UITextField) {
+        delegate?.textFieldTableViewCellDidUpdateText(self)
+    }
 }

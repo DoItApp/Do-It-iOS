@@ -18,25 +18,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="374" height="213.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb8-nT-4r9">
+                        <rect key="frame" x="16" y="11" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JBA-yB-z1j">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="213.5"/>
+                        <rect key="frame" x="0.0" y="32" width="374" height="181.5"/>
                         <date key="date" timeIntervalSinceReferenceDate="571712942.99503803">
                             <!--2019-02-13 01:09:02 +0000-->
                         </date>
+                        <connections>
+                            <action selector="dateChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="ENP-T6-fpl"/>
+                        </connections>
                     </datePicker>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JBA-yB-z1j" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9p9-NW-qZP"/>
+                    <constraint firstItem="qb8-nT-4r9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="2Xm-lY-wlh"/>
+                    <constraint firstItem="JBA-yB-z1j" firstAttribute="top" secondItem="qb8-nT-4r9" secondAttribute="bottom" id="IA1-Vn-gjw"/>
                     <constraint firstItem="JBA-yB-z1j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KLu-8p-7pp"/>
                     <constraint firstAttribute="bottom" secondItem="JBA-yB-z1j" secondAttribute="bottom" id="Qbm-KA-0La"/>
+                    <constraint firstItem="qb8-nT-4r9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UJG-cF-hS1"/>
                     <constraint firstAttribute="trailing" secondItem="JBA-yB-z1j" secondAttribute="trailing" id="apM-nZ-Jhy"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="selectedDate" destination="JBA-yB-z1j" id="skp-Di-WVs"/>
+                <outlet property="datePicker" destination="JBA-yB-z1j" id="skp-Di-WVs"/>
+                <outlet property="titleLabel" destination="qb8-nT-4r9" id="yLy-3c-4By"/>
             </connections>
-            <point key="canvasLocation" x="161.59999999999999" y="94.452773613193415"/>
+            <point key="canvasLocation" x="294" y="65"/>
         </tableViewCell>
     </objects>
 </document>
