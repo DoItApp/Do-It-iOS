@@ -5,7 +5,7 @@
 //  Created by Jett Moy on 2/20/19.
 //  Copyright © 2019 The Swifter Picker-Uppers. All rights reserved.
 //
-
+import Do_ItCore
 import UIKit
 
 protocol PriorityPickerTableViewCellDelegate: AnyObject {
