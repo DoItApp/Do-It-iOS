@@ -18,7 +18,7 @@ public struct DoIt: Codable, Equatable {
     public var kind: DoItKind
 
     public init(
-        identifier: DoItId,
+        identifier: DoItId = DoItId(),
         course: Course,
         dueDate: Date,
         description: String,
