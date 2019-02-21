@@ -203,11 +203,11 @@
             isa = PBXGroup;
             children = (
                 96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */,
-                96F9F7B3221E506F0011CC51 /* PriorityPickerTableViewCell.swift */,
-                96F9F7B4221E506F0011CC51 /* PriorityPickerTableViewCell.xib */,
                 96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */,
                 93D365ED22013BCD00938467 /* DoItTableViewCell.swift */,
                 93D365EE22013BCD00938467 /* DoItTableViewCell.xib */,
+                96F9F7B3221E506F0011CC51 /* PriorityPickerTableViewCell.swift */,
+                96F9F7B4221E506F0011CC51 /* PriorityPickerTableViewCell.xib */,
                 96F9F7AF221E4CF80011CC51 /* TextFieldTableViewCell.swift */,
                 96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */,
             );
