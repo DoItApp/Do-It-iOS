@@ -20,6 +20,9 @@ import UIKit
 
 class TextFieldTableViewCell: UITableViewCell {
 
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var textInput: UITextField!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
