@@ -7,12 +7,7 @@
 //
 
 import XCTest
-<<<<<<< HEAD
 import Do_ItCore
-=======
-// @testable import DoItTableViewController
->>>>>>> doit-table-view-controller
-@testable import Do_It
 
 class DoItTableViewControllerTests: XCTestCase {
 
