@@ -9,7 +9,7 @@
 import UIKit
 import Do_ItCore
 
-class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let persistenceManager = DoItPersistenceManager.shared
 
@@ -22,7 +22,6 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var navigationEditItem: UINavigationItem!
-    var searchBar: UISearchBar!
     let formatter = DateComponentsFormatter()
 
     private let mockDoIts: [DoIt] = {
@@ -63,11 +62,6 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                                                                 style: UIBarButtonItem.Style.plain,
                                                                 target: self,
                                                                 action: #selector(editButtonPressed))
-
-        searchBar  = UISearchBar(frame: CGRect(origin: .zero,
-                                               size: CGSize(width: UIScreen.main.bounds.width,
-                                                            height: 44)))
-        searchBar.delegate = self
 
         visibleDoIts = doIts
     }
@@ -159,9 +153,7 @@ extension DoItTableViewController {
     }
 
     @IBAction func searchButtonPressed() {
-        navigationEditItem.titleView = searchBar
-        navigationEditItem.title = ""
-        navigationEditItem.rightBarButtonItem?.title = "Cancel"
+        // Go to Organization View Controller
     }
 
     @IBAction func composeButtonPressed() {
@@ -172,26 +164,7 @@ extension DoItTableViewController {
 
 }
 
-// Mark: - Search Bar Delegate
-extension DoItTableViewController {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        visibleDoIts = searchText.isEmpty ? doIts : doIts.filter { (item: DoIt) -> Bool in
-            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        }
-
-        tableView.reloadData()
-    }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.endEditing(true)
-
-        navigationEditItem.rightBarButtonItem?.title = "Edit"
-        navigationEditItem.title = "Do-Its"
-        navigationEditItem.titleView = nil
-    }
-}
-
+// MARK: - Navigation
 extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt) {
         persistenceManager.save(doIt)
