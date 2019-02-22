@@ -159,11 +159,6 @@ extension DoItTableViewController {
     }
 
     @IBAction func searchButtonPressed() {
-
-            // IMPLEMENT ME
-            // present search bar
-            // change
-
         navigationEditItem.titleView = searchBar
         navigationEditItem.title = ""
         navigationEditItem.rightBarButtonItem?.title = "Cancel"
@@ -202,9 +197,5 @@ extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
         persistenceManager.save(doIt)
         visibleDoIts = doIts
         tableView.reloadData()
-
-        // FIXME: We should just use `insertRows` instead of `reloadData` here
-//        let lastIndexPath = IndexPath(row: doIts.index(before: doIts.endIndex), section: 0)
-//        tableView.insertRows(at: [lastIndexPath], with: .automatic)
     }
 }
