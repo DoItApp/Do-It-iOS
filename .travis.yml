@@ -8,3 +8,4 @@ install:
 script:
    - swiftlint
    - set -o pipefail && xcodebuild -project Do-It.xcodeproj -scheme Do-ItCoreTests -destination 'name=iPhone X' test | xcpretty
+   - set -o pipefail && xcodebuild -project Do-It.xcodeproj -scheme Do-ItTests -destination 'name=iPhone X' test | xcpretty
