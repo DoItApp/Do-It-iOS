@@ -22,6 +22,11 @@ class CourseTableViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         courses = createArray()
+
+        courses.sort { (lhs: Course, rhs: Course) -> Bool in
+            return lhs.name < rhs.name
+        }
+
         filteredCourses = courses
 
         navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
