@@ -318,11 +318,11 @@
 			isa = PBXGroup;
 			children = (
 				34C5902322149C11008DABF8 /* CoursePersistenceTests.swift */,
-				347A5135221F8C4100A48B92 /* OrganizationTests.swift */,
 				345FFA272201290F0023E0FE /* DoItPersistenceTests.swift */,
 				96001494221E12170002767E /* FilterTests.swift */,
 				8974AFBB220D07370043F01B /* GroupingTests.swift */,
 				89CB6C08221E5711005C3795 /* Info.plist */,
+				347A5135221F8C4100A48B92 /* OrganizationTests.swift */,
 				8974AFBC220D07370043F01B /* SortingTests.swift */,
 			);
 			path = "Do-ItCoreTests";
@@ -599,9 +599,9 @@
 			files = (
 				89CB6C28221E5B48005C3795 /* CoursePersistenceTests.swift in Sources */,
 				89CB6C29221E5B48005C3795 /* DoItPersistenceTests.swift in Sources */,
-				347A5136221F8C4100A48B92 /* OrganizationTests.swift in Sources */,
 				89CB6C2B221E5B48005C3795 /* FilterTests.swift in Sources */,
 				89CB6C2C221E5B48005C3795 /* GroupingTests.swift in Sources */,
+				347A5136221F8C4100A48B92 /* OrganizationTests.swift in Sources */,
 				89CB6C2D221E5B48005C3795 /* SortingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

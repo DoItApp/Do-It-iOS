@@ -17,26 +17,43 @@ public final class DoItOrganizationManager {
 
     func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
         //let filterAlg = DoItsFilter() do filtering once that is sorted out
-        let groupedDoIts = groupDoIts(doIts)
-
-        fatalError("not implemented")
+        let sortAlg = DoItSort()
+        var organizeDoIts = groupDoIts(doIts)
+        for index in 0...organizeDoIts.count - 1 {
+            organizeDoIts[index].1 = sortAlg.sortBy(setting: organizationSettings.sortSetting,
+                                                    unsortedList: organizeDoIts[index].1)
+        }
+        return organizeDoIts
     }
 
     private func groupDoIts(_ doIts: [DoIt]) -> [(String, [DoIt])] {
         let groupAlg = DoItGroup()
+        var groupedDoIts = [(String, [DoIt])]()
         switch organizationSettings.groupingSetting {
         case .dueDate:
+            // problem here, date doesnt show time but same day diff time causes sorting into different blocks
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .medium
             dateFormatter.timeStyle = .none
-            var groupedDoIts = groupAlg.groupByDate(ungroupedList: doIts)
+            let doIts = groupAlg.groupByDate(ungroupedList: doIts)
+            for group in doIts {
+                groupedDoIts.append((dateFormatter.string(from: group.key), group.value))
+            }
         case .course:
-            var groupedDoIts = groupAlg.groupByCourse(ungroupedList: doIts)
+            groupedDoIts = groupAlg.groupByCourse(ungroupedList: doIts)
         case .priority:
-            var groupedDoIts = groupAlg.groupByPriority(ungroupedList: doIts)
+            let doIts = groupAlg.groupByPriority(ungroupedList: doIts)
+            for group in doIts {
+                switch group.key {
+                case .low:
+                    groupedDoIts.append(("low", group.value))
+                case .default:
+                    groupedDoIts.append(("medium", group.value))
+                case .high:
+                    groupedDoIts.append(("high", group.value))
+                }
+            }
         }
-        return [("hello", [DoIt(identifier: DoItId(), course: Course(name: "ENGR234"),
-                               dueDate: Date(timeIntervalSinceReferenceDate: 1500.0),
-                               description: "finish hw", name: "test", priority: .high, kind: .test)])]
+        return groupedDoIts
     }
 }
