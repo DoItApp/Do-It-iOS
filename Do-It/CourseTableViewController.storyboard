@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1oO-81-4pl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Courses-->
+        <scene sceneID="xPI-PS-Nk9">
+            <objects>
+                <viewController id="N9i-ln-ORD" customClass="CourseTableViewController" customModule="Do_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ae-Mi-yCx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09A-LL-6Xe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" id="KLu-QR-v94" customClass="CourseTableViewCell" customModule="Do_It" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KLu-QR-v94" id="Xsx-kn-HbZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urp-QW-oSR">
+                                                    <rect key="frame" x="15" y="22" width="295" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXc-JE-daJ">
+                                                    <rect key="frame" x="325" y="15" width="35" height="35"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="OiA-Dn-hB4"/>
+                                                        <constraint firstAttribute="height" constant="35" id="iPW-C4-yK8"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sXc-JE-daJ" firstAttribute="centerY" secondItem="Xsx-kn-HbZ" secondAttribute="centerY" id="4iA-C1-5Na"/>
+                                                <constraint firstItem="Urp-QW-oSR" firstAttribute="centerY" secondItem="Xsx-kn-HbZ" secondAttribute="centerY" id="GVB-EB-xdx"/>
+                                                <constraint firstItem="sXc-JE-daJ" firstAttribute="leading" secondItem="Urp-QW-oSR" secondAttribute="trailing" constant="15" id="SfN-VD-Tqb"/>
+                                                <constraint firstItem="Urp-QW-oSR" firstAttribute="leading" secondItem="Xsx-kn-HbZ" secondAttribute="leading" constant="15" id="hH0-Kd-vF2"/>
+                                                <constraint firstAttribute="trailing" secondItem="sXc-JE-daJ" secondAttribute="trailing" constant="15" id="yBq-7U-U0R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseColorView" destination="sXc-JE-daJ" id="qQR-lH-ylj"/>
+                                            <outlet property="courseNameLabel" destination="Urp-QW-oSR" id="2Md-Ts-p4x"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4b-Vy-jPK">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="search" id="rzD-Lh-85T"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d4o-yR-FAQ"/>
+                                    <barButtonItem title="Item" systemItem="compose" id="YQz-tL-aWw"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Q4b-Vy-jPK" secondAttribute="bottom" id="4QA-gp-cve"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="09A-LL-6Xe" secondAttribute="bottom" id="GSY-uH-iV0"/>
+                            <constraint firstItem="09A-LL-6Xe" firstAttribute="top" secondItem="9ae-Mi-yCx" secondAttribute="topMargin" id="IPK-Fd-Pfr"/>
+                            <constraint firstItem="Q4b-Vy-jPK" firstAttribute="leading" secondItem="Lqq-gb-1c2" secondAttribute="leading" id="JHO-xu-E3q"/>
+                            <constraint firstItem="09A-LL-6Xe" firstAttribute="leading" secondItem="Lqq-gb-1c2" secondAttribute="leading" id="bgN-S8-gtl"/>
+                            <constraint firstItem="Q4b-Vy-jPK" firstAttribute="trailing" secondItem="Lqq-gb-1c2" secondAttribute="trailing" id="h1M-PT-Rza"/>
+                            <constraint firstItem="Lqq-gb-1c2" firstAttribute="trailing" secondItem="09A-LL-6Xe" secondAttribute="trailing" id="tjc-GB-qXf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lqq-gb-1c2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Courses" id="6HZ-9S-3Be"/>
+                    <connections>
+                        <outlet property="navigationBarEditItem" destination="6HZ-9S-3Be" id="yR3-q1-xFq"/>
+                        <outlet property="tableView" destination="09A-LL-6Xe" id="hU8-nH-YK1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KpG-Ls-stV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084" y="-2.2488755622188905"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="x36-Of-5y7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1oO-81-4pl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dmk-LG-Pvr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="N9i-ln-ORD" kind="relationship" relationship="rootViewController" id="afE-le-59a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dks-Sp-gsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144.8" y="-2.2488755622188905"/>
+        </scene>
+    </scenes>
+</document>
