@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1oO-81-4pl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N9i-ln-ORD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09A-LL-6Xe">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" id="KLu-QR-v94" customClass="CourseTableViewCell" customModule="Do_It" customModuleProvider="target">
@@ -58,23 +58,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4b-Vy-jPK">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="search" id="rzD-Lh-85T"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d4o-yR-FAQ"/>
-                                    <barButtonItem title="Item" systemItem="compose" id="YQz-tL-aWw"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Q4b-Vy-jPK" secondAttribute="bottom" id="4QA-gp-cve"/>
                             <constraint firstAttribute="bottomMargin" secondItem="09A-LL-6Xe" secondAttribute="bottom" id="GSY-uH-iV0"/>
                             <constraint firstItem="09A-LL-6Xe" firstAttribute="top" secondItem="9ae-Mi-yCx" secondAttribute="topMargin" id="IPK-Fd-Pfr"/>
-                            <constraint firstItem="Q4b-Vy-jPK" firstAttribute="leading" secondItem="Lqq-gb-1c2" secondAttribute="leading" id="JHO-xu-E3q"/>
                             <constraint firstItem="09A-LL-6Xe" firstAttribute="leading" secondItem="Lqq-gb-1c2" secondAttribute="leading" id="bgN-S8-gtl"/>
-                            <constraint firstItem="Q4b-Vy-jPK" firstAttribute="trailing" secondItem="Lqq-gb-1c2" secondAttribute="trailing" id="h1M-PT-Rza"/>
                             <constraint firstItem="Lqq-gb-1c2" firstAttribute="trailing" secondItem="09A-LL-6Xe" secondAttribute="trailing" id="tjc-GB-qXf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lqq-gb-1c2"/>
@@ -88,24 +77,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpG-Ls-stV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2084" y="-2.2488755622188905"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="x36-Of-5y7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1oO-81-4pl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dmk-LG-Pvr">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="N9i-ln-ORD" kind="relationship" relationship="rootViewController" id="afE-le-59a"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dks-Sp-gsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1144.8" y="-2.2488755622188905"/>
         </scene>
     </scenes>
 </document>

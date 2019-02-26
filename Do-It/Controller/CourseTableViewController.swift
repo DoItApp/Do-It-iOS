@@ -9,17 +9,22 @@
 import UIKit
 import Do_ItCore
 
-class CourseTableViewController: UIViewController, UISearchBarDelegate {
+protocol CourseTableViewControllerDelegate: AnyObject {
+    func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourse course: Course)
+}
+
+class CourseTableViewController: UIViewController {
 
     var courses = [Course]()
-    var filteredCourses = [Course]()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBarEditItem: UINavigationItem!
-    var searchBar: UISearchBar!
+
+    weak var delegate: CourseTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Courses"
 
         courses = createArray()
 
@@ -27,18 +32,11 @@ class CourseTableViewController: UIViewController, UISearchBarDelegate {
             return lhs.name < rhs.name
         }
 
-        filteredCourses = courses
-
         navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
                                                                 style: UIBarButtonItem.Style.plain,
                                                                 target: self,
                                                                 action: #selector(editButtonPressed))
 
-        searchBar  = UISearchBar(frame: CGRect(origin: .zero,
-                                               size: CGSize(width: UIScreen.main.bounds.width,
-                                                            height: 44)))
-
-        searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -70,11 +68,11 @@ class CourseTableViewController: UIViewController, UISearchBarDelegate {
 extension CourseTableViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredCourses.count
+        return courses.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let course = filteredCourses[indexPath.row]
+        let course = courses[indexPath.row]
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as? CourseTableViewCell else {
                 fatalError("The TableViewCell could not be cast to CourseTableViewCell")
@@ -85,6 +83,11 @@ extension CourseTableViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let course = courses[indexPath.row]
+        delegate?.courseTableViewController(self, didSelectCourse: course)
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Methods called when buttons pressed
@@ -109,13 +112,8 @@ extension CourseTableViewController {
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             courses.remove(at: indexPath.row)
-            filteredCourses = courses
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        //        } else if editingStyle == .insert {
-        //            // Create a new instance of the appropriate class,
-        //        // insert it into the array, and add a new row to the table view.
-        //        }
         tableView.reloadData()
     }
 }
