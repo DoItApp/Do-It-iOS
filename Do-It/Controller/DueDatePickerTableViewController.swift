@@ -8,15 +8,61 @@
 
 import UIKit
 
+protocol DueDatePickerTableViewControllerDelegate: AnyObject {
+    func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController, didSelectTimeRange range: DateInterval?)
+}
+
 class DueDatePickerTableViewController: UITableViewController {
 
-    var options = [0: "Today",
-                   1: "Tomorrow",
-                   2: "Within the next Three Days",
-                   3: "Within the Week"]
+    var timeRangeSelected: DateInterval? = nil
+
+    struct Option {
+
+        let index: Int
+        let name: String
+        let dateRange: DateInterval
+
+        init(_index: Int, _name: String, _dateRange: DateInterval) {
+            index = _index
+            name = _name
+            dateRange = _dateRange
+        }
+    }
+
+    var options: [Option] = []
+
+    weak var delegate: DueDatePickerTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeTimeOptions()
+    }
+
+    func makeTimeOptions() {
+
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+
+        let startOfDay = Calendar.current.startOfDay(for: Date())
+        let endOfDay = Calendar.current.date(byAdding: components, to: startOfDay)!
+        let endOfTomorrow = Calendar.current.date(byAdding: .day, value: 1, to: endOfDay)!
+
+        options.append(Option(_index: 0,
+                              _name: "Today",
+                              _dateRange: DateInterval(start: Date(), end: endOfDay)))
+        options.append(Option(_index: 1,
+                              _name: "Tomorrow",
+                              _dateRange: DateInterval(start: endOfDay, end: endOfTomorrow)))
+        options.append(Option(_index: 2,
+                              _name: "Within the next Three Days",
+                              _dateRange: DateInterval(start: Date(),
+                                                       end: Calendar.current.date(byAdding: .day, value: 3, to: Date())!)))
+        options.append(Option(_index: 3,
+                              _name: "Within the next Week",
+                              _dateRange: DateInterval(start: Date(),
+                                                       end: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)))
+
     }
 
     // MARK: - Table view data source
@@ -33,7 +79,7 @@ class DueDatePickerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DueDateCell", for: indexPath)
-        cell.textLabel?.text = options[indexPath.item]
+        cell.textLabel?.text = options[indexPath.item].name
         return cell
     }
 
@@ -44,8 +90,7 @@ class DueDatePickerTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected cell number: \(indexPath.row)!")
-
+        timeRangeSelected = options[indexPath.row].dateRange
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
         }
@@ -55,6 +100,7 @@ class DueDatePickerTableViewController: UITableViewController {
         // this calls a funcction in createDoItViewController,
         // do something similar for the organization view controller
         // delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+        delegate?.dueDatePickerTableViewController(self, didSelectTimeRange: timeRangeSelected)
         dismiss(animated: true)
     }
 
