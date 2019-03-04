@@ -9,12 +9,13 @@
 import UIKit
 
 protocol DueDatePickerTableViewControllerDelegate: AnyObject {
-    func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController, didSelectTimeRange range: DateInterval?)
+    func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController,
+                                          didSelectTimeRange range: DateInterval?)
 }
 
 class DueDatePickerTableViewController: UITableViewController {
 
-    var timeRangeSelected: DateInterval? = nil
+    var timeRangeSelected: DateInterval?
 
     struct Option {
 
@@ -22,10 +23,10 @@ class DueDatePickerTableViewController: UITableViewController {
         let name: String
         let dateRange: DateInterval
 
-        init(_index: Int, _name: String, _dateRange: DateInterval) {
-            index = _index
-            name = _name
-            dateRange = _dateRange
+        init(row: Int, description: String, range: DateInterval) {
+            index = row
+            name = description
+            dateRange = range
         }
     }
 
@@ -48,20 +49,20 @@ class DueDatePickerTableViewController: UITableViewController {
         let endOfDay = Calendar.current.date(byAdding: components, to: startOfDay)!
         let endOfTomorrow = Calendar.current.date(byAdding: .day, value: 1, to: endOfDay)!
 
-        options.append(Option(_index: 0,
-                              _name: "Today",
-                              _dateRange: DateInterval(start: Date(), end: endOfDay)))
-        options.append(Option(_index: 1,
-                              _name: "Tomorrow",
-                              _dateRange: DateInterval(start: endOfDay, end: endOfTomorrow)))
-        options.append(Option(_index: 2,
-                              _name: "Within the next Three Days",
-                              _dateRange: DateInterval(start: Date(),
-                                                       end: Calendar.current.date(byAdding: .day, value: 3, to: Date())!)))
-        options.append(Option(_index: 3,
-                              _name: "Within the next Week",
-                              _dateRange: DateInterval(start: Date(),
-                                                       end: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)))
+        options.append(Option(row: 0,
+                              description: "Today",
+                              range: DateInterval(start: Date(), end: endOfDay)))
+        options.append(Option(row: 1,
+                              description: "Tomorrow",
+                              range: DateInterval(start: endOfDay, end: endOfTomorrow)))
+        options.append(Option(row: 2,
+                              description: "Within the next Three Days",
+                              range: DateInterval(start: Date(),
+                                                  end: Calendar.current.date(byAdding: .day, value: 3, to: Date())!)))
+        options.append(Option(row: 3,
+                              description: "Within the next Week",
+                              range: DateInterval(start: Date(),
+                                                  end: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)))
 
     }
 
@@ -114,12 +115,14 @@ class DueDatePickerTableViewController: UITableViewController {
 
     /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+     commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            // Create a new instance of the appropriate class,
+     // insert it into the array, and add a new row to the table view
         }    
     }
     */
