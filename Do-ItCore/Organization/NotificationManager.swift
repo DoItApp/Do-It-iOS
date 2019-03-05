@@ -14,20 +14,31 @@ class NotificationManager {
     func requestAuthorization() {
         center.requestAuthorization(options: [.alert, .sound]) {
             (granted, error) in
-                // do something if granted is false, user did not allow notifications
+            print(error as Any)
         }
     }
 
-    func setTrigger(_ doIt: DoIt) {
+    func setTrigger(_ doIt: DoIt, _ alertWhen: Date) {
+        let deltaTime = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: alertWhen, to: doIt.dueDate)
+        let formatter = DateComponentsFormatter()
         let content = UNMutableNotificationContent()
-        content.title = "Your DoIt is due " + doIt.dueDate.description
-        content.body = "Go finish it"
-        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: doIt.dueDate)
+        content.title = "DoIt Due Soon"
+        content.body = "Be sure to complete " + doIt.name + " within " + formatter.string(from: deltaTime)!
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: alertWhen)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         let request = UNNotificationRequest(identifier: doIt.identifier.identifier.uuidString, content: content, trigger: trigger)
         center.add(request, withCompletionHandler: {
             (error) in
-                // check error param
+            print(error as Any)
         })
+    }
+
+    func cancelNotification(_ doIt: DoIt) {
+        center.removePendingNotificationRequests(withIdentifiers: [doIt.identifier.identifier.uuidString])
+    }
+
+    func reschedule(_ doIt: DoIt, _ newDueDate: Date) {
+        cancelNotification(doIt)
+        setTrigger(doIt, newDueDate)
     }
 }
