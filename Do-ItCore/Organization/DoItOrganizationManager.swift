@@ -51,11 +51,11 @@ public final class DoItOrganizationManager {
             for group in doIts {
                 switch group.key {
                 case .low:
-                    groupedDoIts.append(("low", group.value))
+                    groupedDoIts.append(("Low", group.value))
                 case .default:
-                    groupedDoIts.append(("medium", group.value))
+                    groupedDoIts.append(("Medium", group.value))
                 case .high:
-                    groupedDoIts.append(("high", group.value))
+                    groupedDoIts.append(("High", group.value))
                 }
             }
         }

@@ -45,7 +45,8 @@ class OrganizationTests: XCTestCase {
                          description: "finish hw", name: "7", priority: .default, kind: .reading)
         doIts = [first, second, third, fourth, fifth, sixth, seventh]
         testArray1 = [("Dec 31, 2000", [fifth, seventh, sixth]), ("Jan 12, 2001", [second])]
-        testArray2 = [("high", [fifth, second]), ("medium", [seventh]), ("low", [sixth])]
+        testArray2 = [("High", [fifth, second]), ("Medium", [seventh]), ("Low", [sixth])]
+        testArray3 = [("BUS313", [second, fifth, seventh, sixth] ), ("CSC309", [first]), ("CSC349", [fourth]), ("ENGR234", [third])]
     }
 
     func testOrganization1() {
@@ -74,6 +75,20 @@ class OrganizationTests: XCTestCase {
             XCTAssertEqual(organizedArray[index].0, testArray2[index].0)
             for doit in 0...organizedArray[index].1.count - 1 {
                 XCTAssertEqual(organizedArray[index].1[doit], testArray2[index].1[doit])
+            }
+        }
+    }
+
+    func testOrganization3() {
+        let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.course,
+                                                            sortSetting: SortSetting.priority,
+                                                            filterSetting: nil)
+        let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
+        let organizedArray = organizationManager.organize(doIts)
+        for index in 0...organizedArray.count - 1 {
+            XCTAssertEqual(organizedArray[index].0, testArray3[index].0)
+            for doit in 0...organizedArray[index].1.count - 1 {
+                XCTAssertEqual(organizedArray[index].1[doit], testArray3[index].1[doit])
             }
         }
     }
