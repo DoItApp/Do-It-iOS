@@ -22,7 +22,7 @@ class NotificationManager {
         let deltaTime = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: alertWhen, to: doIt.dueDate)
         let formatter = DateComponentsFormatter()
         let content = UNMutableNotificationContent()
-        content.title = "DoIt Due Soon"
+        content.title = "Do-It Due Soon"
         content.body = "Be sure to complete " + doIt.name + " within " + formatter.string(from: deltaTime)!
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: alertWhen)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
