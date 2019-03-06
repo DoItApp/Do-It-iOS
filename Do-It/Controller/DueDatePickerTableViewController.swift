@@ -10,15 +10,15 @@ import UIKit
 
 protocol DueDatePickerTableViewControllerDelegate: AnyObject {
     func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController,
-                                          didSelectTimeRange range: [DateComponents]?)
+                                          didSelectTimeRange range: (DateComponents, DateComponents)?)
 }
 
 class DueDatePickerTableViewController: UITableViewController {
 
-    var timeRangeSelected: [DateComponents]?
+    var timeRangeSelected: (DateComponents, DateComponents)?
+    var previousIndexPath: IndexPath?
 
     struct Option {
-
         let name: String
         let dateBegin: DateComponents
         let dateEnd: DateComponents
@@ -67,10 +67,10 @@ class DueDatePickerTableViewController: UITableViewController {
         options.append(Option(description: "Tomorrow",
                               begin: endOfDayComponent,
                               end: endOfTomorrowComponent))
-        options.append(Option(description: "Within the next Three Days",
+        options.append(Option(description: "Within the next three days",
                               begin: currentTimeComponent,
                               end: endOfThreeDaysComponent))
-        options.append(Option(description: "Within the next Week",
+        options.append(Option(description: "Within the next week",
                               begin: currentTimeComponent,
                               end: endOfWeekComponent))
 
@@ -88,11 +88,11 @@ class DueDatePickerTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DueDateCell", for: indexPath)
-        cell.textLabel?.text = options[indexPath.item].name
+        cell.textLabel?.text = options[indexPath.row].name
 
-        if timeRangeSelected?.count != 0 {
-            if timeRangeSelected?[0] == options[indexPath.item].dateBegin &&
-                    timeRangeSelected?[1] == options[indexPath.item].dateEnd {
+        if let range = timeRangeSelected {
+            if range.0 == options[indexPath.row].dateBegin &&
+                    range.1 == options[indexPath.row].dateEnd {
                 cell.accessoryType = .checkmark
             }
         }
@@ -100,26 +100,37 @@ class DueDatePickerTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .none
+
+            if cell.accessoryType == .none {
+                clearPreviousCell()
+                cell.accessoryType = .checkmark
+                previousIndexPath = indexPath
+                saveUserSelection(forIndexPath: indexPath)
+            } else {
+                clearCurrentCell(forCell: cell)
+            }
+
         }
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        if timeRangeSelected?.count == 0 {
-            timeRangeSelected?.append(options[indexPath.row].dateBegin)
-            timeRangeSelected?.append(options[indexPath.row].dateEnd)
-        } else {
-            timeRangeSelected?[0] = options[indexPath.row].dateBegin
-            timeRangeSelected?[1] = options[indexPath.row].dateEnd
+    func clearPreviousCell() {
+        if let path = previousIndexPath {
+            if let oldCell = tableView.cellForRow(at: path) {
+                oldCell.accessoryType = .none
+            }
         }
+    }
 
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
-        }
+    func saveUserSelection(forIndexPath indexPath: IndexPath) {
+        timeRangeSelected?.0 = options[indexPath.row].dateBegin
+        timeRangeSelected?.1 = options[indexPath.row].dateEnd
+    }
 
+    func clearCurrentCell(forCell cell: UITableViewCell) {
+        cell.accessoryType = .none
+        timeRangeSelected = nil
     }
 
     // MARK: - Navigation
