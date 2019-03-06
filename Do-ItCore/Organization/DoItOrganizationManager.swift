@@ -18,9 +18,10 @@ public final class DoItOrganizationManager {
     func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
         var beingOrganized = doIts
         let filterAlg = DoItsFilter()
-        if let filter = organizationSettings.filterSetting {
-            beingOrganized = filterAlg.filter(doIts, filterType: filter)
+        for filterType in organizationSettings.filterSetting {
+            beingOrganized = filterAlg.filter(doIts, filterType: filterType)
         }
+        
         let sortAlg = DoItSort()
         var groupedDoIts = groupDoIts(beingOrganized)
         if let sort = organizationSettings.sortSetting {

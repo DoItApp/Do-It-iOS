@@ -9,5 +9,5 @@
 public struct DoItOrganizationSettings {
     var groupingSetting: GroupingSetting
     var sortSetting: SortSetting?
-    var filterSetting: FilterSpecification?
+    var filterSetting: [FilterSpecification]
 }

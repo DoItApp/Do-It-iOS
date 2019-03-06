@@ -44,16 +44,18 @@ class OrganizationTests: XCTestCase {
                          dueDate: Date(timeIntervalSinceReferenceDate: 100.0),
                          description: "finish hw", name: "7", priority: .default, kind: .reading)
         doIts = [first, second, third, fourth, fifth, sixth, seventh]
-        testArray1 = [("Dec 31, 2000", [fifth, seventh, sixth]), ("Jan 12, 2001", [second])]
+        testArray1 = [("Dec 31, 2000", [fifth]), ("Jan 12, 2001", [second])]
         testArray2 = [("High", [fifth, second]), ("Medium", [seventh]), ("Low", [sixth])]
-        testArray3 = [("BUS313", [second, fifth, seventh, sixth] ), ("CSC309", [first]), ("CSC349", [fourth]), ("ENGR234", [third])]
+        testArray3 = [("BUS313", [second, fifth, seventh, sixth] ), ("CSC309", [first]),
+                      ("CSC349", [fourth]), ("ENGR234", [third])]
     }
 
     func testOrganization1() {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
+        let priorityFilter = PriorityFilter(input: .high)
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.dueDate,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: courseFilter)
+                                                            filterSetting: [courseFilter, priorityFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in 0...organizedArray.count - 1 {
@@ -68,7 +70,7 @@ class OrganizationTests: XCTestCase {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.priority,
                                                             sortSetting: SortSetting.dueDate,
-                                                            filterSetting: courseFilter)
+                                                            filterSetting: [courseFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in 0...organizedArray.count - 1 {
@@ -82,7 +84,7 @@ class OrganizationTests: XCTestCase {
     func testOrganization3() {
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.course,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: nil)
+                                                            filterSetting: [])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in 0...organizedArray.count - 1 {
