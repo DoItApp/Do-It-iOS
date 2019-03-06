@@ -16,15 +16,20 @@ public final class DoItOrganizationManager {
     }
 
     func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
+        var beingOrganized = doIts
         let filterAlg = DoItsFilter()
-        let filteredDoIts = filterAlg.filter(doIts, filterType: organizationSettings.filterSetting)
-        let sortAlg = DoItSort()
-        var organizeDoIts = groupDoIts(filteredDoIts)
-        for index in 0...organizeDoIts.count - 1 {
-            organizeDoIts[index].1 = sortAlg.sortBy(setting: organizationSettings.sortSetting,
-                                                    unsortedList: organizeDoIts[index].1)
+        if let filter = organizationSettings.filterSetting {
+            beingOrganized = filterAlg.filter(doIts, filterType: filter)
         }
-        return organizeDoIts
+        let sortAlg = DoItSort()
+        var groupedDoIts = groupDoIts(beingOrganized)
+        if let sort = organizationSettings.sortSetting {
+            for index in 0...groupedDoIts.count - 1 {
+                groupedDoIts[index].1 = sortAlg.sortBy(setting: sort,
+                                                       unsortedList: groupedDoIts[index].1)
+            }
+        }
+        return groupedDoIts
     }
 
     private func groupDoIts(_ doIts: [DoIt]) -> [(String, [DoIt])] {

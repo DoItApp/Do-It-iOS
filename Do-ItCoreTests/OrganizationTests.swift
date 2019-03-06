@@ -13,7 +13,9 @@ class OrganizationTests: XCTestCase {
 
     var doIts: [DoIt] = []
     var courses: [Course] = []
-    var testArray: [(String, [DoIt])] = []
+    var testArray1: [(String, [DoIt])] = []
+    var testArray2: [(String, [DoIt])] = []
+    var testArray3: [(String, [DoIt])] = []
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,7 +26,7 @@ class OrganizationTests: XCTestCase {
                          dueDate: Date(timeIntervalSinceReferenceDate: 1000.0),
                          description: "Finish hw", name: "1", priority: .low, kind: .homework)
         let second = DoIt(identifier: DoItId(), course: courses[2],
-                          dueDate: Date(timeIntervalSinceReferenceDate: 1000.0),
+                          dueDate: Date(timeIntervalSinceReferenceDate: 1000000.0),
                           description: "finish hw", name: "2", priority: .high, kind: .test)
         let third = DoIt(identifier: DoItId(), course: courses[1],
                          dueDate: Date(timeIntervalSinceReferenceDate: 100.0),
@@ -42,21 +44,36 @@ class OrganizationTests: XCTestCase {
                          dueDate: Date(timeIntervalSinceReferenceDate: 100.0),
                          description: "finish hw", name: "7", priority: .default, kind: .reading)
         doIts = [first, second, third, fourth, fifth, sixth, seventh]
-        testArray = [("Dec 31, 2000", [fifth, seventh, sixth]), ("Dec 31, 2000", [second])]
+        testArray1 = [("Dec 31, 2000", [fifth, seventh, sixth]), ("Jan 12, 2001", [second])]
+        testArray2 = [("high", [fifth, second]), ("medium", [seventh]), ("low", [sixth])]
     }
 
     func testOrganization1() {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
-        let organizationSettings = DoItOrganizationSettings(includedCourses: courses,
-                                                            groupingSetting: GroupingSetting.dueDate,
+        let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.dueDate,
                                                             sortSetting: SortSetting.priority,
                                                             filterSetting: courseFilter)
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in 0...organizedArray.count - 1 {
-            XCTAssertEqual(organizedArray[index].0, testArray[index].0)
+            XCTAssertEqual(organizedArray[index].0, testArray1[index].0)
             for doit in 0...organizedArray[index].1.count - 1 {
-                XCTAssertEqual(organizedArray[index].1[doit], testArray[index].1[doit])
+                XCTAssertEqual(organizedArray[index].1[doit], testArray1[index].1[doit])
+            }
+        }
+    }
+
+    func testOrganization2() {
+        let courseFilter = CourseFilter(Course(name: courses[2].name))
+        let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.priority,
+                                                            sortSetting: SortSetting.dueDate,
+                                                            filterSetting: courseFilter)
+        let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
+        let organizedArray = organizationManager.organize(doIts)
+        for index in 0...organizedArray.count - 1 {
+            XCTAssertEqual(organizedArray[index].0, testArray2[index].0)
+            for doit in 0...organizedArray[index].1.count - 1 {
+                XCTAssertEqual(organizedArray[index].1[doit], testArray2[index].1[doit])
             }
         }
     }
