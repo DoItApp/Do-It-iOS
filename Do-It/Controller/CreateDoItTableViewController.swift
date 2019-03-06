@@ -13,8 +13,6 @@ protocol CreateDoItTableViewControllerDelegate: AnyObject {
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt)
 }
 
-private let mockCourses = ["CSC 309", "CSC 349", "BIO 213", "STAT 312"]
-
 class CreateDoItTableViewController: UITableViewController {
     enum Row: Int, CaseIterable {
         case name
@@ -24,18 +22,22 @@ class CreateDoItTableViewController: UITableViewController {
         case datePicker
     }
 
-    var course = Course(name: mockCourses.randomElement()!)
-    var desc: String = ""
-    var name: String = ""
+    var course = Course(name: "")
+    var desc = ""
+    var name = ""
     var priority = DoItPriority.default
     var date = Date()
+
     weak var delegate: CreateDoItTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = "New Do-It"
+
         tableView.registerNibs(for: DatePickerTableViewCell.self,
                                  TextFieldTableViewCell.self, PriorityPickerTableViewCell.self)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.className)
+        tableView.register(DetailTextTableViewCell.self, forCellReuseIdentifier: DetailTextTableViewCell.className)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,8 +57,10 @@ class CreateDoItTableViewController: UITableViewController {
             cell.delegate = self
             return cell
         case .course:
-            let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.className, for: indexPath)
+            let cell = tableView.dequeueReusableCell(for: indexPath, as: DetailTextTableViewCell.self)
             cell.textLabel?.text = "Course"
+            cell.detailTextLabel?.text = course.name
+            cell.accessoryType = .disclosureIndicator
             return cell
         case .priority:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: PriorityPickerTableViewCell.self)
@@ -73,6 +77,20 @@ class CreateDoItTableViewController: UITableViewController {
             cell.datePicker.minimumDate = Date()
             cell.delegate = self
             return cell
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sender = tableView.cellForRow(at: indexPath)
+        switch Row(rawValue: indexPath.row)! {
+        case .course:
+            guard case (nil, let courseVC) = CourseTableViewController.instantiateFromStoryboard() else {
+                fatalError("Navigation controller should not be attached in CourseTableViewController.storyboard")
+            }
+            courseVC.delegate = self
+            show(courseVC, sender: sender)
+        default:
+            break
         }
     }
 
@@ -135,5 +153,12 @@ extension CreateDoItTableViewController: PriorityPickerTableViewCellDelegate {
         default:
             fatalError()
         }
+    }
+}
+
+extension CreateDoItTableViewController: CourseTableViewControllerDelegate {
+    func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourse course: Course) {
+        self.course = course
+        tableView.reloadRows(at: [IndexPath(row: Row.course.rawValue, section: 0)], with: .automatic)
     }
 }

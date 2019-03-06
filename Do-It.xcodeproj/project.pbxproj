@@ -11,6 +11,7 @@
 		5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C82221F7D5900C4ECC2 /* CourseTableViewCell.swift */; };
 		5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */; };
 		5AD593C1221F7EC9009C5568 /* CourseTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */; };
+		89580EC02225AABE00B2E58A /* DetailTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89580EBF2225AABE00B2E58A /* DetailTextTableViewCell.swift */; };
 		89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB6219E456600821B26 /* AppDelegate.swift */; };
 		89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBD219E456800821B26 /* Assets.xcassets */; };
 		89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 		5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewController.swift; sourceTree = "<group>"; };
 		5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseTableViewController.storyboard; sourceTree = "<group>"; };
 		892FB4CA220390A6005293EC /* DoItSharingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItSharingObserver.swift; sourceTree = "<group>"; };
+		89580EBF2225AABE00B2E58A /* DetailTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextTableViewCell.swift; sourceTree = "<group>"; };
 		8974AFB7220D07180043F01B /* DoItGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItGroup.swift; sourceTree = "<group>"; };
 		8974AFB8220D07180043F01B /* DoItSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItSort.swift; sourceTree = "<group>"; };
 		8974AFBB220D07370043F01B /* GroupingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupingTests.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				5A459C82221F7D5900C4ECC2 /* CourseTableViewCell.swift */,
 				96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */,
 				96F9F7A9221E4B3F0011CC51 /* DatePickerTableViewCell.xib */,
+				89580EBF2225AABE00B2E58A /* DetailTextTableViewCell.swift */,
 				93D365ED22013BCD00938467 /* DoItTableViewCell.swift */,
 				93D365EE22013BCD00938467 /* DoItTableViewCell.xib */,
 				96F9F7B7221E624A0011CC51 /* PriorityPickerTableViewCell.swift */,
@@ -549,6 +552,7 @@
 				5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */,
 				C62287F5221E725800A719E5 /* CreateDoItTableViewController.swift in Sources */,
 				96F9F7AC221E4B400011CC51 /* DatePickerTableViewCell.swift in Sources */,
+				89580EC02225AABE00B2E58A /* DetailTextTableViewCell.swift in Sources */,
 				93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */,
 				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
 				89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */,
