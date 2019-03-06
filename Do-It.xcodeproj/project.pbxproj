@@ -45,6 +45,8 @@
 		89CB6C2D221E5B48005C3795 /* SortingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8974AFBC220D07370043F01B /* SortingTests.swift */; };
 		89CB6C2E221E5B8D005C3795 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB093621EEC3C300C32841 /* ExampleTests.swift */; };
 		89CB6C30221F0583005C3795 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB6C2F221F0583005C3795 /* UIViewController.swift */; };
+		931528A6221F87B9009F72F9 /* DueDatePickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931528A5221F87B9009F72F9 /* DueDatePickerTableViewController.swift */; };
+		931528A8221F87C2009F72F9 /* DueDatePickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931528A7221F87C1009F72F9 /* DueDatePickerViewController.storyboard */; };
 		93B01225221E6E57008E62ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B01224221E6E57008E62ED /* Main.storyboard */; };
 		93B01228221E6E70008E62ED /* DoItTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */; };
 		93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365EB22013BB600938467 /* DoItTableViewController.swift */; };
@@ -148,6 +150,8 @@
 		89CB6BFF221E5711005C3795 /* Do-ItCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Do-ItCoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CB6C08221E5711005C3795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89CB6C2F221F0583005C3795 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		931528A5221F87B9009F72F9 /* DueDatePickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DueDatePickerTableViewController.swift; sourceTree = "<group>"; };
+		931528A7221F87C1009F72F9 /* DueDatePickerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DueDatePickerViewController.storyboard; sourceTree = "<group>"; };
 		93B01224221E6E57008E62ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		93B01226221E6E70008E62ED /* Do-ItTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Do-ItTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewControllerTests.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				89AA5BBD219E456800821B26 /* Assets.xcassets */,
 				5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */,
 				C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */,
+				931528A7221F87C1009F72F9 /* DueDatePickerViewController.storyboard */,
 				89AA5BC2219E456800821B26 /* Info.plist */,
 				89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */,
 				93B01224221E6E57008E62ED /* Main.storyboard */,
@@ -285,6 +290,7 @@
 				5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */,
 				C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */,
 				93D365EB22013BB600938467 /* DoItTableViewController.swift */,
+				931528A5221F87B9009F72F9 /* DueDatePickerTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 				C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */,
 				96F9F7AD221E4B400011CC51 /* DatePickerTableViewCell.xib in Resources */,
 				93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */,
+				931528A8221F87C2009F72F9 /* DueDatePickerViewController.storyboard in Resources */,
 				89AA5BC1219E456800821B26 /* LaunchScreen.storyboard in Resources */,
 				93B01225221E6E57008E62ED /* Main.storyboard in Resources */,
 				96F9F7BA221E624A0011CC51 /* PriorityPickerTableViewCell.xib in Resources */,
@@ -555,6 +562,7 @@
 				89580EC02225AABE00B2E58A /* DetailTextTableViewCell.swift in Sources */,
 				93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */,
 				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
+				931528A6221F87B9009F72F9 /* DueDatePickerTableViewController.swift in Sources */,
 				89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */,
 				89CB6BEB221E53D8005C3795 /* NibLoadable.swift in Sources */,
 				96F9F7B9221E624A0011CC51 /* PriorityPickerTableViewCell.swift in Sources */,
