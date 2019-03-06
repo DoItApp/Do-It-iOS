@@ -22,6 +22,10 @@ class OrganizationTests: XCTestCase {
         courses = [Course(name: "CSC309"), Course(name: "ENGR234"),
                    Course(name: "BUS313"), Course(name: "CSC349")]
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+
         let first = DoIt(identifier: DoItId(), course: courses[0],
                          dueDate: Date(timeIntervalSinceReferenceDate: 1000.0),
                          description: "Finish hw", name: "1", priority: .low, kind: .homework)
@@ -44,7 +48,8 @@ class OrganizationTests: XCTestCase {
                          dueDate: Date(timeIntervalSinceReferenceDate: 100.0),
                          description: "finish hw", name: "7", priority: .default, kind: .reading)
         doIts = [first, second, third, fourth, fifth, sixth, seventh]
-        testArray1 = [("Dec 31, 2000", [fifth]), ("Jan 12, 2001", [second])]
+        testArray1 = [(dateFormatter.string(from: Date(timeIntervalSinceReferenceDate: 100.0)), [fifth]),
+                      (dateFormatter.string(from: Date(timeIntervalSinceReferenceDate: 1000000.0)), [second])]
         testArray2 = [("High", [fifth, second]), ("Medium", [seventh]), ("Low", [sixth])]
         testArray3 = [("BUS313", [second, fifth, seventh, sixth] ), ("CSC309", [first]),
                       ("CSC349", [fourth]), ("ENGR234", [third])]
