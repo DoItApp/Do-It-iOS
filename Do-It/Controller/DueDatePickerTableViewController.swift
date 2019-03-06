@@ -15,7 +15,7 @@ protocol DueDatePickerTableViewControllerDelegate: AnyObject {
 
 class DueDatePickerTableViewController: UITableViewController {
 
-    var timeRangeSelected: (DateComponents, DateComponents)?
+    var timeRangeSelected: (rangeStartOffset: DateComponents, rangeEndOffset: DateComponents)?
     var previousIndexPath: IndexPath?
 
     struct Option {
@@ -124,8 +124,8 @@ class DueDatePickerTableViewController: UITableViewController {
     }
 
     func saveUserSelection(forIndexPath indexPath: IndexPath) {
-        timeRangeSelected?.0 = options[indexPath.row].dateBegin
-        timeRangeSelected?.1 = options[indexPath.row].dateEnd
+        timeRangeSelected?.rangeStartOffset = options[indexPath.row].dateBegin
+        timeRangeSelected?.rangeEndOffset = options[indexPath.row].dateEnd
     }
 
     func clearCurrentCell(forCell cell: UITableViewCell) {
