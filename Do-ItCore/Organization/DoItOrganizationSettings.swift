@@ -10,4 +10,5 @@ public struct DoItOrganizationSettings {
     var includedCourses: [Course]
     var groupingSetting: GroupingSetting
     var sortSetting: SortSetting
+    var filterSetting: FilterSpecification
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-//date formatter
+import Foundation
 
 public final class DoItOrganizationManager {
     var organizationSettings: DoItOrganizationSettings
@@ -16,9 +16,10 @@ public final class DoItOrganizationManager {
     }
 
     func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
-        //let filterAlg = DoItsFilter() do filtering once that is sorted out
+        let filterAlg = DoItsFilter()
+        let filteredDoIts = filterAlg.filter(doIts, filterType: organizationSettings.filterSetting)
         let sortAlg = DoItSort()
-        var organizeDoIts = groupDoIts(doIts)
+        var organizeDoIts = groupDoIts(filteredDoIts)
         for index in 0...organizeDoIts.count - 1 {
             organizeDoIts[index].1 = sortAlg.sortBy(setting: organizationSettings.sortSetting,
                                                     unsortedList: organizeDoIts[index].1)
@@ -31,7 +32,6 @@ public final class DoItOrganizationManager {
         var groupedDoIts = [(String, [DoIt])]()
         switch organizationSettings.groupingSetting {
         case .dueDate:
-            // problem here, date doesnt show time but same day diff time causes sorting into different blocks
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .medium
             dateFormatter.timeStyle = .none
