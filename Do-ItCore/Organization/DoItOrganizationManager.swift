@@ -19,7 +19,7 @@ public final class DoItOrganizationManager {
         var beingOrganized = doIts
         let filterAlg = DoItsFilter()
         for filterType in organizationSettings.filterSetting {
-            beingOrganized = filterAlg.filter(doIts, filterType: filterType)
+            beingOrganized = filterAlg.filter(beingOrganized, filterType: filterType)
         }
         
         let sortAlg = DoItSort()
