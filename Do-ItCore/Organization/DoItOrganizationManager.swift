@@ -21,7 +21,6 @@ public final class DoItOrganizationManager {
         for filterType in organizationSettings.filterSetting {
             beingOrganized = filterAlg.filter(beingOrganized, filterType: filterType)
         }
-        
         let sortAlg = DoItSort()
         var groupedDoIts = groupDoIts(beingOrganized)
         if let sort = organizationSettings.sortSetting {
