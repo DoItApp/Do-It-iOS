@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A24A5C4222F5783003BFD12 /* CourseCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A24A5C3222F5783003BFD12 /* CourseCreation.storyboard */; };
+		5A24A5C6222F5AF9003BFD12 /* CourseCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A24A5C5222F5AF9003BFD12 /* CourseCreationViewController.swift */; };
 		5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C82221F7D5900C4ECC2 /* CourseTableViewCell.swift */; };
 		5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */; };
 		5AD593C1221F7EC9009C5568 /* CourseTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */; };
@@ -109,6 +111,8 @@
 		345FFA272201290F0023E0FE /* DoItPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPersistenceTests.swift; sourceTree = "<group>"; };
 		34BBCD6A21FAA1F700685E31 /* DoItKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItKind.swift; sourceTree = "<group>"; };
 		34C5902322149C11008DABF8 /* CoursePersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePersistenceTests.swift; sourceTree = "<group>"; };
+		5A24A5C3222F5783003BFD12 /* CourseCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseCreation.storyboard; sourceTree = "<group>"; };
+		5A24A5C5222F5AF9003BFD12 /* CourseCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCreationViewController.swift; sourceTree = "<group>"; };
 		5A459C82221F7D5900C4ECC2 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewController.swift; sourceTree = "<group>"; };
 		5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourseTableViewController.storyboard; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				89AA5BE5219E457700821B26 /* View */,
 				89AA5BB6219E456600821B26 /* AppDelegate.swift */,
 				89AA5BBD219E456800821B26 /* Assets.xcassets */,
+				5A24A5C3222F5783003BFD12 /* CourseCreation.storyboard */,
 				5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */,
 				C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */,
 				89AA5BC2219E456800821B26 /* Info.plist */,
@@ -280,6 +285,7 @@
 		89AA5BE6219E457C00821B26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5A24A5C5222F5AF9003BFD12 /* CourseCreationViewController.swift */,
 				5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */,
 				C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */,
 				93D365EB22013BB600938467 /* DoItTableViewController.swift */,
@@ -484,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
+				5A24A5C4222F5783003BFD12 /* CourseCreation.storyboard in Resources */,
 				5AD593C1221F7EC9009C5568 /* CourseTableViewController.storyboard in Resources */,
 				C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */,
 				96F9F7AD221E4B400011CC51 /* DatePickerTableViewCell.xib in Resources */,
@@ -545,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
+				5A24A5C6222F5AF9003BFD12 /* CourseCreationViewController.swift in Sources */,
 				5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */,
 				5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */,
 				C62287F5221E725800A719E5 /* CreateDoItTableViewController.swift in Sources */,
