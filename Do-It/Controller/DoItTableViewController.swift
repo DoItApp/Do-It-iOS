@@ -10,6 +10,26 @@ import UIKit
 import Do_ItCore
 
 class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    enum InteractionMode {
+        case standard
+        case selectingToShare
+    }
+
+    var interactionMode: InteractionMode = .standard {
+        didSet {
+            switch interactionMode {
+            case .standard:
+                navigationEditItem.setRightBarButtonItems([editBarButtonItem], animated: true)
+
+                selectedIndexPaths.removeAll()
+                for case let cell as DoItTableViewCell in tableView.visibleCells {
+                    cell.checkmarkImageView.isHidden = true
+                }
+            case .selectingToShare:
+                navigationEditItem.setRightBarButtonItems([doneBarButtonItem, shareBarButtonItem], animated: true)
+            }
+        }
+    }
 
     let persistenceManager = DoItPersistenceManager.shared
 
@@ -19,6 +39,8 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     var visibleDoIts: [DoIt] = []
+
+    private var selectedIndexPaths: Set<IndexPath> = []
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var navigationEditItem: UINavigationItem!
@@ -51,17 +73,23 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return doIts
     }()
 
+    private lazy var editBarButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self,
+                                                         action: #selector(selectButtonPressed))
+    private lazy var shareBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self,
+                                                          action: #selector(shareButtonPressed))
+    private lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self,
+                                                         action: #selector(doneButtonPressed))
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        DoItSharingManager.shared.addObserver(self)
 
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerNib(for: DoItTableViewCell.self)
 
-        navigationEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
-                                                                style: UIBarButtonItem.Style.plain,
-                                                                target: self,
-                                                                action: #selector(editButtonPressed))
+        navigationEditItem.rightBarButtonItem = editBarButtonItem
 
         visibleDoIts = doIts
     }
@@ -85,6 +113,7 @@ extension DoItTableViewController {
         cell.courseLabel?.text = doIt.course.name
         cell.dateLabel?.text = formattedDate(doIt.dueDate)
         cell.descriptionLabel?.text = doIt.description
+        cell.checkmarkImageView.isHidden = interactionMode != .selectingToShare || !selectedIndexPaths.contains(indexPath)
 
         let priorityAccentColor: UIColor
         switch doIt.priority {
@@ -104,7 +133,6 @@ extension DoItTableViewController {
         let diffDateComponents = Calendar.current.dateComponents([.day, .hour, .minute],
                                                                  from: Date(),
                                                                  to: date)
-
         formatter.unitsStyle = .full
 
         if diffDateComponents.day == 0 && diffDateComponents.hour == 0 {
@@ -119,7 +147,23 @@ extension DoItTableViewController {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected cell number: \(indexPath.row)!")
+        guard let cell = tableView.cellForRow(at: indexPath) as? DoItTableViewCell else {
+            return
+        }
+        switch interactionMode {
+        case .standard:
+            // Proceed to Do-It detail editing screen
+            break
+        case .selectingToShare:
+            // Toggle selected cell for sharing
+            if selectedIndexPaths.contains(indexPath) {
+                selectedIndexPaths.remove(indexPath)
+            } else {
+                selectedIndexPaths.insert(indexPath)
+            }
+            cell.checkmarkImageView.isHidden.toggle()
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     func tableView(_ tableView: UITableView,
@@ -139,17 +183,22 @@ extension DoItTableViewController {
 // MARK: - Methods called when buttons pressed
 extension DoItTableViewController {
 
-    @objc func editButtonPressed() {
+    @objc func selectButtonPressed() {
+        interactionMode = .selectingToShare
+    }
 
-        if navigationEditItem.rightBarButtonItem?.title == "Cancel" {
-            navigationEditItem.rightBarButtonItem?.title = "Edit"
-            navigationEditItem.title = "Do-Its"
-            navigationEditItem.titleView = nil
-        } else {
-            tableView.setEditing(!tableView.isEditing, animated: true)
-            navigationEditItem.rightBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
+    @objc private func shareButtonPressed() {
+        guard !selectedIndexPaths.isEmpty else {
+            return
         }
+        let doItsToShare = selectedIndexPaths.map { visibleDoIts[$0.row] }
+        let activityItem = DoItActivityItemSource(doIts: doItsToShare)
+        let activityViewController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
+        present(activityViewController, animated: true)
+    }
 
+    @objc private func doneButtonPressed() {
+        interactionMode = .standard
     }
 
     @IBAction func searchButtonPressed() {
@@ -168,6 +217,14 @@ extension DoItTableViewController {
 extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt) {
         persistenceManager.save(doIt)
+        visibleDoIts = doIts
+        tableView.reloadData()
+    }
+}
+
+extension DoItTableViewController: DoItSharingObserver {
+    func sharingManager(_ sharingManager: DoItSharingManager, didReceiveDoIts receivedDoIts: [DoIt]) {
+        receivedDoIts.forEach(persistenceManager.save)
         visibleDoIts = doIts
         tableView.reloadData()
     }

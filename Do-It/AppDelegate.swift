@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Do_ItCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -50,5 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate.
         // See also applicationDidEnterBackground:.
+    }
+
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        do {
+            try DoItSharingManager.shared.receiveDoIts(savedAt: url)
+            return true
+        } catch {
+            print("Failed to receive do-its at \(url)")
+            return false
+        }
     }
 }
