@@ -10,23 +10,23 @@ import UIKit
 
 protocol DueDatePickerTableViewControllerDelegate: AnyObject {
     func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController,
-                                          didSelectTimeRange range: DateInterval?)
+                                          didSelectTimeRange range: [DateComponents]?)
 }
 
 class DueDatePickerTableViewController: UITableViewController {
 
-    var timeRangeSelected: DateInterval?
+    var timeRangeSelected: [DateComponents]?
 
     struct Option {
 
-        let index: Int
         let name: String
-        let dateRange: DateInterval
+        let dateBegin: DateComponents
+        let dateEnd: DateComponents
 
-        init(row: Int, description: String, range: DateInterval) {
-            index = row
+        init(description: String, begin: DateComponents, end: DateComponents) {
             name = description
-            dateRange = range
+            dateBegin = begin
+            dateEnd = end
         }
     }
 
@@ -41,46 +41,62 @@ class DueDatePickerTableViewController: UITableViewController {
 
     func makeTimeOptions() {
 
-        var components = DateComponents()
-        components.day = 1
-        components.second = -1
+        var currentTimeComponent = DateComponents()
+        currentTimeComponent.day = 0
+        currentTimeComponent.second = 0
 
-        let startOfDay = Calendar.current.startOfDay(for: Date())
-        let endOfDay = Calendar.current.date(byAdding: components, to: startOfDay)!
-        let endOfTomorrow = Calendar.current.date(byAdding: .day, value: 1, to: endOfDay)!
+        var endOfDayComponent = DateComponents()
+        endOfDayComponent.day = 1
+        endOfDayComponent.second = -1
 
-        options.append(Option(row: 0,
-                              description: "Today",
-                              range: DateInterval(start: Date(), end: endOfDay)))
-        options.append(Option(row: 1,
-                              description: "Tomorrow",
-                              range: DateInterval(start: endOfDay, end: endOfTomorrow)))
-        options.append(Option(row: 2,
-                              description: "Within the next Three Days",
-                              range: DateInterval(start: Date(),
-                                                  end: Calendar.current.date(byAdding: .day, value: 3, to: Date())!)))
-        options.append(Option(row: 3,
-                              description: "Within the next Week",
-                              range: DateInterval(start: Date(),
-                                                  end: Calendar.current.date(byAdding: .day, value: 7, to: Date())!)))
+        var endOfTomorrowComponent = DateComponents()
+        endOfTomorrowComponent.day = 2
+        endOfTomorrowComponent.second = -1
+
+        var endOfThreeDaysComponent = DateComponents()
+        endOfThreeDaysComponent.day = 4
+        endOfThreeDaysComponent.second = -1
+
+        var endOfWeekComponent = DateComponents()
+        endOfWeekComponent.day = 8
+        endOfWeekComponent.second = -1
+
+        options.append(Option(description: "Today",
+                              begin: currentTimeComponent,
+                              end: endOfDayComponent))
+        options.append(Option(description: "Tomorrow",
+                              begin: endOfDayComponent,
+                              end: endOfTomorrowComponent))
+        options.append(Option(description: "Within the next Three Days",
+                              begin: currentTimeComponent,
+                              end: endOfThreeDaysComponent))
+        options.append(Option(description: "Within the next Week",
+                              begin: currentTimeComponent,
+                              end: endOfWeekComponent))
 
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return options.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DueDateCell", for: indexPath)
         cell.textLabel?.text = options[indexPath.item].name
+
+        if timeRangeSelected?.count != 0 {
+            if timeRangeSelected?[0] == options[indexPath.item].dateBegin &&
+                    timeRangeSelected?[1] == options[indexPath.item].dateEnd {
+                cell.accessoryType = .checkmark
+            }
+        }
+
         return cell
     }
 
@@ -91,65 +107,25 @@ class DueDatePickerTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        timeRangeSelected = options[indexPath.row].dateRange
+
+        if timeRangeSelected?.count == 0 {
+            timeRangeSelected?.append(options[indexPath.row].dateBegin)
+            timeRangeSelected?.append(options[indexPath.row].dateEnd)
+        } else {
+            timeRangeSelected?[0] = options[indexPath.row].dateBegin
+            timeRangeSelected?[1] = options[indexPath.row].dateEnd
+        }
+
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
         }
+
     }
 
+    // MARK: - Navigation
     @IBAction func done(_ sender: Any) {
-        // this calls a funcction in createDoItViewController,
-        // do something similar for the organization view controller
-        // delegate?.createDoItViewController(self, didSaveDoIt: doIt)
         delegate?.dueDatePickerTableViewController(self, didSelectTimeRange: timeRangeSelected)
         dismiss(animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView,
-     commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class,
-     // insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
