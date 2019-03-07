@@ -15,6 +15,12 @@ class DoItTableViewCell: UITableViewCell {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
 
+    @IBOutlet var checkmarkImageView: UIImageView! {
+        didSet {
+            checkmarkImageView.isHidden = true
+        }
+    }
+
     @IBOutlet var priorityView: UIView! {
         didSet {
             priorityView.layer.cornerRadius = priorityView.frame.size.width/2
@@ -34,5 +40,10 @@ class DoItTableViewCell: UITableViewCell {
 
     func setPriorityAccentColor(_ color: UIColor) {
         priorityView.backgroundColor = color
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        checkmarkImageView.isHidden = true
     }
 }
