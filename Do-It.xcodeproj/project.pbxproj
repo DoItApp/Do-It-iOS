@@ -354,9 +354,9 @@
 				8974AFB7220D07180043F01B /* DoItGroup.swift */,
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
-				C62287FC22279BA800A719E5 /* NotificationManager.swift */,
 				8974AFB8220D07180043F01B /* DoItSort.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
+				C62287FC22279BA800A719E5 /* NotificationManager.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
 			);
 			path = Organization;
@@ -599,7 +599,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CB6C19221E577A005C3795 /* Course.swift in Sources */,
-				C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */,
 				89CB6C22221E5824005C3795 /* CoursePersistenceManager.swift in Sources */,
 				89CB6C1F221E57AA005C3795 /* DoIt.swift in Sources */,
 				89CB6C1A221E577A005C3795 /* DoItFilter.swift in Sources */,
@@ -614,6 +613,7 @@
 				89CB6C25221E5824005C3795 /* DoItSharingObserver.swift in Sources */,
 				89CB6C1D221E577A005C3795 /* DoItSort.swift in Sources */,
 				89CB6C1B221E577A005C3795 /* GroupingSetting.swift in Sources */,
+				C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */,
 				89CB6C18221E577A005C3795 /* SortSetting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

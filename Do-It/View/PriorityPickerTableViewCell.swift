@@ -18,6 +18,8 @@ class PriorityPickerTableViewCell: UITableViewCell {
 
     weak var delegate: PriorityPickerTableViewCellDelegate?
 
+    @IBOutlet var segmentControl: UISegmentedControl!
+
     @IBAction func selectPriority(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
