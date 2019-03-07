@@ -22,6 +22,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 navigationEditItem.setRightBarButtonItems([editBarButtonItem], animated: true)
 
                 selectedIndexPaths.removeAll()
+                // Off-screen cells will have checkmark when dequeued in `tableView(_:cellForRowAt:)`
                 for case let cell as DoItTableViewCell in tableView.visibleCells {
                     cell.checkmarkImageView.isHidden = true
                 }
@@ -113,7 +114,7 @@ extension DoItTableViewController {
         cell.courseLabel?.text = doIt.course.name
         cell.dateLabel?.text = formattedDate(doIt.dueDate)
         cell.descriptionLabel?.text = doIt.description
-        cell.checkmarkImageView.isHidden = interactionMode != .selectingToShare || !selectedIndexPaths.contains(indexPath)
+        cell.checkmarkImageView.isHidden = !isSelected(indexPath)
 
         let priorityAccentColor: UIColor
         switch doIt.priority {
@@ -127,6 +128,13 @@ extension DoItTableViewController {
         cell.setPriorityAccentColor(priorityAccentColor)
 
         return cell
+    }
+
+    private func isSelected(_ indexPath: IndexPath) -> Bool {
+        guard interactionMode == .selectingToShare else {
+            return false
+        }
+        return selectedIndexPaths.contains(indexPath)
     }
 
     func formattedDate(_ date: Date) -> String? {
