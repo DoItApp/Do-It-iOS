@@ -10,9 +10,12 @@ import Foundation
 
 public final class DoItOrganizationManager {
     var organizationSettings: DoItOrganizationSettings
+    let dateFormatter = DateFormatter()
 
     init(organizationSettings: DoItOrganizationSettings) {
         self.organizationSettings = organizationSettings
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
     }
 
     func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
@@ -24,7 +27,7 @@ public final class DoItOrganizationManager {
         let sortAlg = DoItSort()
         var groupedDoIts = groupDoIts(beingOrganized)
         if let sort = organizationSettings.sortSetting {
-            for index in 0...groupedDoIts.count - 1 {
+            for index in groupedDoIts.indices {
                 groupedDoIts[index].1 = sortAlg.sortBy(setting: sort,
                                                        unsortedList: groupedDoIts[index].1)
             }
@@ -37,9 +40,6 @@ public final class DoItOrganizationManager {
         var groupedDoIts = [(String, [DoIt])]()
         switch organizationSettings.groupingSetting {
         case .dueDate:
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            dateFormatter.timeStyle = .none
             let doIts = groupAlg.groupByDate(ungroupedList: doIts)
             for group in doIts {
                 groupedDoIts.append((dateFormatter.string(from: group.key), group.value))

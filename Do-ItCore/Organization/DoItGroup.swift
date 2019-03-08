@@ -17,8 +17,8 @@ struct DoItGroup {
     }
 
     func groupByDate(ungroupedList: [DoIt]) -> [(key: Date, value: [DoIt])] {
-        let calender = Calendar.current
-        return Dictionary(grouping: ungroupedList, by: { calender.startOfDay(for: $0.dueDate) })
+        let calendar = Calendar.current
+        return Dictionary(grouping: ungroupedList, by: { calendar.startOfDay(for: $0.dueDate) })
             .sorted(by: { lhs, rhs in
                 return lhs.key < rhs.key
         })

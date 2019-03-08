@@ -63,9 +63,9 @@ class OrganizationTests: XCTestCase {
                                                             filterSetting: [courseFilter, priorityFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
-        for index in 0...organizedArray.count - 1 {
+        for index in organizedArray.indices {
             XCTAssertEqual(organizedArray[index].0, testArray1[index].0)
-            for doit in 0...organizedArray[index].1.count - 1 {
+            for doit in organizedArray[index].1.indices {
                 XCTAssertEqual(organizedArray[index].1[doit], testArray1[index].1[doit])
             }
         }
