@@ -14,8 +14,10 @@ public final class CoursePersistenceManager {
     let fileManager = FileManager.default
     let docsURL: URL
     let courseURL: URL
-    static let shared = CoursePersistenceManager()
-    var courses: [Course] {
+
+    public static let shared = CoursePersistenceManager()
+
+    public var courses: [Course] {
         didSet {
             saveCoursesToDisk()
         }
@@ -55,5 +57,9 @@ public final class CoursePersistenceManager {
         } catch {
             print("Failed to write JSON data")
         }
+    }
+
+    public func save(_ course: Course) {
+        courses.append(course)
     }
 }

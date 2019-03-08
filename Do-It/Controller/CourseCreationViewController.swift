@@ -9,6 +9,10 @@
 import UIKit
 import Do_ItCore
 
+protocol CourseCreationViewControllerDelegate: AnyObject {
+    func courseCreationViewController(_ viewController: CourseCreationViewController, didSaveCourse course: Course)
+}
+
 class CourseCreationViewController: UIViewController {
 
     weak var delegate: CourseTableViewControllerDelegate?
@@ -37,11 +41,25 @@ extension CourseCreationViewController {
 
     @IBAction func cancelButtonPressed() {
         print("cancel button pressed")
-        print(courseTitleTextField.text)
+        dismiss(animated: true)
     }
 
     @IBAction func saveButtonPressed() {
-        print("save button pressed")
+        if let courseTitle = courseTitleTextField.text, courseTitle != "" {
+            print("course title: '" + courseTitle + "'")
+            let course = Course(name: courseTitle)
+            //delegate?.courseCreationViewController(self, didSelectCourse: course)
+            dismiss(animated: true)
+        } else {
+            let alertController = UIAlertController(title: "Hey!",
+                                                    message: "You didn't put a course title.",
+                                                    preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default,
+                                                    handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
+
+// optional unwarpping if let
 
 }

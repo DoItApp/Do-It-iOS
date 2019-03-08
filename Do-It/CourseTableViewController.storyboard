@@ -58,11 +58,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVT-AE-Gzw">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LP6-m6-JjW"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zKV-kN-mu2"/>
+                                    <barButtonItem systemItem="compose" id="S3K-F8-nfF">
+                                        <connections>
+                                            <segue destination="aaZ-NX-fVg" kind="show" id="7oO-ud-Peu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LVT-AE-Gzw" firstAttribute="leading" secondItem="Lqq-gb-1c2" secondAttribute="leading" id="FVU-9K-bV6"/>
                             <constraint firstAttribute="bottomMargin" secondItem="09A-LL-6Xe" secondAttribute="bottom" id="GSY-uH-iV0"/>
                             <constraint firstItem="09A-LL-6Xe" firstAttribute="top" secondItem="9ae-Mi-yCx" secondAttribute="topMargin" id="IPK-Fd-Pfr"/>
+                            <constraint firstItem="LVT-AE-Gzw" firstAttribute="trailing" secondItem="Lqq-gb-1c2" secondAttribute="trailing" id="RMe-ik-gUg"/>
+                            <constraint firstAttribute="bottom" secondItem="LVT-AE-Gzw" secondAttribute="bottom" id="a99-Gj-isi"/>
                             <constraint firstItem="09A-LL-6Xe" firstAttribute="leading" secondItem="Lqq-gb-1c2" secondAttribute="leading" id="bgN-S8-gtl"/>
                             <constraint firstItem="Lqq-gb-1c2" firstAttribute="trailing" secondItem="09A-LL-6Xe" secondAttribute="trailing" id="tjc-GB-qXf"/>
                         </constraints>
@@ -77,6 +94,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpG-Ls-stV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2084" y="-2.2488755622188905"/>
+        </scene>
+        <!--CourseCreation-->
+        <scene sceneID="Reu-hV-hzF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CourseCreation" id="aaZ-NX-fVg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bze-ig-SU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2729" y="272"/>
         </scene>
     </scenes>
 </document>
