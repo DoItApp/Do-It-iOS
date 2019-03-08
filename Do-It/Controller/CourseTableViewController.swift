@@ -15,7 +15,13 @@ protocol CourseTableViewControllerDelegate: AnyObject {
 
 class CourseTableViewController: UIViewController {
 
-    var courses = [Course]()
+    let persistenceManager = CoursePersistenceManager.shared
+
+    var visCourses = [Course]()
+
+    var courses: [Course] {
+        return persistenceManager.courses
+    }
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBarEditItem: UINavigationItem!
@@ -26,9 +32,9 @@ class CourseTableViewController: UIViewController {
         super.viewDidLoad()
         title = "Courses"
 
-        courses = createArray()
+        visCourses.append(contentsOf: createArray())
 
-        courses.sort { (lhs: Course, rhs: Course) -> Bool in
+        visCourses.sort { (lhs: Course, rhs: Course) -> Bool in
             return lhs.name < rhs.name
         }
 
@@ -68,11 +74,11 @@ class CourseTableViewController: UIViewController {
 extension CourseTableViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        return visCourses.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let course = courses[indexPath.row]
+        let course = visCourses[indexPath.row]
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as? CourseTableViewCell else {
                 fatalError("The TableViewCell could not be cast to CourseTableViewCell")
@@ -84,7 +90,7 @@ extension CourseTableViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let course = courses[indexPath.row]
+        let course = visCourses[indexPath.row]
         delegate?.courseTableViewController(self, didSelectCourse: course)
         navigationController?.popViewController(animated: true)
     }
@@ -111,9 +117,18 @@ extension CourseTableViewController {
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            courses.remove(at: indexPath.row)
+            visCourses.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        tableView.reloadData()
+    }
+}
+
+// MARK: - Navigation
+extension CourseTableViewController: CourseCreationViewControllerDelegate {
+    func courseCreationViewController(_ viewController: CourseCreationViewController, didSaveCourse course: Course) {
+        persistenceManager.save(course)
+        visCourses = courses
         tableView.reloadData()
     }
 }

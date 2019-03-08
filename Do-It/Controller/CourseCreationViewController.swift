@@ -15,7 +15,7 @@ protocol CourseCreationViewControllerDelegate: AnyObject {
 
 class CourseCreationViewController: UIViewController {
 
-    weak var delegate: CourseTableViewControllerDelegate?
+    weak var delegate: CourseCreationViewControllerDelegate?
 
     @IBOutlet weak var courseTitleTextField: UITextField!
     @IBOutlet weak var navBarItem: UINavigationItem!
@@ -48,7 +48,7 @@ extension CourseCreationViewController {
         if let courseTitle = courseTitleTextField.text, courseTitle != "" {
             print("course title: '" + courseTitle + "'")
             let course = Course(name: courseTitle)
-            //delegate?.courseCreationViewController(self, didSelectCourse: course)
+            delegate?.courseCreationViewController(self, didSaveCourse: course)
             dismiss(animated: true)
         } else {
             let alertController = UIAlertController(title: "Hey!",
