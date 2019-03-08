@@ -58,7 +58,9 @@
 		96F9F7BA221E624A0011CC51 /* PriorityPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */; };
 		C62287F5221E725800A719E5 /* CreateDoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */; };
 		C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */; };
-		C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287FC22279BA800A719E5 /* NotificationManager.swift */; };
+		C6228801222F554400A719E5 /* AlertDateTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6228800222F554400A719E5 /* AlertDateTableViewController.storyboard */; };
+		C6228805222F59BD00A719E5 /* AlertDateTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6228804222F59BD00A719E5 /* AlertDateTableTableViewController.swift */; };
+		C64F4F062231F0FC003CEC02 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287FC22279BA800A719E5 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,8 @@
 		C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDoItTableViewController.swift; sourceTree = "<group>"; };
 		C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateDoItTableViewController.storyboard; sourceTree = "<group>"; };
 		C62287FC22279BA800A719E5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C6228800222F554400A719E5 /* AlertDateTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertDateTableViewController.storyboard; sourceTree = "<group>"; };
+		C6228804222F59BD00A719E5 /* AlertDateTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDateTableTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +244,7 @@
 				89AA5BE6219E457C00821B26 /* Controller */,
 				89CB6BE9221E53BB005C3795 /* Extensions */,
 				89AA5BE5219E457700821B26 /* View */,
+				C6228800222F554400A719E5 /* AlertDateTableViewController.storyboard */,
 				89AA5BB6219E456600821B26 /* AppDelegate.swift */,
 				89AA5BBD219E456800821B26 /* Assets.xcassets */,
 				5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */,
@@ -247,6 +252,7 @@
 				89AA5BC2219E456800821B26 /* Info.plist */,
 				89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */,
 				93B01224221E6E57008E62ED /* Main.storyboard */,
+				C62287FC22279BA800A719E5 /* NotificationManager.swift */,
 			);
 			path = "Do-It";
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 		89AA5BE6219E457C00821B26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C6228804222F59BD00A719E5 /* AlertDateTableTableViewController.swift */,
 				5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */,
 				C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */,
 				93D365EB22013BB600938467 /* DoItTableViewController.swift */,
@@ -337,7 +344,6 @@
 				8974AFB7220D07180043F01B /* DoItGroup.swift */,
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
-				C62287FC22279BA800A719E5 /* NotificationManager.swift */,
 				8974AFB8220D07180043F01B /* DoItSort.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
@@ -486,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6228801222F554400A719E5 /* AlertDateTableViewController.storyboard in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
 				5AD593C1221F7EC9009C5568 /* CourseTableViewController.storyboard in Resources */,
 				C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */,
@@ -547,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6228805222F59BD00A719E5 /* AlertDateTableTableViewController.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */,
 				5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */,
@@ -557,6 +565,7 @@
 				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
 				89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */,
 				89CB6BEB221E53D8005C3795 /* NibLoadable.swift in Sources */,
+				C64F4F062231F0FC003CEC02 /* NotificationManager.swift in Sources */,
 				96F9F7B9221E624A0011CC51 /* PriorityPickerTableViewCell.swift in Sources */,
 				96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */,
 				89CB6BF1221E5520005C3795 /* UITableView.swift in Sources */,
@@ -579,7 +588,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CB6C19221E577A005C3795 /* Course.swift in Sources */,
-				C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */,
 				89CB6C22221E5824005C3795 /* CoursePersistenceManager.swift in Sources */,
 				89CB6C1F221E57AA005C3795 /* DoIt.swift in Sources */,
 				89CB6C1A221E577A005C3795 /* DoItFilter.swift in Sources */,

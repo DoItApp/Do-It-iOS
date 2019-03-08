@@ -20,6 +20,7 @@ class CreateDoItTableViewController: UITableViewController {
         case priority
         case description
         case datePicker
+        case alertOption
     }
 
     var course = Course(name: "")
@@ -27,6 +28,8 @@ class CreateDoItTableViewController: UITableViewController {
     var name = ""
     var priority = DoItPriority.default
     var date = Date()
+    var alertOption = Date()
+    var alertString = ""
 
     weak var delegate: CreateDoItTableViewControllerDelegate?
 
@@ -77,6 +80,12 @@ class CreateDoItTableViewController: UITableViewController {
             cell.datePicker.minimumDate = Date()
             cell.delegate = self
             return cell
+        case .alertOption:
+            let cell = tableView.dequeueReusableCell(for: indexPath, as: DetailTextTableViewCell.self)
+            cell.textLabel?.text = "When to alert"
+            cell.detailTextLabel?.text = alertString
+            cell.accessoryType = .disclosureIndicator
+            return cell
         }
     }
 
@@ -89,6 +98,12 @@ class CreateDoItTableViewController: UITableViewController {
             }
             courseVC.delegate = self
             show(courseVC, sender: sender)
+        case .alertOption:
+            guard case (nil, let alertVC) = AlertDateTableViewController.instantiateFromStoryboard() else {
+                fatalError("Navigation controller should not be attached in AlertDateTableViewController.storyboard")
+            }
+            alertVC.delegate = self
+            show(alertVC, sender: sender)
         default:
             break
         }
@@ -97,7 +112,9 @@ class CreateDoItTableViewController: UITableViewController {
     @IBAction func save(_ sender: Any) {
         let doIt = DoIt(course: course, dueDate: date, description: desc, name: name,
                         priority: priority, kind: .homework)
+        let notifManager = NotificationManager()
         delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+        notifManager.setTrigger(doIt, alertOption)
         dismiss(animated: true)
     }
 
@@ -160,5 +177,14 @@ extension CreateDoItTableViewController: CourseTableViewControllerDelegate {
     func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourse course: Course) {
         self.course = course
         tableView.reloadRows(at: [IndexPath(row: Row.course.rawValue, section: 0)], with: .automatic)
+    }
+}
+
+extension CreateDoItTableViewController: AlertDateTableViewControllerDelegate {
+    func alertDateTableViewController(_ alertVC: AlertDateTableViewController,
+                                      didSelectDate alertWhen: DateComponents, alertString: String) {
+        self.alertString = alertString
+        self.alertOption = Calendar.current.date(byAdding: alertWhen, to: self.date)!
+        tableView.reloadRows(at: [IndexPath(row: Row.alertOption.rawValue, section: 0)], with: .automatic)
     }
 }
