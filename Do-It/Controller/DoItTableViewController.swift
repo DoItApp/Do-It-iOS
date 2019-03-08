@@ -161,7 +161,11 @@ extension DoItTableViewController {
         switch interactionMode {
         case .standard:
             // Proceed to Do-It detail editing screen
-            break
+            let (parentNavigationVC, createDoItVC) = CreateDoItTableViewController.instantiateFromStoryboard()
+            createDoItVC.delegate = self
+            let selectedDoIt = visibleDoIts[indexPath.row]
+            createDoItVC.inputMode = .editDoIt(selectedDoIt)
+            present(parentNavigationVC!, animated: true)
         case .selectingToShare:
             // Toggle selected cell for sharing
             if selectedIndexPaths.contains(indexPath) {
@@ -216,6 +220,7 @@ extension DoItTableViewController {
     @IBAction func composeButtonPressed() {
         let (parentNavigationVC, createDoItVC) = CreateDoItTableViewController.instantiateFromStoryboard()
         createDoItVC.delegate = self
+        createDoItVC.inputMode = .addNewDoIt
         present(parentNavigationVC!, animated: true)
     }
 
@@ -224,6 +229,13 @@ extension DoItTableViewController {
 // MARK: - Navigation
 extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt) {
+        persistenceManager.save(doIt)
+        visibleDoIts = doIts
+        tableView.reloadData()
+    }
+
+    func createDoItViewController(_ viewController: CreateDoItTableViewController, didEditDoIt doIt: DoIt) {
+        persistenceManager.deleteDoIt(matching: doIt.identifier)
         persistenceManager.save(doIt)
         visibleDoIts = doIts
         tableView.reloadData()
