@@ -7,7 +7,17 @@
 //
 
 public struct DoItOrganizationSettings {
-    var includedCourses: [Course]
-    var groupingSetting: GroupingSetting
-    var sortSetting: SortSetting
+    var filter: FilterSpecification?
+    var groupingSetting: GroupingSetting?
+    var sortSetting: SortSetting?
+
+//    public init(
+//        filter: FilterSpecification,
+//        groupingSetting: GroupingSetting,
+//        sortSetting: SortSetting
+//        ) {
+//        self.filter = filter
+//        self.groupingSetting = groupingSetting
+//        self.sortSetting = sortSetting
+//    }
 }

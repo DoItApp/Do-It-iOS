@@ -154,6 +154,9 @@ extension DoItTableViewController {
 
     @IBAction func searchButtonPressed() {
         // Go to Organization View Controller
+        let (parentNavigationVC, organizeDoItVC) = OrganizeDoItTableViewController.instantiateFromStoryboard()
+        organizeDoItVC.delegate = self
+        present(parentNavigationVC!, animated: true)
     }
 
     @IBAction func composeButtonPressed() {
@@ -170,5 +173,12 @@ extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
         persistenceManager.save(doIt)
         visibleDoIts = doIts
         tableView.reloadData()
+    }
+}
+
+extension DoItTableViewController: OrganizeDoItTableViewControllerDelegate {
+    func organizeDoItViewController(_ viewController: OrganizeDoItTableViewController,
+                                    didOrganize settings: DoItOrganizationSettings) {
+        // call organization function
     }
 }
