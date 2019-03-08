@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfL-Pd-LN7">
-                        <rect key="frame" x="6" y="4" width="331.5" height="33.5"/>
+                        <rect key="frame" x="6" y="4" width="331" height="30.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLq-xR-GMs">
-                        <rect key="frame" x="6" y="37.5" width="320" height="30"/>
+                        <rect key="frame" x="6" y="34.5" width="320" height="35"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Days" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70K-cq-GgT">
-                        <rect key="frame" x="339.5" y="4" width="52.5" height="31.5"/>
+                        <rect key="frame" x="339" y="4" width="53" height="28.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -50,17 +50,28 @@
                             <constraint firstAttribute="width" constant="14" id="oaU-AK-kPc"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="3XQ-SE-sBv">
+                        <rect key="frame" x="360" y="40.5" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="LP7-na-Bhp"/>
+                            <constraint firstAttribute="height" constant="16" id="xV4-Z6-LYP"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="B4x-vZ-yPQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="5Sr-d9-X9o"/>
+                    <constraint firstItem="3XQ-SE-sBv" firstAttribute="top" secondItem="70K-cq-GgT" secondAttribute="bottom" constant="8" id="8yo-KB-uyZ"/>
                     <constraint firstAttribute="trailing" secondItem="B4x-vZ-yPQ" secondAttribute="trailing" constant="70" id="BiB-ku-T91"/>
                     <constraint firstAttribute="bottom" secondItem="dyd-Gd-3S9" secondAttribute="bottom" constant="5" id="Byi-XK-nc8"/>
                     <constraint firstItem="xLq-xR-GMs" firstAttribute="top" secondItem="70K-cq-GgT" secondAttribute="bottom" constant="2" id="D3I-8e-uM1"/>
                     <constraint firstItem="xLq-xR-GMs" firstAttribute="top" secondItem="tfL-Pd-LN7" secondAttribute="bottom" id="Jud-9w-T85"/>
+                    <constraint firstItem="3XQ-SE-sBv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mjh-lW-WZ1"/>
                     <constraint firstItem="tfL-Pd-LN7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="NMQ-hj-TQz"/>
                     <constraint firstAttribute="trailing" secondItem="70K-cq-GgT" secondAttribute="trailing" constant="4" id="TQH-kL-a88"/>
                     <constraint firstItem="xLq-xR-GMs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="Z0d-LS-WWV"/>
-                    <constraint firstItem="B4x-vZ-yPQ" firstAttribute="top" secondItem="xLq-xR-GMs" secondAttribute="bottom" constant="6" id="acB-8h-QxF"/>
+                    <constraint firstItem="B4x-vZ-yPQ" firstAttribute="top" secondItem="xLq-xR-GMs" secondAttribute="bottom" constant="4" id="acB-8h-QxF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3XQ-SE-sBv" secondAttribute="trailing" id="cIa-O5-hEr"/>
+                    <constraint firstItem="dyd-Gd-3S9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3XQ-SE-sBv" secondAttribute="bottom" constant="8" id="ego-s4-1EH"/>
                     <constraint firstItem="tfL-Pd-LN7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="kzZ-gq-Kkh"/>
                     <constraint firstItem="70K-cq-GgT" firstAttribute="leading" secondItem="tfL-Pd-LN7" secondAttribute="trailing" constant="2" id="nZf-mr-gfZ"/>
                     <constraint firstAttribute="trailing" secondItem="dyd-Gd-3S9" secondAttribute="trailing" constant="5" id="psg-TV-t4e"/>
@@ -71,6 +82,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkmarkImageView" destination="3XQ-SE-sBv" id="flc-kd-UNz"/>
                 <outlet property="courseLabel" destination="xLq-xR-GMs" id="HTU-eZ-Zyd"/>
                 <outlet property="dateLabel" destination="70K-cq-GgT" id="CwI-s8-q30"/>
                 <outlet property="descriptionLabel" destination="B4x-vZ-yPQ" id="Tul-Jh-a8Q"/>
@@ -80,4 +92,7 @@
             <point key="canvasLocation" x="-8" y="-27.436281859070466"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkmark" width="14" height="11"/>
+    </resources>
 </document>
