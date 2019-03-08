@@ -110,12 +110,18 @@ class CreateDoItTableViewController: UITableViewController {
     }
 
     @IBAction func save(_ sender: Any) {
-        let doIt = DoIt(course: course, dueDate: date, description: desc, name: name,
-                        priority: priority, kind: .homework)
-        let notifManager = NotificationManager()
-        delegate?.createDoItViewController(self, didSaveDoIt: doIt)
-        notifManager.setTrigger(doIt, alertOption)
-        dismiss(animated: true)
+        if course.name == "" || name == "" || desc == "" || alertString == "" {
+            let alertController = UIAlertController(title: "You're not done yet!", message: "Please fill in all the required fields before adding the Do-It", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            let doIt = DoIt(course: course, dueDate: date, description: desc,
+                            name: name, priority: priority, kind: .homework)
+            let notifManager = NotificationManager()
+            delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+            notifManager.setTrigger(doIt, alertOption)
+            dismiss(animated: true)
+        }
     }
 
     @IBAction func cancel(_ sender: Any) {
