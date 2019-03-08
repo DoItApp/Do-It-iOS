@@ -23,6 +23,13 @@ class CreateDoItTableViewController: UITableViewController {
         case datePicker
     }
 
+    enum InputMode {
+        case addNewDoIt
+        case editDoIt(DoIt)
+    }
+
+    var inputMode: InputMode!
+
     var course = Course(name: "")
     var desc = ""
     var name = ""
@@ -31,21 +38,26 @@ class CreateDoItTableViewController: UITableViewController {
 
     weak var delegate: CreateDoItTableViewControllerDelegate?
 
-    var doItToEdit: DoIt?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "New Do-It"
+
 
         tableView.registerNibs(for: DatePickerTableViewCell.self,
                                  TextFieldTableViewCell.self,
                                  PriorityPickerTableViewCell.self)
         tableView.register(DetailTextTableViewCell.self, forCellReuseIdentifier: DetailTextTableViewCell.className)
 
-        if let doIt = doItToEdit {
-            populateViewWithDoItToEdit(doIt: doIt)
+        switch inputMode {
+        case .addNewDoIt?:
+            title = "New Do-It"
+        case .editDoIt(let doItToEdit)?:
+            title = "Edit Do-It"
+            populateViewWithDoItToEdit(doIt: doItToEdit)
+        case .none:
+            fatalError("InputMode not set!")
         }
+
     }
 
     func populateViewWithDoItToEdit(doIt: DoIt) {
@@ -118,11 +130,14 @@ class CreateDoItTableViewController: UITableViewController {
         var doIt = DoIt(course: course, dueDate: date, description: desc, name: name,
                         priority: priority, kind: .homework)
 
-        if let doItToEdit = doItToEdit {
+        switch inputMode {
+        case .addNewDoIt?:
+            delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+        case .editDoIt(let doItToEdit)?:
             doIt.identifier = doItToEdit.identifier
             delegate?.createDoItViewController(self, didEditDoIt: doIt)
-        } else {
-            delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+        case .none:
+            fatalError("inputMode is not set!")
         }
 
         dismiss(animated: true)

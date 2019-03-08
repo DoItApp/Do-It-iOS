@@ -164,7 +164,7 @@ extension DoItTableViewController {
             let (parentNavigationVC, createDoItVC) = CreateDoItTableViewController.instantiateFromStoryboard()
             createDoItVC.delegate = self
             let selectedDoIt = visibleDoIts[indexPath.row]
-            createDoItVC.doItToEdit = selectedDoIt
+            createDoItVC.inputMode = .editDoIt(selectedDoIt)
             present(parentNavigationVC!, animated: true)
         case .selectingToShare:
             // Toggle selected cell for sharing
@@ -220,6 +220,7 @@ extension DoItTableViewController {
     @IBAction func composeButtonPressed() {
         let (parentNavigationVC, createDoItVC) = CreateDoItTableViewController.instantiateFromStoryboard()
         createDoItVC.delegate = self
+        createDoItVC.inputMode = .addNewDoIt
         present(parentNavigationVC!, animated: true)
     }
 
