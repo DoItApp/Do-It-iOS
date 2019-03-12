@@ -41,7 +41,7 @@ public final class CoursePersistenceManager {
             let data = try Data(contentsOf: courseURL, options: [])
             courses =  try decoder.decode([Course].self, from: data)
         } catch {
-            print("Failed to read JSON data")
+            print("Failed to read JSON data in Course Persistence")
         }
     }
 
@@ -55,11 +55,12 @@ public final class CoursePersistenceManager {
             let data = try encoder.encode(courses)
             try data.write(to: courseURL, options: [])
         } catch {
-            print("Failed to write JSON data")
+            print("Failed to write JSON data in Course Persistence")
         }
     }
 
     public func save(_ course: Course) {
+        print("Saving")
         courses.append(course)
     }
 }
