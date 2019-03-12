@@ -250,9 +250,14 @@ extension DoItTableViewController: DoItSharingObserver {
         receivedDoIts.forEach(persistenceManager.save)
         visibleDoIts = doIts
         tableView.reloadData()
+    }
+}
+
 extension DoItTableViewController: OrganizeDoItTableViewControllerDelegate {
     func organizeDoItViewController(_ viewController: OrganizeDoItTableViewController,
                                     didOrganize settings: DoItOrganizationSettings) {
         // call organization function
+        let organizationManager = DoItOrganizationManager(organizationSettings: settings)
+        visibleDoIts = organizationManager.organize(doIts)
     }
 }

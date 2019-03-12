@@ -12,13 +12,13 @@ public final class DoItOrganizationManager {
     var organizationSettings: DoItOrganizationSettings
     let dateFormatter = DateFormatter()
 
-    init(organizationSettings: DoItOrganizationSettings) {
+    public init(organizationSettings: DoItOrganizationSettings) {
         self.organizationSettings = organizationSettings
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
     }
 
-    func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
+    public func organize(_ doIts: [DoIt]) -> [(String, [DoIt])] {
         var beingOrganized = doIts
         let filterAlg = DoItsFilter()
         for filterType in organizationSettings.filterSetting {

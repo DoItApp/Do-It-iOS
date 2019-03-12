@@ -63,7 +63,8 @@ class OrganizeDoItTableViewController: UITableViewController {
             return cell
         case .dueDate:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: DetailTextTableViewCell.self)
-            // TODO: Aaron's due date view here
+            cell.textLabel?.text = "Due Date"
+            cell.accessoryType = .disclosureIndicator
             return cell
         case .priority:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: PrioritySettingSegmentTableViewCell.self)
@@ -108,6 +109,12 @@ class OrganizeDoItTableViewController: UITableViewController {
             }
             courseVC.delegate = self
             show(courseVC, sender: sender)
+        case .dueDate:
+            guard case (let parentNavigationVC, let dueDateVC) = DueDatePickerTableViewController.instantiateFromStoryboard() else {
+                fatalError("Navigation controller should not be attached in DueDatePickerTableViewController.storyboard")
+            }
+//            dueDateVC.delegate = self
+            present(parentNavigationVC!, animated: true)
         default:
             break
         }
@@ -166,5 +173,11 @@ extension OrganizeDoItTableViewController: PrioritySettingSegmentTableViewCellDe
         default:
             fatalError()
         }
+    }
+}
+
+extension OrganizeDoItTableViewController: DueDatePickerTableViewControllerDelegate {
+    func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController, didSelectTimeRange range: (DateComponents, DateComponents)?) {
+        
     }
 }

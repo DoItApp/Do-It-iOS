@@ -41,8 +41,6 @@ class CreateDoItTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-
         tableView.registerNibs(for: DatePickerTableViewCell.self,
                                  TextFieldTableViewCell.self,
                                  PriorityPickerTableViewCell.self)
