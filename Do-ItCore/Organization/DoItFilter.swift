@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FilterSpecification {
+public protocol FilterSpecification {
     func applyFilter(_ doIts: [DoIt]) -> [DoIt]
 }
 
@@ -18,42 +18,42 @@ class DoItsFilter {
     }
 }
 
-struct CourseFilter: FilterSpecification {
-    var filterCourse: Course
+public struct CourseFilter: FilterSpecification {
+    public var filterCourse: Course
 
-    init(_ input: Course) {
+    public init(_ input: Course) {
         filterCourse = input
     }
 
-    func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
+    public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in doIt.course == filterCourse})
     }
 }
 
-struct DueDateFilter: FilterSpecification {
-    var firstDate: Date
-    var lastDate: Date
+public struct DueDateFilter: FilterSpecification {
+    public var firstDate: Date
+    public var lastDate: Date
 
-    init(firstDay: Date, lastDay: Date) {
+    public init(firstDay: Date, lastDay: Date) {
         firstDate = firstDay
         lastDate = lastDay
     }
 
-    func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
+    public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in
             doIt.dueDate < lastDate && doIt.dueDate > firstDate
         })
     }
 }
 
-struct PriorityFilter: FilterSpecification {
-    var filterPriority: DoItPriority
+public struct PriorityFilter: FilterSpecification {
+    public var filterPriority: DoItPriority
 
-    init(input: DoItPriority) {
+    public init(input: DoItPriority) {
         filterPriority = input
     }
 
-    func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
+    public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in doIt.priority == filterPriority})
     }
 }
