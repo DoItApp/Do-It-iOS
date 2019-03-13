@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Do_ItCore
 
 extension UserDefaults {
     private enum Key {

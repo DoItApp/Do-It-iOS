@@ -7,8 +7,7 @@
 //
 
 import XCTest
-@testable import Do_It
-import Do_ItCore
+@testable import Do_ItCore
 class UserDefaultsTests: XCTestCase {
 
     var courses: [Course] = []
