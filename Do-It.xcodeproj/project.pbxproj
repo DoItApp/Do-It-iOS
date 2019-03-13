@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3426A2EF22383DCE000DCD9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426A2EE22383DCE000DCD9E /* UserDefaults.swift */; };
 		3426A2F122384963000DCD9E /* FilterSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426A2F022384963000DCD9E /* FilterSetting.swift */; };
+		3426A2F522386329000DCD9E /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426A2F422386329000DCD9E /* UserDefaultsTests.swift */; };
 		347A5136221F8C4100A48B92 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A5135221F8C4100A48B92 /* OrganizationTests.swift */; };
 		5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C82221F7D5900C4ECC2 /* CourseTableViewCell.swift */; };
 		5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */; };
@@ -115,6 +116,7 @@
 /* Begin PBXFileReference section */
 		3426A2EE22383DCE000DCD9E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		3426A2F022384963000DCD9E /* FilterSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSetting.swift; sourceTree = "<group>"; };
+		3426A2F422386329000DCD9E /* UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTests.swift; sourceTree = "<group>"; };
 		345FFA272201290F0023E0FE /* DoItPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPersistenceTests.swift; sourceTree = "<group>"; };
 		347A5135221F8C4100A48B92 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
 		34BBCD6A21FAA1F700685E31 /* DoItKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItKind.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
+				3426A2F422386329000DCD9E /* UserDefaultsTests.swift */,
 			);
 			path = "Do-ItTests";
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 			files = (
 				93B01228221E6E70008E62ED /* DoItTableViewControllerTests.swift in Sources */,
 				89CB6C2E221E5B8D005C3795 /* ExampleTests.swift in Sources */,
+				3426A2F522386329000DCD9E /* UserDefaultsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
