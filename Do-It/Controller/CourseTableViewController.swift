@@ -113,6 +113,13 @@ extension CourseTableViewController {
         }
     }
 
+    @IBAction func composeButtonPressed(_ sender: UIBarButtonItem) {
+        print("got here")
+        let (parentNavigationVC, createCourseVC) = CourseCreationViewController.instantiateFromStoryboard()
+        createCourseVC.delegate = self
+        present(parentNavigationVC!, animated: true)
+    }
+
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {

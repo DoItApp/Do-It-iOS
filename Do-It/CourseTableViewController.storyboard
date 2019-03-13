@@ -67,7 +67,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zKV-kN-mu2"/>
                                     <barButtonItem systemItem="compose" id="S3K-F8-nfF">
                                         <connections>
-                                            <segue destination="aaZ-NX-fVg" kind="show" id="7oO-ud-Peu"/>
+                                            <action selector="composeButtonPressed:" destination="N9i-ln-ORD" id="cvR-AI-3SB"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -94,14 +94,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpG-Ls-stV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2084" y="-2.2488755622188905"/>
-        </scene>
-        <!--CourseCreation-->
-        <scene sceneID="Reu-hV-hzF">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CourseCreation" id="aaZ-NX-fVg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bze-ig-SU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2729" y="272"/>
         </scene>
     </scenes>
 </document>
