@@ -61,9 +61,10 @@
 		96F9F7BA221E624A0011CC51 /* PriorityPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */; };
 		C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */; };
 		C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287FC22279BA800A719E5 /* NotificationManager.swift */; };
-		C6815DB522389C6A00F05B4C /* DoItTableViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB422389C6A00F05B4C /* DoItTableViewController copy.swift */; };
-		C6815DB722389C6F00F05B4C /* CreateDoItTableViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB622389C6F00F05B4C /* CreateDoItTableViewController copy.swift */; };
-		C6815DB922389C7300F05B4C /* AlertDateTableTableViewController copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB822389C7300F05B4C /* AlertDateTableTableViewController copy.swift */; };
+		C6815DB522389C6A00F05B4C /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB422389C6A00F05B4C /* DoItTableViewController.swift */; };
+		C6815DB722389C6F00F05B4C /* CreateDoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */; };
+		C6815DB922389C7300F05B4C /* AlertDateTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */; };
+		C6815DBB22389CBF00F05B4C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DBA22389CBF00F05B4C /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,9 +173,10 @@
 		96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriorityPickerTableViewCell.xib; sourceTree = "<group>"; };
 		C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateDoItTableViewController.storyboard; sourceTree = "<group>"; };
 		C62287FC22279BA800A719E5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		C6815DB422389C6A00F05B4C /* DoItTableViewController copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DoItTableViewController copy.swift"; sourceTree = "<group>"; };
-		C6815DB622389C6F00F05B4C /* CreateDoItTableViewController copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CreateDoItTableViewController copy.swift"; sourceTree = "<group>"; };
-		C6815DB822389C7300F05B4C /* AlertDateTableTableViewController copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertDateTableTableViewController copy.swift"; sourceTree = "<group>"; };
+		C6815DB422389C6A00F05B4C /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
+		C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDoItTableViewController.swift; sourceTree = "<group>"; };
+		C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDateTableTableViewController.swift; sourceTree = "<group>"; };
+		C6815DBA22389CBF00F05B4C /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 				89AA5BC2219E456800821B26 /* Info.plist */,
 				89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */,
 				93B01224221E6E57008E62ED /* Main.storyboard */,
+				C6815DBA22389CBF00F05B4C /* NotificationManager.swift */,
 			);
 			path = "Do-It";
 			sourceTree = "<group>";
@@ -302,10 +305,10 @@
 		89AA5BE6219E457C00821B26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C6815DB622389C6F00F05B4C /* CreateDoItTableViewController copy.swift */,
-				C6815DB422389C6A00F05B4C /* DoItTableViewController copy.swift */,
-				C6815DB822389C7300F05B4C /* AlertDateTableTableViewController copy.swift */,
+				C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */,
 				5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */,
+				C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */,
+				C6815DB422389C6A00F05B4C /* DoItTableViewController.swift */,
 				931528A5221F87B9009F72F9 /* DueDatePickerTableViewController.swift */,
 			);
 			path = Controller;
@@ -571,22 +574,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6815DB922389C7300F05B4C /* AlertDateTableTableViewController.swift in Sources */,
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
 				5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */,
 				5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */,
+				C6815DB722389C6F00F05B4C /* CreateDoItTableViewController.swift in Sources */,
 				96F9F7AC221E4B400011CC51 /* DatePickerTableViewCell.swift in Sources */,
-				C6815DB722389C6F00F05B4C /* CreateDoItTableViewController copy.swift in Sources */,
 				89580EC02225AABE00B2E58A /* DetailTextTableViewCell.swift in Sources */,
 				892A5D5F222F5406008961AB /* DoItActivityItemSource.swift in Sources */,
 				93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */,
+				C6815DB522389C6A00F05B4C /* DoItTableViewController.swift in Sources */,
 				931528A6221F87B9009F72F9 /* DueDatePickerTableViewController.swift in Sources */,
 				89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */,
 				89CB6BEB221E53D8005C3795 /* NibLoadable.swift in Sources */,
+				C6815DBB22389CBF00F05B4C /* NotificationManager.swift in Sources */,
 				96F9F7B9221E624A0011CC51 /* PriorityPickerTableViewCell.swift in Sources */,
-				C6815DB522389C6A00F05B4C /* DoItTableViewController copy.swift in Sources */,
 				96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */,
 				89CB6BF1221E5520005C3795 /* UITableView.swift in Sources */,
-				C6815DB922389C7300F05B4C /* AlertDateTableTableViewController copy.swift in Sources */,
 				89CB6BEF221E5421005C3795 /* UITableViewCell.swift in Sources */,
 				89CB6C30221F0583005C3795 /* UIViewController.swift in Sources */,
 			);
