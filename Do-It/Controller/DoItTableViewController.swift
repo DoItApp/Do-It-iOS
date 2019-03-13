@@ -33,6 +33,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     let persistenceManager = DoItPersistenceManager.shared
+    let coursePersistenceManager = CoursePersistenceManager.shared
 
     let launchDate = Date()
     var doIts: [DoIt] {
@@ -245,7 +246,16 @@ extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
 extension DoItTableViewController: DoItSharingObserver {
     func sharingManager(_ sharingManager: DoItSharingManager, didReceiveDoIts receivedDoIts: [DoIt]) {
         receivedDoIts.forEach(persistenceManager.save)
+        addNewRecievedCourses(recievedDoIts: receivedDoIts)
         visibleDoIts = doIts
         tableView.reloadData()
+    }
+
+    func addNewRecievedCourses(recievedDoIts: [DoIt]) {
+        for doIt in recievedDoIts {
+            if !coursePersistenceManager.courses.contains(doIt.course) {
+                coursePersistenceManager.save(doIt.course)
+            }
+        }
     }
 }
