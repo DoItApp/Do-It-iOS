@@ -36,7 +36,7 @@ class CreateDoItTableViewController: UITableViewController {
     var name = ""
     var priority = DoItPriority.default
     var date = Date()
-    var alertOption = DateComponents()
+    var alertOption: DateComponents?
     var alertString = ""
 
     weak var delegate: CreateDoItTableViewControllerDelegate?
@@ -139,7 +139,7 @@ class CreateDoItTableViewController: UITableViewController {
     }
 
     @IBAction func save(_ sender: Any) {
-        if course.name == "" || name == "" || alertString == "" {
+        if course.name == "" || name == "" {
             let alertController = UIAlertController(title: "You're not done yet!",
                                                     message: "Please fill in all the required fields before adding the Do-It", preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
@@ -147,15 +147,13 @@ class CreateDoItTableViewController: UITableViewController {
         } else {
             var doIt = DoIt(course: course, dueDate: date, description: desc,
                             name: name, priority: priority, kind: .homework)
-            let alertDate = Calendar.current.date(byAdding: alertOption, to: date)
             let notifManager = NotificationManager()
             switch inputMode {
             case .addNewDoIt?:
                 delegate?.createDoItViewController(self, didSaveDoIt: doIt)
-                notifManager.setTrigger(doIt, alertDate!)
+                notifManager.setTrigger(doIt, alertOption)
             case .editDoIt(let doItToEdit)?:
-                notifManager.cancelNotification(doIt)
-                notifManager.setTrigger(doIt, alertDate!)
+                notifManager.reschedule(doIt, alertOption)
                 doIt.identifier = doItToEdit.identifier
                 delegate?.createDoItViewController(self, didEditDoIt: doIt)
             case .none:

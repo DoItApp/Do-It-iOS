@@ -65,6 +65,7 @@
 		C6815DB722389C6F00F05B4C /* CreateDoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */; };
 		C6815DB922389C7300F05B4C /* AlertDateTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */; };
 		C6815DBB22389CBF00F05B4C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DBA22389CBF00F05B4C /* NotificationManager.swift */; };
+		C6815DBD22389DBD00F05B4C /* AlertDateTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6815DBC22389DBD00F05B4C /* AlertDateTableViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDoItTableViewController.swift; sourceTree = "<group>"; };
 		C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDateTableTableViewController.swift; sourceTree = "<group>"; };
 		C6815DBA22389CBF00F05B4C /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C6815DBC22389DBD00F05B4C /* AlertDateTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertDateTableViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				89CB6BE9221E53BB005C3795 /* Extensions */,
 				892A5D5D222F53F9008961AB /* Model */,
 				89AA5BE5219E457700821B26 /* View */,
+				C6815DBC22389DBD00F05B4C /* AlertDateTableViewController.storyboard */,
 				89AA5BB6219E456600821B26 /* AppDelegate.swift */,
 				89AA5BBD219E456800821B26 /* Assets.xcassets */,
 				5AD593C0221F7EC9009C5568 /* CourseTableViewController.storyboard */,
@@ -512,6 +515,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6815DBD22389DBD00F05B4C /* AlertDateTableViewController.storyboard in Resources */,
 				89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */,
 				5AD593C1221F7EC9009C5568 /* CourseTableViewController.storyboard in Resources */,
 				C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */,
