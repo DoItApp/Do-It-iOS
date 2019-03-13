@@ -6,7 +6,7 @@
 //  Copyright © 2018 The Swifter Picker-Uppers. All rights reserved.
 //
 
-public enum SortSetting {
+public enum SortSetting: Int {
     case dueDate
     case course
     case priority

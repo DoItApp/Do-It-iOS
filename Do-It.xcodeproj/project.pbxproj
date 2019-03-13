@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3426A2EF22383DCE000DCD9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426A2EE22383DCE000DCD9E /* UserDefaults.swift */; };
+		3426A2F122384963000DCD9E /* FilterSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426A2F022384963000DCD9E /* FilterSetting.swift */; };
+		3426A2F522386329000DCD9E /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426A2F422386329000DCD9E /* UserDefaultsTests.swift */; };
 		347A5136221F8C4100A48B92 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A5135221F8C4100A48B92 /* OrganizationTests.swift */; };
 		5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C82221F7D5900C4ECC2 /* CourseTableViewCell.swift */; };
 		5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */; };
@@ -111,6 +114,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3426A2EE22383DCE000DCD9E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		3426A2F022384963000DCD9E /* FilterSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSetting.swift; sourceTree = "<group>"; };
+		3426A2F422386329000DCD9E /* UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTests.swift; sourceTree = "<group>"; };
 		345FFA272201290F0023E0FE /* DoItPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItPersistenceTests.swift; sourceTree = "<group>"; };
 		347A5135221F8C4100A48B92 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
 		34BBCD6A21FAA1F700685E31 /* DoItKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItKind.swift; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 				93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
+				3426A2F422386329000DCD9E /* UserDefaultsTests.swift */,
 			);
 			path = "Do-ItTests";
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 				89CB6BF0221E5520005C3795 /* UITableView.swift */,
 				89CB6BEE221E5421005C3795 /* UITableViewCell.swift */,
 				89CB6C2F221F0583005C3795 /* UIViewController.swift */,
+				3426A2EE22383DCE000DCD9E /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				89AA5BF3219E46F500821B26 /* DoItOrganizationManager.swift */,
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
 				8974AFB8220D07180043F01B /* DoItSort.swift */,
+				3426A2F022384963000DCD9E /* FilterSetting.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
 				C62287FC22279BA800A719E5 /* NotificationManager.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
@@ -585,6 +594,7 @@
 				89CB6BF1221E5520005C3795 /* UITableView.swift in Sources */,
 				89CB6BEF221E5421005C3795 /* UITableViewCell.swift in Sources */,
 				89CB6C30221F0583005C3795 /* UIViewController.swift in Sources */,
+				3426A2EF22383DCE000DCD9E /* UserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +604,7 @@
 			files = (
 				93B01228221E6E70008E62ED /* DoItTableViewControllerTests.swift in Sources */,
 				89CB6C2E221E5B8D005C3795 /* ExampleTests.swift in Sources */,
+				3426A2F522386329000DCD9E /* UserDefaultsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +626,7 @@
 				89CB6C24221E5824005C3795 /* DoItSharingManager.swift in Sources */,
 				89CB6C25221E5824005C3795 /* DoItSharingObserver.swift in Sources */,
 				89CB6C1D221E577A005C3795 /* DoItSort.swift in Sources */,
+				3426A2F122384963000DCD9E /* FilterSetting.swift in Sources */,
 				89CB6C1B221E577A005C3795 /* GroupingSetting.swift in Sources */,
 				C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */,
 				89CB6C18221E577A005C3795 /* SortSetting.swift in Sources */,
