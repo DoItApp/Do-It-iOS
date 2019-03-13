@@ -51,7 +51,6 @@
 		931528A8221F87C2009F72F9 /* DueDatePickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931528A7221F87C1009F72F9 /* DueDatePickerViewController.storyboard */; };
 		93B01225221E6E57008E62ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B01224221E6E57008E62ED /* Main.storyboard */; };
 		93B01228221E6E70008E62ED /* DoItTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */; };
-		93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365EB22013BB600938467 /* DoItTableViewController.swift */; };
 		93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D365ED22013BCD00938467 /* DoItTableViewCell.swift */; };
 		93D365F022013BCD00938467 /* DoItTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D365EE22013BCD00938467 /* DoItTableViewCell.xib */; };
 		96F9F7AC221E4B400011CC51 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7A8221E4B3F0011CC51 /* DatePickerTableViewCell.swift */; };
@@ -60,9 +59,12 @@
 		96F9F7B2221E4CF80011CC51 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */; };
 		96F9F7B9221E624A0011CC51 /* PriorityPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7B7221E624A0011CC51 /* PriorityPickerTableViewCell.swift */; };
 		96F9F7BA221E624A0011CC51 /* PriorityPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */; };
-		C62287F5221E725800A719E5 /* CreateDoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */; };
 		C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */; };
 		C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287FC22279BA800A719E5 /* NotificationManager.swift */; };
+		C6F0187E223885C600819252 /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0187D223885C600819252 /* DoItTableViewController.swift */; };
+		C6F01880223885C900819252 /* CreateDoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F0187F223885C900819252 /* CreateDoItTableViewController.swift */; };
+		C6F01882223885CD00819252 /* AlertDateTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F01881223885CD00819252 /* AlertDateTableTableViewController.swift */; };
+		C6F01884223885D100819252 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F01883223885D100819252 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +161,6 @@
 		93B01224221E6E57008E62ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		93B01226221E6E70008E62ED /* Do-ItTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Do-ItTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewControllerTests.swift; sourceTree = "<group>"; };
-		93D365EB22013BB600938467 /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
 		93D365ED22013BCD00938467 /* DoItTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewCell.swift; sourceTree = "<group>"; };
 		93D365EE22013BCD00938467 /* DoItTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoItTableViewCell.xib; sourceTree = "<group>"; };
 		96001492221E120A0002767E /* DoItFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItFilter.swift; sourceTree = "<group>"; };
@@ -170,9 +171,12 @@
 		96F9F7B0221E4CF80011CC51 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		96F9F7B7221E624A0011CC51 /* PriorityPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorityPickerTableViewCell.swift; sourceTree = "<group>"; };
 		96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriorityPickerTableViewCell.xib; sourceTree = "<group>"; };
-		C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDoItTableViewController.swift; sourceTree = "<group>"; };
 		C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateDoItTableViewController.storyboard; sourceTree = "<group>"; };
 		C62287FC22279BA800A719E5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C6F0187D223885C600819252 /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
+		C6F0187F223885C900819252 /* CreateDoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDoItTableViewController.swift; sourceTree = "<group>"; };
+		C6F01881223885CD00819252 /* AlertDateTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDateTableTableViewController.swift; sourceTree = "<group>"; };
+		C6F01883223885D100819252 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,7 @@
 				C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */,
 				931528A7221F87C1009F72F9 /* DueDatePickerViewController.storyboard */,
 				89AA5BC2219E456800821B26 /* Info.plist */,
+				C6F01883223885D100819252 /* NotificationManager.swift */,
 				89AA5BBF219E456800821B26 /* LaunchScreen.storyboard */,
 				93B01224221E6E57008E62ED /* Main.storyboard */,
 			);
@@ -301,8 +306,9 @@
 			isa = PBXGroup;
 			children = (
 				5A459C84221F7D6300C4ECC2 /* CourseTableViewController.swift */,
-				C62287F4221E725800A719E5 /* CreateDoItTableViewController.swift */,
-				93D365EB22013BB600938467 /* DoItTableViewController.swift */,
+				C6F0187F223885C900819252 /* CreateDoItTableViewController.swift */,
+				C6F01881223885CD00819252 /* AlertDateTableTableViewController.swift */,
+				C6F0187D223885C600819252 /* DoItTableViewController.swift */,
 				931528A5221F87B9009F72F9 /* DueDatePickerTableViewController.swift */,
 			);
 			path = Controller;
@@ -569,22 +575,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */,
+				C6F01880223885C900819252 /* CreateDoItTableViewController.swift in Sources */,
 				5A459C83221F7D5900C4ECC2 /* CourseTableViewCell.swift in Sources */,
+				C6F01882223885CD00819252 /* AlertDateTableTableViewController.swift in Sources */,
 				5A459C85221F7D6300C4ECC2 /* CourseTableViewController.swift in Sources */,
-				C62287F5221E725800A719E5 /* CreateDoItTableViewController.swift in Sources */,
 				96F9F7AC221E4B400011CC51 /* DatePickerTableViewCell.swift in Sources */,
 				89580EC02225AABE00B2E58A /* DetailTextTableViewCell.swift in Sources */,
 				892A5D5F222F5406008961AB /* DoItActivityItemSource.swift in Sources */,
 				93D365EF22013BCD00938467 /* DoItTableViewCell.swift in Sources */,
-				93D365EC22013BB600938467 /* DoItTableViewController.swift in Sources */,
 				931528A6221F87B9009F72F9 /* DueDatePickerTableViewController.swift in Sources */,
 				89CB6BED221E53E7005C3795 /* IdentifiableClass.swift in Sources */,
 				89CB6BEB221E53D8005C3795 /* NibLoadable.swift in Sources */,
 				96F9F7B9221E624A0011CC51 /* PriorityPickerTableViewCell.swift in Sources */,
 				96F9F7B1221E4CF80011CC51 /* TextFieldTableViewCell.swift in Sources */,
 				89CB6BF1221E5520005C3795 /* UITableView.swift in Sources */,
+				C6F01884223885D100819252 /* NotificationManager.swift in Sources */,
 				89CB6BEF221E5421005C3795 /* UITableViewCell.swift in Sources */,
 				89CB6C30221F0583005C3795 /* UIViewController.swift in Sources */,
+				C6F0187E223885C600819252 /* DoItTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
