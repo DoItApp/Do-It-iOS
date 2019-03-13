@@ -9,7 +9,7 @@
 import Foundation
 
 public struct DoItId: Codable, Equatable {
-    private let identifier: UUID
+    public let identifier: UUID
 
     public init() {
         self.init(uuid: UUID())

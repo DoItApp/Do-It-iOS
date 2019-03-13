@@ -11,6 +11,7 @@ import Do_ItCore
 
 protocol CreateDoItTableViewControllerDelegate: AnyObject {
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt)
+    func createDoItViewController(_ viewController: CreateDoItTableViewController, didEditDoIt doIt: DoIt)
 }
 
 class CreateDoItTableViewController: UITableViewController {
@@ -21,6 +22,13 @@ class CreateDoItTableViewController: UITableViewController {
         case description
         case datePicker
     }
+
+    enum InputMode {
+        case addNewDoIt
+        case editDoIt(DoIt)
+    }
+
+    var inputMode: InputMode!
 
     var course = Course(name: "")
     var desc = ""
@@ -33,11 +41,31 @@ class CreateDoItTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "New Do-It"
+
 
         tableView.registerNibs(for: DatePickerTableViewCell.self,
-                                 TextFieldTableViewCell.self, PriorityPickerTableViewCell.self)
+                                 TextFieldTableViewCell.self,
+                                 PriorityPickerTableViewCell.self)
         tableView.register(DetailTextTableViewCell.self, forCellReuseIdentifier: DetailTextTableViewCell.className)
+
+        switch inputMode {
+        case .addNewDoIt?:
+            title = "New Do-It"
+        case .editDoIt(let doItToEdit)?:
+            title = "Edit Do-It"
+            populateViewWithDoItToEdit(doIt: doItToEdit)
+        case .none:
+            fatalError("InputMode not set!")
+        }
+
+    }
+
+    func populateViewWithDoItToEdit(doIt: DoIt) {
+        name = doIt.name
+        desc = doIt.description
+        course = doIt.course
+        priority = doIt.priority
+        date = doIt.dueDate
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,6 +82,7 @@ class CreateDoItTableViewController: UITableViewController {
         case .name:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: TextFieldTableViewCell.self)
             cell.titleLabel.text = "Name"
+            cell.textField.text = name
             cell.delegate = self
             return cell
         case .course:
@@ -64,17 +93,20 @@ class CreateDoItTableViewController: UITableViewController {
             return cell
         case .priority:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: PriorityPickerTableViewCell.self)
+            cell.segmentControl.selectedSegmentIndex = priority.rawValue - 1
             cell.delegate = self
             return cell
         case .description:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: TextFieldTableViewCell.self)
             cell.titleLabel.text = "Description"
+            cell.textField.text = desc
             cell.delegate = self
             return cell
         case .datePicker:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: DatePickerTableViewCell.self)
             cell.titleLabel.text = "Date Picker"
             cell.datePicker.minimumDate = Date()
+            cell.date = date
             cell.delegate = self
             return cell
         }
@@ -95,9 +127,19 @@ class CreateDoItTableViewController: UITableViewController {
     }
 
     @IBAction func save(_ sender: Any) {
-        let doIt = DoIt(course: course, dueDate: date, description: desc, name: name,
+        var doIt = DoIt(course: course, dueDate: date, description: desc, name: name,
                         priority: priority, kind: .homework)
-        delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+
+        switch inputMode {
+        case .addNewDoIt?:
+            delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+        case .editDoIt(let doItToEdit)?:
+            doIt.identifier = doItToEdit.identifier
+            delegate?.createDoItViewController(self, didEditDoIt: doIt)
+        case .none:
+            fatalError("inputMode is not set!")
+        }
+
         dismiss(animated: true)
     }
 

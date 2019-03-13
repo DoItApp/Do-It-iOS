@@ -9,18 +9,16 @@
 import Foundation
 
 public final class DoItSharingManager {
-    var persistenceManager: DoItPersistenceManager?
-
-    static let shared = DoItSharingManager()
+    public static let shared = DoItSharingManager()
 
     private var observers: [ObjectIdentifier: DoItSharingObserver] = [:]
 
-    func addObserver(_ observer: DoItSharingObserver) {
+    public func addObserver(_ observer: DoItSharingObserver) {
         let identifier = ObjectIdentifier(observer)
         observers[identifier] = observer
     }
 
-    func removeObserver(_ observer: DoItSharingObserver) {
+    public func removeObserver(_ observer: DoItSharingObserver) {
         let identifier = ObjectIdentifier(observer)
         observers.removeValue(forKey: identifier)
     }
@@ -33,11 +31,9 @@ public final class DoItSharingManager {
 
     private init() { }
 
-    func send(_ doIts: [DoIt]) {
-
-    }
-
-    func receive(_ doItData: Data) {
-
+    public func receiveDoIts(savedAt fileURL: URL) throws {
+        let data = try Data(contentsOf: fileURL)
+        let doIts = try JSONDecoder().decode([DoIt].self, from: data)
+        notifyObservers(forReceptionOf: doIts)
     }
 }

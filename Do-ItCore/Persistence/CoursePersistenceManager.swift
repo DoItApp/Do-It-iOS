@@ -16,7 +16,6 @@ public final class CoursePersistenceManager {
     let courseURL: URL
 
     public static let shared = CoursePersistenceManager()
-
     public var courses: [Course] {
         didSet {
             saveCoursesToDisk()
@@ -48,6 +47,10 @@ public final class CoursePersistenceManager {
     public func testLoad() -> [Course] {
         loadCoursesFromDisk()
         return courses
+    }
+
+    public func save(_ course: Course) {
+        courses.append(course)
     }
 
     private func saveCoursesToDisk() {
