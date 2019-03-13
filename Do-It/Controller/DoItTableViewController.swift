@@ -84,6 +84,8 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let notifManager = NotificationManager()
+        notifManager.requestAuthorization()
 
         DoItSharingManager.shared.addObserver(self)
 
