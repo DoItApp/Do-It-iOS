@@ -21,6 +21,7 @@ class CreateDoItTableViewController: UITableViewController {
         case priority
         case description
         case datePicker
+        case alertOption
     }
 
     enum InputMode {
@@ -35,6 +36,8 @@ class CreateDoItTableViewController: UITableViewController {
     var name = ""
     var priority = DoItPriority.default
     var date = Date()
+    var alertOption: DateComponents?
+    var alertString = ""
 
     weak var delegate: CreateDoItTableViewControllerDelegate?
 
@@ -107,6 +110,12 @@ class CreateDoItTableViewController: UITableViewController {
             cell.date = date
             cell.delegate = self
             return cell
+        case .alertOption:
+            let cell = tableView.dequeueReusableCell(for: indexPath, as: DetailTextTableViewCell.self)
+            cell.textLabel?.text = "When to alert"
+            cell.detailTextLabel?.text = alertString
+            cell.accessoryType = .disclosureIndicator
+            return cell
         }
     }
 
@@ -119,26 +128,40 @@ class CreateDoItTableViewController: UITableViewController {
             }
             courseVC.delegate = self
             show(courseVC, sender: sender)
+        case .alertOption:
+            guard case (nil, let alertVC) = AlertDateTableViewController.instantiateFromStoryboard() else {
+                fatalError("Navigation controller should not be attached in AlertDateTableViewController.storyboard")
+            }
+            alertVC.delegate = self
+            show(alertVC, sender: sender)
         default:
             break
         }
     }
 
     @IBAction func save(_ sender: Any) {
-        var doIt = DoIt(course: course, dueDate: date, description: desc, name: name,
-                        priority: priority, kind: .homework)
-
-        switch inputMode {
-        case .addNewDoIt?:
-            delegate?.createDoItViewController(self, didSaveDoIt: doIt)
-        case .editDoIt(let doItToEdit)?:
-            doIt.identifier = doItToEdit.identifier
-            delegate?.createDoItViewController(self, didEditDoIt: doIt)
-        case .none:
-            fatalError("inputMode is not set!")
+        if course.name == "" || name == "" {
+            let alertController = UIAlertController(title: "You're not done yet!",
+                                                    message: "Please fill in all the required fields before adding the Do-It", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            var doIt = DoIt(course: course, dueDate: date, description: desc,
+                            name: name, priority: priority, kind: .homework)
+            let notifManager = NotificationManager()
+            switch inputMode {
+            case .addNewDoIt?:
+                delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+                notifManager.setTrigger(doIt, alertOption)
+            case .editDoIt(let doItToEdit)?:
+                notifManager.reschedule(doIt, alertOption)
+                doIt.identifier = doItToEdit.identifier
+                delegate?.createDoItViewController(self, didEditDoIt: doIt)
+            case .none:
+                fatalError("inputMode is not set!")
+            }
+            dismiss(animated: true)
         }
-
-        dismiss(animated: true)
     }
 
     @IBAction func cancel(_ sender: Any) {
@@ -200,5 +223,15 @@ extension CreateDoItTableViewController: CourseTableViewControllerDelegate {
     func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourse course: Course) {
         self.course = course
         tableView.reloadRows(at: [IndexPath(row: Row.course.rawValue, section: 0)], with: .automatic)
+    }
+}
+
+extension CreateDoItTableViewController: AlertDateTableViewControllerDelegate {
+    func alertDateTableViewController(_ alertVC: AlertDateTableViewController,
+                                      didSelectDate alertWhen: (DateComponents, String)?) {
+        let tuple = alertWhen!
+        self.alertString = tuple.1
+        self.alertOption = tuple.0
+        tableView.reloadRows(at: [IndexPath(row: Row.alertOption.rawValue, section: 0)], with: .automatic)
     }
 }

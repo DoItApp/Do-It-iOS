@@ -10,6 +10,8 @@ import Foundation
 
 public protocol FilterSpecification {
     func applyFilter(_ doIts: [DoIt]) -> [DoIt]
+
+    func getFilterType() -> FilterSetting
 }
 
 public class DoItsFilter {
@@ -19,7 +21,7 @@ public class DoItsFilter {
 }
 
 public struct CourseFilter: FilterSpecification {
-    var filterCourse: Course
+    public var filterCourse: Course
 
     public init(_ input: Course) {
         filterCourse = input
@@ -28,11 +30,15 @@ public struct CourseFilter: FilterSpecification {
     public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in doIt.course == filterCourse})
     }
+
+    public func getFilterType() -> FilterSetting {
+        return .course
+    }
 }
 
 public struct DueDateFilter: FilterSpecification {
-    var firstDate: Date
-    var lastDate: Date
+    public var firstDate: Date
+    public var lastDate: Date
 
     public init(firstDay: Date, lastDay: Date) {
         firstDate = firstDay
@@ -44,10 +50,14 @@ public struct DueDateFilter: FilterSpecification {
             doIt.dueDate < lastDate && doIt.dueDate > firstDate
         })
     }
+
+    public func getFilterType() -> FilterSetting {
+        return .dueDate
+    }
 }
 
 public struct PriorityFilter: FilterSpecification {
-    var filterPriority: DoItPriority
+    public var filterPriority: DoItPriority
 
     public init(input: DoItPriority) {
         filterPriority = input
@@ -55,5 +65,9 @@ public struct PriorityFilter: FilterSpecification {
 
     public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in doIt.priority == filterPriority})
+    }
+
+    public func getFilterType() -> FilterSetting {
+        return .priority
     }
 }

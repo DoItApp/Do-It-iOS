@@ -8,52 +8,31 @@
 
 import Foundation
 
-public final class CoursePersistenceManager {
-    let encoder = JSONEncoder()
-    let decoder = JSONDecoder()
-    let fileManager = FileManager.default
-    let docsURL: URL
-    let courseURL: URL
-    static let shared = CoursePersistenceManager()
-    var courses: [Course] {
+public final class CoursePersistenceManager: PersistenceManager {
+    public let encoder: Encoder = JSONEncoder()
+    public let decoder: Decoder = JSONDecoder()
+
+    public let savedFileName = "Courses.json"
+
+    public static let shared = CoursePersistenceManager()
+
+    public var courses: [Course] = [] {
         didSet {
-            saveCoursesToDisk()
+            saveToDisk()
         }
     }
 
     private init() {
-        do {
-            docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
-                                          appropriateFor: nil, create: true)
-        } catch {
-            fatalError("The app docs directory wil always exist")
+        loadFromDisk()
+    }
+
+    /// Fulfills PersistenceManager protocol; equivalent to `courses` array.
+    public var managedData: [Course] {
+        get {
+            return courses
         }
-        courseURL = docsURL.appendingPathComponent("Courses.json")
-        courses = []
-        loadCoursesFromDisk()
-    }
-
-    private func loadCoursesFromDisk() {
-        // Read data from .json file and transform data into an array
-        do {
-            let data = try Data(contentsOf: courseURL, options: [])
-            courses =  try decoder.decode([Course].self, from: data)
-        } catch {
-            print("Failed to read JSON data")
-        }
-    }
-
-    public func testLoad() -> [Course] {
-        loadCoursesFromDisk()
-        return courses
-    }
-
-    private func saveCoursesToDisk() {
-        do {
-            let data = try encoder.encode(courses)
-            try data.write(to: courseURL, options: [])
-        } catch {
-            print("Failed to write JSON data")
+        set {
+            courses = newValue
         }
     }
 }

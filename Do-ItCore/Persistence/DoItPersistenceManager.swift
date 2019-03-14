@@ -8,31 +8,22 @@
 
 import Foundation
 
-public final class DoItPersistenceManager {
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
-    private let fileManager = FileManager.default
-    private let docsURL: URL
-    private let doItsURL: URL
+public final class DoItPersistenceManager: PersistenceManager {
+    public let encoder: Encoder = JSONEncoder()
+    public let decoder: Decoder = JSONDecoder()
+
+    public let savedFileName = "DoIts.json"
 
     public static let shared = DoItPersistenceManager()
 
-    public var doIts: [DoIt] {
+    public var doIts: [DoIt] = [] {
         didSet {
-            saveDoItsToDisk()
+            saveToDisk()
         }
     }
 
     private init() {
-        do {
-            docsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask,
-                                          appropriateFor: nil, create: true)
-        } catch {
-            fatalError("The app docs directory wil always exist")
-        }
-        doItsURL = docsURL.appendingPathComponent("DoIts.json")
-        doIts = []
-        loadDoItsFromDisk()
+        loadFromDisk()
     }
 
     public func save(_ doIt: DoIt) {
@@ -47,27 +38,13 @@ public final class DoItPersistenceManager {
         return doIts.remove(at: index)
     }
 
-    private func loadDoItsFromDisk() {
-        // Read data from .json file and transform data into an array
-        do {
-            let data = try Data(contentsOf: doItsURL, options: [])
-            doIts =  try decoder.decode([DoIt].self, from: data)
-        } catch {
-            print("Failed to read JSON data")
+    /// Fulfills PersistenceManager protocol; equivalent to `doIts` array.
+    public var managedData: [DoIt] {
+        get {
+            return doIts
         }
-    }
-
-    public func testLoad() -> [DoIt] {
-        loadDoItsFromDisk()
-        return doIts
-    }
-
-    private func saveDoItsToDisk() {
-        do {
-            let data = try encoder.encode(doIts)
-            try data.write(to: doItsURL, options: [])
-        } catch {
-            print("Failed to write JSON data")
+        set {
+            doIts = newValue
         }
     }
 }

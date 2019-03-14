@@ -7,13 +7,24 @@
 //
 
 public struct DoItOrganizationSettings {
-    var groupingSetting: GroupingSetting
-    var sortSetting: SortSetting?
-    var filterSetting: [FilterSpecification]
 
-    public init(groupingSetting: GroupingSetting, sortSetting: SortSetting?, filterSetting: [FilterSpecification]) {
+    public var groupingSetting: GroupingSetting
+    public var sortSetting: SortSetting?
+    public var filterSetting: [FilterSpecification]
+
+    public init(groupingSetting: GroupingSetting, sortSetting: SortSetting?,
+                filterSetting: [FilterSpecification]) {
         self.groupingSetting = groupingSetting
         self.sortSetting = sortSetting
         self.filterSetting = filterSetting
+
+    }
+
+    public func getFilters() -> [FilterSetting] {
+        var filters: [FilterSetting] = []
+        for filter in filterSetting {
+            filters.append(filter.getFilterType())
+        }
+        return filters
     }
 }
