@@ -60,7 +60,6 @@
 		96F9F7B9221E624A0011CC51 /* PriorityPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F7B7221E624A0011CC51 /* PriorityPickerTableViewCell.swift */; };
 		96F9F7BA221E624A0011CC51 /* PriorityPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */; };
 		C62287F9221E72EC00A719E5 /* CreateDoItTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */; };
-		C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62287FC22279BA800A719E5 /* NotificationManager.swift */; };
 		C6815DB522389C6A00F05B4C /* DoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB422389C6A00F05B4C /* DoItTableViewController.swift */; };
 		C6815DB722389C6F00F05B4C /* CreateDoItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */; };
 		C6815DB922389C7300F05B4C /* AlertDateTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */; };
@@ -173,7 +172,6 @@
 		96F9F7B7221E624A0011CC51 /* PriorityPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorityPickerTableViewCell.swift; sourceTree = "<group>"; };
 		96F9F7B8221E624A0011CC51 /* PriorityPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriorityPickerTableViewCell.xib; sourceTree = "<group>"; };
 		C62287F8221E72EC00A719E5 /* CreateDoItTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateDoItTableViewController.storyboard; sourceTree = "<group>"; };
-		C62287FC22279BA800A719E5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C6815DB422389C6A00F05B4C /* DoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItTableViewController.swift; sourceTree = "<group>"; };
 		C6815DB622389C6F00F05B4C /* CreateDoItTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDoItTableViewController.swift; sourceTree = "<group>"; };
 		C6815DB822389C7300F05B4C /* AlertDateTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDateTableTableViewController.swift; sourceTree = "<group>"; };
@@ -368,7 +366,6 @@
 				89AA5BF5219E46FC00821B26 /* DoItOrganizationSettings.swift */,
 				8974AFB8220D07180043F01B /* DoItSort.swift */,
 				89AA5BF7219E470A00821B26 /* GroupingSetting.swift */,
-				C62287FC22279BA800A719E5 /* NotificationManager.swift */,
 				89AA5BF9219E470F00821B26 /* SortSetting.swift */,
 			);
 			path = Organization;
@@ -628,7 +625,6 @@
 				89CB6C25221E5824005C3795 /* DoItSharingObserver.swift in Sources */,
 				89CB6C1D221E577A005C3795 /* DoItSort.swift in Sources */,
 				89CB6C1B221E577A005C3795 /* GroupingSetting.swift in Sources */,
-				C62287FD22279BA800A719E5 /* NotificationManager.swift in Sources */,
 				89CB6C18221E577A005C3795 /* SortSetting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
