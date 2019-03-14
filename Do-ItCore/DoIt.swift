@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DoIt: Codable, Equatable {
+public struct DoIt: Codable, Hashable {
     public var identifier: DoItId
     public var course: Course
     public var dueDate: Date

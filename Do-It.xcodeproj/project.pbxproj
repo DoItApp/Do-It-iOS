@@ -21,6 +21,7 @@
 		892A5DC5223A0F3E008961AB /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A5DC4223A0F3E008961AB /* PersistenceManager.swift */; };
 		892A5DC7223A0F64008961AB /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A5DC6223A0F64008961AB /* Encoder.swift */; };
 		892A5DC9223A0F8E008961AB /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A5DC8223A0F8E008961AB /* Decoder.swift */; };
+		892A5DCB223A221A008961AB /* SharingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A5DCA223A221A008961AB /* SharingIntegrationTests.swift */; };
 		89580EC02225AABE00B2E58A /* DetailTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89580EBF2225AABE00B2E58A /* DetailTextTableViewCell.swift */; };
 		89AA5BB7219E456600821B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA5BB6219E456600821B26 /* AppDelegate.swift */; };
 		89AA5BBE219E456800821B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA5BBD219E456800821B26 /* Assets.xcassets */; };
@@ -139,6 +140,7 @@
 		892A5DC4223A0F3E008961AB /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		892A5DC6223A0F64008961AB /* Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		892A5DC8223A0F8E008961AB /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		892A5DCA223A221A008961AB /* SharingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingIntegrationTests.swift; sourceTree = "<group>"; };
 		892FB4CA220390A6005293EC /* DoItSharingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoItSharingObserver.swift; sourceTree = "<group>"; };
 		89580EBF2225AABE00B2E58A /* DetailTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextTableViewCell.swift; sourceTree = "<group>"; };
 		8974AFB7220D07180043F01B /* DoItGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoItGroup.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				93B01227221E6E70008E62ED /* DoItTableViewControllerTests.swift */,
 				89CB093621EEC3C300C32841 /* ExampleTests.swift */,
 				89AA5BCD219E456800821B26 /* Info.plist */,
+				892A5DCA223A221A008961AB /* SharingIntegrationTests.swift */,
 			);
 			path = "Do-ItTests";
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 			files = (
 				93B01228221E6E70008E62ED /* DoItTableViewControllerTests.swift in Sources */,
 				89CB6C2E221E5B8D005C3795 /* ExampleTests.swift in Sources */,
+				892A5DCB223A221A008961AB /* SharingIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
