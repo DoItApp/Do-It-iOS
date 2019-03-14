@@ -13,7 +13,9 @@ class NotificationManager {
 
     func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, error) in
-            print(error as Any)
+            if let error = error {
+                print("Notification authorization request error: \(error)")
+            }
         }
     }
 

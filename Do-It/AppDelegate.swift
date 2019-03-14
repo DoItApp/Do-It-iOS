@@ -19,7 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         // Override point for customization after application launch.
+        stylizeAppAppearance()
         return true
+    }
+
+    private func stylizeAppAppearance() {
+        UINavigationBar.appearance().barTintColor = .appTheme
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [
+            .foregroundColor: UIColor.titleTextColor
+        ]
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.titleTextColor
+        ]
+        UIToolbar.appearance().barTintColor = .appTheme
+        UIToolbar.appearance().tintColor = .white
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -62,4 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
     }
+}
+
+private extension UIColor {
+    static let appTheme = UIColor(red: 23 / 255, green: 190 / 255, blue: 187 / 255, alpha: 1.0)
+    static let titleTextColor = UIColor(red: 40 / 255, green: 35 / 255, blue: 28 / 255, alpha: 1.0)
 }
