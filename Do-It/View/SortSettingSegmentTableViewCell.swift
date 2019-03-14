@@ -14,24 +14,22 @@ protocol SortSettingSegmentTableViewCellDelegate: AnyObject {
 }
 
 class SortSettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
-    var doItSortSetting: SortSetting?
-    weak var delegate: SortSettingSegmentTableViewCellDelegate?
-    
-    @IBAction override func selectSegment(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            doItSortSetting = nil
-        case 1:
-            doItSortSetting = .dueDate
-        case 2:
-            doItSortSetting = .course
-        case 3:
-            doItSortSetting = .priority
-        default:
-            fatalError()
+    var doItSortSetting: SortSetting? {
+        get {
+            return SortSetting(rawValue: segments.selectedSegmentIndex - 1)
         }
-        
+        set {
+            if let newValue = newValue {
+                segments.selectedSegmentIndex = newValue.rawValue + 1
+            } else {
+                segments.selectedSegmentIndex = 0
+            }
+        }
+    }
+
+    weak var delegate: SortSettingSegmentTableViewCellDelegate?
+
+    @IBAction override func selectSegment(sender: UISegmentedControl) {
         delegate?.didSelectSort(self)
     }
-    
 }

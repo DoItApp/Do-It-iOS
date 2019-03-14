@@ -9,7 +9,7 @@
 import Foundation
 
 public final class DoItOrganizationManager {
-    var organizationSettings: DoItOrganizationSettings
+    public var organizationSettings: DoItOrganizationSettings
     let dateFormatter = DateFormatter()
 
     public init(organizationSettings: DoItOrganizationSettings) {

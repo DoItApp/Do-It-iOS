@@ -43,7 +43,6 @@ class CourseTableViewController: UIViewController {
             switch selectMode {
             case .one:
                 selectedIndexPaths.removeAll()
-                // Off-screen cells will have checkmark when dequeued in `tableView(_:cellForRowAt:)`
                 navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
                                                                            style: UIBarButtonItem.Style.plain,
                                                                            target: self,
@@ -103,7 +102,6 @@ extension CourseTableViewController: UITableViewDataSource, UITableViewDelegate 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let course = visCourses[indexPath.row]
-        //
         guard let cell = tableView.cellForRow(at: indexPath) as? CourseTableViewCell else {
             return
         }
@@ -141,9 +139,6 @@ extension CourseTableViewController {
     }
 
     @IBAction func editButtonPressed() {
-        // IMPLEMENT ME
-        print("edit button pressed")
-
         if navigationBarEditItem.rightBarButtonItem?.title == "Cancel" {
             navigationBarEditItem.rightBarButtonItem?.title = "Edit"
             navigationBarEditItem.title = "Courses"

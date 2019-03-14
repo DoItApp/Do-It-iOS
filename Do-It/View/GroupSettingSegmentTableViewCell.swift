@@ -14,21 +14,17 @@ protocol GroupSettingSegmentTableViewCellDelegate: AnyObject {
 }
 
 class GroupSettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
-    var doItGroupSetting: GroupingSetting = .dueDate
-    weak var delegate: GroupSettingSegmentTableViewCellDelegate?
-    
-    @IBAction override func selectSegment(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            doItGroupSetting = .dueDate
-        case 1:
-            doItGroupSetting = .course
-        case 2:
-            doItGroupSetting = .priority
-        default:
-            fatalError()
+    var doItGroupSetting: GroupingSetting {
+        get {
+            return GroupingSetting(rawValue: segments.selectedSegmentIndex)!
         }
-        
+        set {
+            segments.selectedSegmentIndex = newValue.rawValue
+        }
+    }
+    weak var delegate: GroupSettingSegmentTableViewCellDelegate?
+
+    @IBAction override func selectSegment(sender: UISegmentedControl) {
         delegate?.didSelectGrouping(self)
     }
 }

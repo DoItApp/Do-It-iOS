@@ -14,7 +14,6 @@ protocol AlertDateTableViewControllerDelegate: AnyObject {
                                       didSelectDate alertWhen: (DateComponents, String)?)
 }
 
-
 class AlertDateTableViewController: UITableViewController {
     var options: [Option] = []
 

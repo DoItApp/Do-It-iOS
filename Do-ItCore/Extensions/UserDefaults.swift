@@ -18,7 +18,7 @@ extension UserDefaults {
         static let priorityOptions = "priorityOptions"
     }
 
-    var organizationSettings: DoItOrganizationSettings? {
+    public var organizationSettings: DoItOrganizationSettings? {
         get {
             var courseIndex = 0
             var dateIndex = 0

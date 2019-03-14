@@ -7,7 +7,7 @@
 //
 
 public enum GroupingSetting: Int {
-    case dueDate
+    case dueDate = 0
     case course
     case priority
 }

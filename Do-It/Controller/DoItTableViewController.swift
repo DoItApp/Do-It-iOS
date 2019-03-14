@@ -36,42 +36,23 @@ class DoItTableViewController: UITableViewController {
     let coursePersistenceManager = CoursePersistenceManager.shared
 
     let launchDate = Date()
-    var doIts: [DoIt] {
+    var allDoIts: [DoIt] {
         return persistenceManager.doIts.filter { $0.dueDate > launchDate }
     }
 
-    var visibleDoIts: [DoIt] = []
+    private lazy var organizationManager = DoItOrganizationManager(
+        organizationSettings: DoItOrganizationSettings(
+            groupingSetting: .dueDate,
+            sortSetting: nil,
+            filterSetting: []
+        )
+    )
+
+    private lazy var doItSections: [(String, [DoIt])] = organizationManager.organize(allDoIts)
 
     private var selectedIndexPaths: Set<IndexPath> = []
 
     let formatter = DateComponentsFormatter()
-
-    private let mockDoIts: [DoIt] = {
-        var doIts: [DoIt] = []
-        doIts.append(DoIt(identifier: DoItId(),
-                          course: Course(name: "CSC 309"),
-                          dueDate: Calendar.current.date(byAdding: .minute, value: 10, to: Date())!,
-                          description: "description here",
-                          name: "HW 1",
-                          priority: DoItPriority.low,
-                          kind: DoItKind.homework))
-        doIts.append(DoIt(identifier: DoItId(),
-                          course: Course(name: "CSC 3000"),
-                          dueDate: Calendar.current.date(byAdding: .day, value: 30, to: Date())!,
-                          description: "description here",
-                          name: "Test 2",
-                          priority: DoItPriority.low,
-                          kind: DoItKind.homework))
-
-        doIts.append(DoIt(identifier: DoItId(),
-                          course: Course(name: "CSC 42"),
-                          dueDate: Calendar.current.date(byAdding: .hour, value: 20, to: Date())!,
-                          description: "description here",
-                          name: "Review 2",
-                          priority: DoItPriority.low,
-                          kind: DoItKind.homework))
-        return doIts
-    }()
 
     private lazy var editBarButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self,
                                                          action: #selector(selectButtonPressed))
@@ -92,24 +73,36 @@ class DoItTableViewController: UITableViewController {
         tableView.registerNib(for: DoItTableViewCell.self)
 
         navigationItem.rightBarButtonItem = editBarButtonItem
+    }
 
-        visibleDoIts = doIts
+    private func doIt(at indexPath: IndexPath) -> DoIt {
+        let (_, sectionDoIts) = doItSections[indexPath.section]
+        return sectionDoIts[indexPath.row]
+    }
+
+    private func reorganizeDoIts() {
+        doItSections = organizationManager.organize(allDoIts)
+
+        if tableView != nil {
+            // `tableView` is `nil` only if the controller hasn't yet been presented on-screen
+            tableView.reloadData()
+        }
     }
 }
 
 // MARK: - Table view data source
 extension DoItTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return doItSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return visibleDoIts.count
+        return doItSections[section].1.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, as: DoItTableViewCell.self)
-        let doIt = visibleDoIts[indexPath.row]
+        let doIt = self.doIt(at: indexPath)
 
         cell.titleLabel?.text = doIt.name
         cell.courseLabel?.text = doIt.course.name
@@ -129,6 +122,10 @@ extension DoItTableViewController {
         cell.setPriorityAccentColor(priorityAccentColor)
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return doItSections[section].0
     }
 
     private func isSelected(_ indexPath: IndexPath) -> Bool {
@@ -164,7 +161,7 @@ extension DoItTableViewController {
             // Proceed to Do-It detail editing screen
             let (parentNavigationVC, createDoItVC) = CreateDoItTableViewController.instantiateFromStoryboard()
             createDoItVC.delegate = self
-            let selectedDoIt = visibleDoIts[indexPath.row]
+            let selectedDoIt = doIt(at: indexPath)
             createDoItVC.inputMode = .editDoIt(selectedDoIt)
             present(parentNavigationVC!, animated: true)
         case .selectingToShare:
@@ -183,9 +180,8 @@ extension DoItTableViewController {
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let removed = visibleDoIts.remove(at: indexPath.row)
+            let removed = doItSections[indexPath.section].1.remove(at: indexPath.row)
             persistenceManager.deleteDoIt(matching: removed.identifier)
-            visibleDoIts = doIts
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
 
@@ -204,7 +200,7 @@ extension DoItTableViewController {
         guard !selectedIndexPaths.isEmpty else {
             return
         }
-        let doItsToShare = selectedIndexPaths.map { visibleDoIts[$0.row] }
+        let doItsToShare = selectedIndexPaths.map(doIt(at:))
         let activityItem = DoItActivityItemSource(doIts: doItsToShare)
         let activityViewController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
         present(activityViewController, animated: true)
@@ -217,6 +213,7 @@ extension DoItTableViewController {
     @IBAction func searchButtonPressed() {
         // Go to Organization View Controller
         let (parentNavigationVC, organizeDoItVC) = OrganizeDoItTableViewController.instantiateFromStoryboard()
+        organizeDoItVC.settings = organizationManager.organizationSettings
         organizeDoItVC.delegate = self
         present(parentNavigationVC!, animated: true)
     }
@@ -227,22 +224,19 @@ extension DoItTableViewController {
         createDoItVC.inputMode = .addNewDoIt
         present(parentNavigationVC!, animated: true)
     }
-
 }
 
 // MARK: - Navigation
 extension DoItTableViewController: CreateDoItTableViewControllerDelegate {
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didSaveDoIt doIt: DoIt) {
         persistenceManager.save(doIt)
-        visibleDoIts = doIts
-        tableView.reloadData()
+        reorganizeDoIts()
     }
 
     func createDoItViewController(_ viewController: CreateDoItTableViewController, didEditDoIt doIt: DoIt) {
         persistenceManager.deleteDoIt(matching: doIt.identifier)
         persistenceManager.save(doIt)
-        visibleDoIts = doIts
-        tableView.reloadData()
+        reorganizeDoIts()
     }
 }
 
@@ -250,12 +244,7 @@ extension DoItTableViewController: DoItSharingObserver {
     func sharingManager(_ sharingManager: DoItSharingManager, didReceiveDoIts receivedDoIts: [DoIt]) {
         receivedDoIts.forEach(persistenceManager.save)
         addNewRecievedCourses(recievedDoIts: receivedDoIts)
-        visibleDoIts = doIts
-
-        if tableView != nil {
-            // `tableView` is `nil` only if the controller hasn't yet been presented on-screen
-            tableView.reloadData()
-        }
+        reorganizeDoIts()
     }
 
     func addNewRecievedCourses(recievedDoIts: [DoIt]) {
@@ -270,10 +259,8 @@ extension DoItTableViewController: DoItSharingObserver {
 extension DoItTableViewController: OrganizeDoItTableViewControllerDelegate {
     func organizeDoItViewController(_ viewController: OrganizeDoItTableViewController,
                                     didOrganize settings: DoItOrganizationSettings) {
-        // call organization function
-        let organizationManager = DoItOrganizationManager(organizationSettings: settings)
-//        visibleDoIts = organizationManager.organize(doIts)
-        // need to add printing of grouping strings into Do It Table View
-        tableView.reloadData()
+        organizationManager.organizationSettings = settings
+        UserDefaults.standard.organizationSettings = settings
+        reorganizeDoIts()
     }
 }
