@@ -59,8 +59,8 @@ class GroupingTests: XCTestCase {
 
     func testGroupByPriority() {
         let groupedByPriority = groupAlg.groupByPriority(ungroupedList: doIts)
-        XCTAssertEqual(groupedByPriority[0].key.rawValue, 3)
-        XCTAssertEqual(groupedByPriority[1].key.rawValue, 2)
-        XCTAssertEqual(groupedByPriority[2].key.rawValue, 1)
+        XCTAssertEqual(groupedByPriority[0].key.rawValue, 2)
+        XCTAssertEqual(groupedByPriority[1].key.rawValue, 1)
+        XCTAssertEqual(groupedByPriority[2].key.rawValue, 0)
     }
 }

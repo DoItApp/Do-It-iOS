@@ -47,7 +47,7 @@ class SharingIntegrationTests: XCTestCase {
 
     func testSharingReception() {
         sharingManager.receiveDoIts(incomingDoIts)
-        XCTAssertEqual(Set(controller.visibleDoIts), Set(incomingDoIts))
+        XCTAssertEqual(Set(controller.allDoIts), Set(incomingDoIts))
         XCTAssertEqual(Set(persistenceManager.doIts), Set(incomingDoIts))
     }
 }
