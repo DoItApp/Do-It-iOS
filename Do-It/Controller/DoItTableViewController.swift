@@ -216,6 +216,9 @@ extension DoItTableViewController {
 
     @IBAction func searchButtonPressed() {
         // Go to Organization View Controller
+        let (parentNavigationVC, organizeDoItVC) = OrganizeDoItTableViewController.instantiateFromStoryboard()
+        organizeDoItVC.delegate = self
+        present(parentNavigationVC!, animated: true)
     }
 
     @IBAction func composeButtonPressed() {
@@ -261,5 +264,16 @@ extension DoItTableViewController: DoItSharingObserver {
                 coursePersistenceManager.save(doIt.course)
             }
         }
+    }
+}
+
+extension DoItTableViewController: OrganizeDoItTableViewControllerDelegate {
+    func organizeDoItViewController(_ viewController: OrganizeDoItTableViewController,
+                                    didOrganize settings: DoItOrganizationSettings) {
+        // call organization function
+        let organizationManager = DoItOrganizationManager(organizationSettings: settings)
+//        visibleDoIts = organizationManager.organize(doIts)
+        // need to add printing of grouping strings into Do It Table View
+        tableView.reloadData()
     }
 }

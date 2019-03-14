@@ -100,6 +100,7 @@
                     <connections>
                         <outlet property="navigationBarEditItem" destination="zLK-hy-kIw" id="uH5-Ya-O1n"/>
                         <outlet property="tableView" destination="6Zs-5F-eKg" id="HfE-2Y-Knp"/>
+                        <outlet property="toolbar" destination="iD0-Mi-xFT" id="KiI-d7-Vr3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eid-rb-J8r" userLabel="First Responder" sceneMemberID="firstResponder"/>

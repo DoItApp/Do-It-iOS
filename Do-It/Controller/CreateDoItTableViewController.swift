@@ -43,6 +43,7 @@ class CreateDoItTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.registerNibs(for: DatePickerTableViewCell.self,
                                  TextFieldTableViewCell.self,
                                  PriorityPickerTableViewCell.self)
@@ -125,6 +126,7 @@ class CreateDoItTableViewController: UITableViewController {
             guard case (nil, let courseVC) = CourseTableViewController.instantiateFromStoryboard() else {
                 fatalError("Navigation controller should not be attached in CourseTableViewController.storyboard")
             }
+            courseVC.selectMode = .one
             courseVC.delegate = self
             show(courseVC, sender: sender)
         case .alertOption:

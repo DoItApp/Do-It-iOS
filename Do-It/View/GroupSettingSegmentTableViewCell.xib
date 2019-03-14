@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="5DN-de-jAJ" customClass="GroupSettingSegmentTableViewCell" customModule="Do_It" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5DN-de-jAJ" id="hpp-RG-6zp">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PS-4S-GMO">
+                        <rect key="frame" x="16" y="5" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="WLp-wu-d1V"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tAG-vE-ttm">
+                        <rect key="frame" x="16" y="28" width="288" height="28.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27.5" id="csK-WA-eq5"/>
+                        </constraints>
+                        <segments>
+                            <segment title="None"/>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                            <segment title="Third"/>
+                        </segments>
+                        <connections>
+                            <action selector="selectSegmentWithSender:" destination="5DN-de-jAJ" eventType="valueChanged" id="51W-0p-yUC"/>
+                        </connections>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tAG-vE-ttm" firstAttribute="top" secondItem="6PS-4S-GMO" secondAttribute="bottom" constant="2" id="BTe-Pb-TGb"/>
+                    <constraint firstItem="6PS-4S-GMO" firstAttribute="top" secondItem="hpp-RG-6zp" secondAttribute="top" constant="5" id="Hs1-FF-mC0"/>
+                    <constraint firstItem="6PS-4S-GMO" firstAttribute="leading" secondItem="hpp-RG-6zp" secondAttribute="leading" constant="16" id="UZ8-Mi-xwh"/>
+                    <constraint firstAttribute="trailing" secondItem="6PS-4S-GMO" secondAttribute="trailing" constant="262" id="cBF-hI-RqI"/>
+                    <constraint firstItem="tAG-vE-ttm" firstAttribute="leading" secondItem="hpp-RG-6zp" secondAttribute="leading" constant="16" id="ivQ-Ji-aKS"/>
+                    <constraint firstAttribute="trailing" secondItem="tAG-vE-ttm" secondAttribute="trailing" constant="16" id="oTu-br-dHU"/>
+                    <constraint firstAttribute="bottom" secondItem="tAG-vE-ttm" secondAttribute="bottom" constant="5" id="vx1-vO-Wl3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="Hef-jr-jUG"/>
+            <connections>
+                <outlet property="segments" destination="tAG-vE-ttm" id="H85-hH-xbh"/>
+                <outlet property="titleLabel" destination="6PS-4S-GMO" id="G9P-s5-C0l"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="152.47376311844079"/>
+        </tableViewCell>
+    </objects>
+</document>

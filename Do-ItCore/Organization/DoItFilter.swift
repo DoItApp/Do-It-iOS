@@ -14,8 +14,8 @@ public protocol FilterSpecification {
     func getFilterType() -> FilterSetting
 }
 
-class DoItsFilter {
-    func filter(_ doIts: [DoIt], filterType: FilterSpecification) -> [DoIt] {
+public class DoItsFilter {
+    public func filter(_ doIts: [DoIt], filterType: FilterSpecification) -> [DoIt] {
         return filterType.applyFilter(doIts)
     }
 }
