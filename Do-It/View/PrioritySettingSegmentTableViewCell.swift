@@ -14,24 +14,22 @@ protocol PrioritySettingSegmentTableViewCellDelegate: AnyObject {
 }
 
 class PrioritySettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
-    var doItPriority: DoItPriority?
-    weak var delegate: PrioritySettingSegmentTableViewCellDelegate?
-    
-    @IBAction override func selectSegment(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            doItPriority = nil
-        case 1:
-            doItPriority = .low
-        case 2:
-            doItPriority = .default
-        case 3:
-            doItPriority = .high
-        default:
-            fatalError()
+    var doItPriority: DoItPriority? {
+        get {
+            return DoItPriority(rawValue: segments.selectedSegmentIndex - 1)
         }
-        
+        set {
+            if let newValue = newValue {
+                segments.selectedSegmentIndex = newValue.rawValue + 1
+            } else {
+                segments.selectedSegmentIndex = 0
+            }
+        }
+    }
+
+    weak var delegate: PrioritySettingSegmentTableViewCellDelegate?
+
+    @IBAction override func selectSegment(sender: UISegmentedControl) {
         delegate?.didSelectPriority(self)
     }
-    
 }

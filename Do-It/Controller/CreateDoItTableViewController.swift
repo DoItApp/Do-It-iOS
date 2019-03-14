@@ -94,7 +94,7 @@ class CreateDoItTableViewController: UITableViewController {
             return cell
         case .priority:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: PriorityPickerTableViewCell.self)
-            cell.segmentControl.selectedSegmentIndex = priority.rawValue - 1
+            cell.segmentControl.selectedSegmentIndex = priority.rawValue
             cell.delegate = self
             return cell
         case .description:

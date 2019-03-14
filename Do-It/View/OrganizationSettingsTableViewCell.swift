@@ -44,4 +44,3 @@ class OrganizationSettingsTableViewCell: UITableViewCell {
     }
 
 }
-

@@ -14,24 +14,20 @@ protocol PriorityPickerTableViewCellDelegate: AnyObject {
 
 class PriorityPickerTableViewCell: UITableViewCell {
 
-    var doItPriority: DoItPriority = .default
+    var doItPriority: DoItPriority {
+        get {
+            return DoItPriority(rawValue: segmentControl.selectedSegmentIndex)!
+        }
+        set {
+            segmentControl.selectedSegmentIndex = newValue.rawValue
+        }
+    }
 
     weak var delegate: PriorityPickerTableViewCellDelegate?
 
     @IBOutlet var segmentControl: UISegmentedControl!
 
     @IBAction func selectPriority(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            doItPriority = .low
-        case 1:
-            doItPriority = .default
-        case 2:
-            doItPriority = .high
-        default:
-            fatalError()
-        }
-
         delegate?.priorityPickerTableViewCellDidUpdatePriority(self)
     }
 

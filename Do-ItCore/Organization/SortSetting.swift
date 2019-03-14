@@ -7,7 +7,7 @@
 //
 
 public enum SortSetting: Int {
-    case dueDate
+    case dueDate = 0
     case course
     case priority
 }
