@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Do-It.xcodeproj">
+      location = "group:/Users/aberard/Desktop/currSchool/csc309/Do-It-iOS/Do-It/CourseTableViewController.storyboard">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
