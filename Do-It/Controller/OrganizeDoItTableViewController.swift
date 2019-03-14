@@ -109,6 +109,7 @@ class OrganizeDoItTableViewController: UITableViewController {
             guard case (nil, let courseVC) = CourseTableViewController.instantiateFromStoryboard() else {
                 fatalError("Navigation controller should not be attached in CourseTableViewController.storyboard")
             }
+            courseVC.selectMode = .multiple
             courseVC.delegate = self
             show(courseVC, sender: sender)
         case .dueDate:
@@ -127,7 +128,12 @@ class OrganizeDoItTableViewController: UITableViewController {
 extension OrganizeDoItTableViewController: CourseTableViewControllerDelegate {
     func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourse course: Course) {
         filterSetting.append(CourseFilter(course))
-        tableView.reloadRows(at: [IndexPath(row: Row.course.rawValue, section: 0)], with: .automatic)
+    }
+    
+    func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourses courses: [Course]) {
+        for course in courses {
+            filterSetting.append(CourseFilter(course))
+        }
     }
 }
 
