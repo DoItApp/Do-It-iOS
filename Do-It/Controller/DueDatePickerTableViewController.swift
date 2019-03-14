@@ -124,8 +124,7 @@ class DueDatePickerTableViewController: UITableViewController {
     }
 
     func saveUserSelection(forIndexPath indexPath: IndexPath) {
-        timeRangeSelected?.rangeStartOffset = options[indexPath.row].dateBegin
-        timeRangeSelected?.rangeEndOffset = options[indexPath.row].dateEnd
+        timeRangeSelected = (options[indexPath.row].dateBegin, options[indexPath.row].dateEnd)
     }
 
     func clearCurrentCell(forCell cell: UITableViewCell) {

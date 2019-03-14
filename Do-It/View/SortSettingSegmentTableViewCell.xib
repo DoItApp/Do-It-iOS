@@ -38,6 +38,9 @@
                             <segment title="Second"/>
                             <segment title="Third"/>
                         </segments>
+                        <connections>
+                            <action selector="selectSegmentWithSender:" destination="gZz-pQ-EOv" eventType="valueChanged" id="oKK-d0-utv"/>
+                        </connections>
                     </segmentedControl>
                 </subviews>
                 <constraints>

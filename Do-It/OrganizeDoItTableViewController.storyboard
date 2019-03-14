@@ -32,8 +32,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="rZS-eH-u35">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HLS-Tq-qU6"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QsC-RU-yHK"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HLS-Tq-qU6">
+                            <connections>
+                                <action selector="cancel:" destination="jBJ-tT-FsR" id="jOB-Oo-Del"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QsC-RU-yHK">
+                            <connections>
+                                <action selector="save:" destination="jBJ-tT-FsR" id="q1G-bP-jYH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztk-Ay-gb9" userLabel="First Responder" sceneMemberID="firstResponder"/>

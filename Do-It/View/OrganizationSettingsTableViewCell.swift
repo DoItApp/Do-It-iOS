@@ -9,15 +9,9 @@
 import Do_ItCore
 import UIKit
 
-protocol OrganizationSettingsTableViewCellDelegate: AnyObject {
-    func organizationSettingsTableViewCellDidUpdate(_ cell: OrganizationSettingsTableViewCell)
-}
-
 class OrganizationSettingsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var segments: UISegmentedControl!
-
-    weak var delegate: OrganizationSettingsTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,8 +32,15 @@ class OrganizationSettingsTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        delegate?.organizationSettingsTableViewCellDidUpdate(self)
+    func removeLastSegment() {
+        segments.removeSegment(at: 3, animated: false)
+    }
+
+    @IBAction private func segmentChanged(sender: UISegmentedControl) {
+        selectSegment(sender: sender)
+    }
+
+    func selectSegment(sender: UISegmentedControl) {
     }
 
 }
@@ -50,8 +51,9 @@ protocol PrioritySettingSegmentTableViewCellDelegate: AnyObject {
 
 class PrioritySettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
     var doItPriority: DoItPriority?
+    weak var delegate: PrioritySettingSegmentTableViewCellDelegate?
 
-    func selectSegment(sender: UISegmentedControl) {
+    @IBAction override func selectSegment(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             doItPriority = nil
@@ -65,8 +67,9 @@ class PrioritySettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
             fatalError()
         }
 
-        delegate?.organizationSettingsTableViewCellDidUpdate(self)
+        delegate?.didSelectPriority(self)
     }
+
 }
 
 protocol GroupSettingSegmentTableViewCellDelegate: AnyObject {
@@ -74,23 +77,22 @@ protocol GroupSettingSegmentTableViewCellDelegate: AnyObject {
 }
 
 class GroupSettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
-    var doItGroupSetting: GroupingSetting?
+    var doItGroupSetting: GroupingSetting = .dueDate
+    weak var delegate: GroupSettingSegmentTableViewCellDelegate?
 
-    func selectSegment(sender: UISegmentedControl) {
+    @IBAction override func selectSegment(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            doItGroupSetting = nil
-        case 1:
             doItGroupSetting = .dueDate
-        case 2:
+        case 1:
             doItGroupSetting = .course
-        case 3:
+        case 2:
             doItGroupSetting = .priority
         default:
             fatalError()
         }
 
-        delegate?.organizationSettingsTableViewCellDidUpdate(self)
+        delegate?.didSelectGrouping(self)
     }
 }
 
@@ -100,8 +102,9 @@ protocol SortSettingSegmentTableViewCellDelegate: AnyObject {
 
 class SortSettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
     var doItSortSetting: SortSetting?
+    weak var delegate: SortSettingSegmentTableViewCellDelegate?
 
-    func selectSegment(sender: UISegmentedControl) {
+    @IBAction override func selectSegment(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             doItSortSetting = nil
@@ -115,7 +118,7 @@ class SortSettingSegmentTableViewCell: OrganizationSettingsTableViewCell {
             fatalError()
         }
 
-        delegate?.organizationSettingsTableViewCellDidUpdate(self)
+        delegate?.didSelectSort(self)
     }
 
 }

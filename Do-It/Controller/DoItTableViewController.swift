@@ -258,6 +258,8 @@ extension DoItTableViewController: OrganizeDoItTableViewControllerDelegate {
                                     didOrganize settings: DoItOrganizationSettings) {
         // call organization function
         let organizationManager = DoItOrganizationManager(organizationSettings: settings)
-        visibleDoIts = organizationManager.organize(doIts)
+//        visibleDoIts = organizationManager.organize(doIts)
+        // need to add printing of grouping strings into Do It Table View
+        tableView.reloadData()
     }
 }

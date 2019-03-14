@@ -10,4 +10,10 @@ public struct DoItOrganizationSettings {
     var groupingSetting: GroupingSetting
     var sortSetting: SortSetting?
     var filterSetting: [FilterSpecification]
+
+    public init(groupingSetting: GroupingSetting, sortSetting: SortSetting?, filterSetting: [FilterSpecification]) {
+        self.groupingSetting = groupingSetting
+        self.sortSetting = sortSetting
+        self.filterSetting = filterSetting
+    }
 }

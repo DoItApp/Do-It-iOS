@@ -23,10 +23,9 @@ class OrganizeDoItTableViewController: UITableViewController {
         case groupBy
     }
 
-    var courseSetting: Course?
-    var prioritySetting: DoItPriority?
+    var groupingSetting: GroupingSetting = .course
     var sortSetting: SortSetting?
-    var groupingSetting: GroupingSetting?
+    var filterSetting: [FilterSpecification] = []
 
     weak var delegate: OrganizeDoItTableViewControllerDelegate?
 
@@ -36,9 +35,10 @@ class OrganizeDoItTableViewController: UITableViewController {
         // preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
 
-        title = "New Do-It"
+        title = "Organize Do-It"
 
-        tableView.registerNibs(for: CourseTableViewCell.self, PrioritySettingSegmentTableViewCell.self, GroupSettingSegmentTableViewCell.self, SortSettingSegmentTableViewCell.self)
+        tableView.registerNibs(for: CourseTableViewCell.self, PrioritySettingSegmentTableViewCell.self,
+                               GroupSettingSegmentTableViewCell.self, SortSettingSegmentTableViewCell.self)
         tableView.register(DetailTextTableViewCell.self, forCellReuseIdentifier: DetailTextTableViewCell.className)
     }
 
@@ -58,7 +58,7 @@ class OrganizeDoItTableViewController: UITableViewController {
         case .course:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: DetailTextTableViewCell.self)
             cell.textLabel?.text = "Course"
-            cell.detailTextLabel?.text = courseSetting?.name
+//            cell.detailTextLabel?.text = courseSetting?.name
             cell.accessoryType = .disclosureIndicator
             return cell
         case .dueDate:
@@ -70,28 +70,30 @@ class OrganizeDoItTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(for: indexPath, as: PrioritySettingSegmentTableViewCell.self)
             cell.titleLabel?.text = "Priority"
             cell.setTitles(titles: ["None", "Low", "Default", "High"])
-            cell.delegate = self as? OrganizationSettingsTableViewCellDelegate
+            cell.delegate = self
             return cell
         case .sortBy:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: SortSettingSegmentTableViewCell.self)
             cell.titleLabel?.text = "Sort By"
             cell.setTitles(titles: ["None", "Due Date", "Course", "Priority"])
-            cell.delegate = self as? OrganizationSettingsTableViewCellDelegate
+            cell.delegate = self
             return cell
         case .groupBy:
             let cell = tableView.dequeueReusableCell(for: indexPath, as: GroupSettingSegmentTableViewCell.self)
             cell.titleLabel?.text = "Group By"
-            cell.setTitles(titles: ["None", "Due Date", "Course", "Priority"])
-            cell.delegate = self as? OrganizationSettingsTableViewCellDelegate
+            cell.removeLastSegment()
+            cell.setTitles(titles: ["Due Date", "Course", "Priority"])
+            cell.delegate = self
             return cell
         }
     }
 
     @IBAction func save(_ sender: Any) {
-//        let organizationSettings = DoItOrganizationSettings(
-//                                  courseSetting: courseSetting, dueDateSetting: dueDateSetting, prioritySetting: prioritySetting, groupingSetting: groupingSetting, sortSetting: sortSetting)
-//        delegate?.createDoItViewController(self, didOrganize: organizationSettings)
-        print("Need to implement")
+        let organizationSettings = DoItOrganizationSettings(groupingSetting: groupingSetting,
+                                                sortSetting: sortSetting, filterSetting: filterSetting)
+        delegate?.organizeDoItViewController(self, didOrganize: organizationSettings)
+        print ("Saved organization settings")
+        print (organizationSettings)
         dismiss(animated: true)
     }
 
@@ -113,7 +115,7 @@ class OrganizeDoItTableViewController: UITableViewController {
             guard case (let parentNavigationVC, let dueDateVC) = DueDatePickerTableViewController.instantiateFromStoryboard() else {
                 fatalError("Navigation controller should not be attached in DueDatePickerTableViewController.storyboard")
             }
-//            dueDateVC.delegate = self
+            dueDateVC.delegate = self
             present(parentNavigationVC!, animated: true)
         default:
             break
@@ -124,7 +126,7 @@ class OrganizeDoItTableViewController: UITableViewController {
 
 extension OrganizeDoItTableViewController: CourseTableViewControllerDelegate {
     func courseTableViewController(_ courseVC: CourseTableViewController, didSelectCourse course: Course) {
-        self.courseSetting = course
+        filterSetting.append(CourseFilter(course))
         tableView.reloadRows(at: [IndexPath(row: Row.course.rawValue, section: 0)], with: .automatic)
     }
 }
@@ -169,7 +171,7 @@ extension OrganizeDoItTableViewController: PrioritySettingSegmentTableViewCellDe
         let row = Row(rawValue: indexPath.row)!
         switch row {
         case .priority:
-            prioritySetting = cell.doItPriority
+            filterSetting.append(PriorityFilter(input: cell.doItPriority!))
         default:
             fatalError()
         }
@@ -177,7 +179,14 @@ extension OrganizeDoItTableViewController: PrioritySettingSegmentTableViewCellDe
 }
 
 extension OrganizeDoItTableViewController: DueDatePickerTableViewControllerDelegate {
-    func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController, didSelectTimeRange range: (DateComponents, DateComponents)?) {
-        
+    func dueDatePickerTableViewController(_ viewController: DueDatePickerTableViewController,
+                                          didSelectTimeRange range: (DateComponents, DateComponents)?) {
+        guard range != nil else {
+            return
+        }
+        let calendar = Calendar(identifier: .gregorian)
+        let dateBegin: Date = calendar.date(from: ((range?.0)!))!
+        let dateEnd: Date = calendar.date(from: ((range?.1)!))!
+        filterSetting.append(DueDateFilter(firstDay: dateBegin, lastDay: dateEnd))
     }
 }
