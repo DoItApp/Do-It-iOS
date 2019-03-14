@@ -29,7 +29,7 @@ class UserDefaultsTests: XCTestCase {
         if let readSettings = UserDefaults.standard.organizationSettings {
             XCTAssertEqual(organizationSettings.groupingSetting, readSettings.groupingSetting)
             XCTAssertEqual(organizationSettings.sortSetting, readSettings.sortSetting)
-            XCTAssertEqual(organizationSettings.filters, readSettings.filters)
+            XCTAssertEqual(organizationSettings.getFilters(), readSettings.getFilters())
             XCTAssertEqual(organizationSettings.filterSetting.count, readSettings.filterSetting.count)
             for index in organizationSettings.filterSetting.indices {
                 switch organizationSettings.filterSetting[index] {
@@ -71,7 +71,7 @@ class UserDefaultsTests: XCTestCase {
         if let readSettings = UserDefaults.standard.organizationSettings {
             XCTAssertEqual(organizationSettings.groupingSetting, readSettings.groupingSetting)
             XCTAssertEqual(organizationSettings.sortSetting, readSettings.sortSetting)
-            XCTAssertEqual(organizationSettings.filters, readSettings.filters)
+            XCTAssertEqual(organizationSettings.getFilters(), readSettings.getFilters())
             XCTAssertEqual(organizationSettings.filterSetting.count, readSettings.filterSetting.count)
             for index in organizationSettings.filterSetting.indices {
                 switch organizationSettings.filterSetting[index] {
@@ -112,7 +112,7 @@ class UserDefaultsTests: XCTestCase {
         if let readSettings = UserDefaults.standard.organizationSettings {
             XCTAssertEqual(organizationSettings.groupingSetting, readSettings.groupingSetting)
             XCTAssertEqual(organizationSettings.sortSetting, readSettings.sortSetting)
-            XCTAssertEqual(organizationSettings.filters, readSettings.filters)
+            XCTAssertEqual(organizationSettings.getFilters(), readSettings.getFilters())
             XCTAssertEqual(organizationSettings.filterSetting.count, readSettings.filterSetting.count)
             for index in organizationSettings.filterSetting.indices {
                 switch organizationSettings.filterSetting[index] {

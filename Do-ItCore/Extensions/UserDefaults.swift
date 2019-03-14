@@ -84,7 +84,8 @@ extension UserDefaults {
                 set(dueDates, forKey: Key.dateOptions)
                 set(priorities, forKey: Key.priorityOptions)
                 var filtersAsInt: [Int] = []
-                for elm in settings.filters {
+                let filters = settings.getFilters()
+                for elm in filters {
                     filtersAsInt.append(elm.rawValue)
                 }
                 set(filtersAsInt, forKey: Key.filterSetting)
