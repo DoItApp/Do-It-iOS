@@ -126,6 +126,7 @@ class CreateDoItTableViewController: UITableViewController {
             guard case (nil, let courseVC) = CourseTableViewController.instantiateFromStoryboard() else {
                 fatalError("Navigation controller should not be attached in CourseTableViewController.storyboard")
             }
+            courseVC.selectMode = .one
             courseVC.delegate = self
             show(courseVC, sender: sender)
         case .alertOption:

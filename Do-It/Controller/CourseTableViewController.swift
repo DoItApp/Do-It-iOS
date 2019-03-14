@@ -44,9 +44,6 @@ class CourseTableViewController: UIViewController {
             case .one:
                 selectedIndexPaths.removeAll()
                 // Off-screen cells will have checkmark when dequeued in `tableView(_:cellForRowAt:)`
-                for case let cell as DoItTableViewCell in tableView.visibleCells {
-                    cell.checkmarkImageView.isHidden = true
-                }
                 navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
                                                                            style: UIBarButtonItem.Style.plain,
                                                                            target: self,
@@ -55,14 +52,12 @@ class CourseTableViewController: UIViewController {
                 navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
                                                                           style: UIBarButtonItem.Style.plain,
                                                                           target: self,
-                                                                          action: #selector(editButtonPressed))
+                                                                          action: #selector(doneButtonPressed))
             }
         }
     }
 
-    private lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self,
-                                                         action: #selector(doneButtonPressed))
-
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBarEditItem: UINavigationItem!
 
@@ -82,6 +77,9 @@ class CourseTableViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        if selectMode == .multiple {
+            toolbar.isHidden = true
+        }
     }
 }
 
@@ -134,8 +132,12 @@ extension CourseTableViewController {
     @objc private func doneButtonPressed() {
         let coursesToSendBack = selectedIndexPaths.map { visCourses[$0.row]}
         delegate?.courseTableViewController(self, didSelectCourses: coursesToSendBack)
-        dismiss(animated: true)
-        selectMode = .one
+        switch selectMode {
+        case .one:
+            dismiss(animated: true)
+        case .multiple:
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     @IBAction func editButtonPressed() {
