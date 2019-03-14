@@ -10,6 +10,8 @@ import Foundation
 
 public protocol FilterSpecification {
     func applyFilter(_ doIts: [DoIt]) -> [DoIt]
+
+    func getFilterType() -> FilterSetting
 }
 
 class DoItsFilter {
@@ -28,6 +30,10 @@ public struct CourseFilter: FilterSpecification {
     public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in doIt.course == filterCourse})
     }
+
+    public func getFilterType() -> FilterSetting {
+        return .course
+    }
 }
 
 public struct DueDateFilter: FilterSpecification {
@@ -44,6 +50,10 @@ public struct DueDateFilter: FilterSpecification {
             doIt.dueDate < lastDate && doIt.dueDate > firstDate
         })
     }
+
+    public func getFilterType() -> FilterSetting {
+        return .dueDate
+    }
 }
 
 public struct PriorityFilter: FilterSpecification {
@@ -55,5 +65,9 @@ public struct PriorityFilter: FilterSpecification {
 
     public func applyFilter(_ doIts: [DoIt]) -> [DoIt] {
         return doIts.filter({ (doIt) -> Bool in doIt.priority == filterPriority})
+    }
+
+    public func getFilterType() -> FilterSetting {
+        return .priority
     }
 }

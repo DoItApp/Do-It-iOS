@@ -23,8 +23,7 @@ class UserDefaultsTests: XCTestCase {
         let priorityFilter = PriorityFilter(input: .high)
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.dueDate,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: [courseFilter, priorityFilter],
-                                                            filters: [.course, .priority])
+                                                            filterSetting: [courseFilter, priorityFilter])
         UserDefaults.standard.organizationSettings = nil
         UserDefaults.standard.organizationSettings = organizationSettings
         if let readSettings = UserDefaults.standard.organizationSettings {
@@ -66,8 +65,7 @@ class UserDefaultsTests: XCTestCase {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.priority,
                                                             sortSetting: SortSetting.dueDate,
-                                                            filterSetting: [courseFilter],
-                                                            filters: [.course])
+                                                            filterSetting: [courseFilter])
         UserDefaults.standard.organizationSettings = nil
         UserDefaults.standard.organizationSettings = organizationSettings
         if let readSettings = UserDefaults.standard.organizationSettings {
@@ -108,8 +106,7 @@ class UserDefaultsTests: XCTestCase {
     func testUserDefaults3() {
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.course,
                                                             sortSetting: nil,
-                                                            filterSetting: [],
-                                                            filters: [])
+                                                            filterSetting: [])
         UserDefaults.standard.organizationSettings = nil
         UserDefaults.standard.organizationSettings = organizationSettings
         if let readSettings = UserDefaults.standard.organizationSettings {

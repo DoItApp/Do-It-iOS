@@ -61,8 +61,7 @@ class OrganizationPersistenceTests: XCTestCase {
         let priorityFilter = PriorityFilter(input: .high)
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.dueDate,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: [courseFilter, priorityFilter],
-                                                            filters: [.course, .priority])
+                                                            filterSetting: [courseFilter, priorityFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let originalOrganizedArray = organizationManager.organize(doIts)
 
@@ -87,8 +86,7 @@ class OrganizationPersistenceTests: XCTestCase {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.priority,
                                                             sortSetting: SortSetting.dueDate,
-                                                            filterSetting: [courseFilter],
-                                                            filters: [.course])
+                                                            filterSetting: [courseFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let originalOrganizedArray = organizationManager.organize(doIts)
 
@@ -112,8 +110,7 @@ class OrganizationPersistenceTests: XCTestCase {
     func testOrganizationPersistence3() {
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.course,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: [],
-                                                            filters: [])
+                                                            filterSetting: [])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let originalOrganizedArray = organizationManager.organize(doIts)
 

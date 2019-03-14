@@ -60,8 +60,7 @@ class OrganizationTests: XCTestCase {
         let priorityFilter = PriorityFilter(input: .high)
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.dueDate,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: [courseFilter, priorityFilter],
-                                                            filters: [.course, .priority])
+                                                            filterSetting: [courseFilter, priorityFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in organizedArray.indices {
@@ -76,8 +75,7 @@ class OrganizationTests: XCTestCase {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.priority,
                                                             sortSetting: SortSetting.dueDate,
-                                                            filterSetting: [courseFilter],
-                                                            filters: [.course])
+                                                            filterSetting: [courseFilter])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in 0...organizedArray.count - 1 {
@@ -91,8 +89,7 @@ class OrganizationTests: XCTestCase {
     func testOrganization3() {
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.course,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: [],
-                                                            filters: [])
+                                                            filterSetting: [])
         let organizationManager = DoItOrganizationManager(organizationSettings: organizationSettings)
         let organizedArray = organizationManager.organize(doIts)
         for index in 0...organizedArray.count - 1 {

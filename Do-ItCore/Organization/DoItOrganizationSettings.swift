@@ -14,10 +14,13 @@ public struct DoItOrganizationSettings {
     public var filters: [FilterSetting]
 
     public init(groupingSetting: GroupingSetting, sortSetting: SortSetting?,
-                filterSetting: [FilterSpecification], filters: [FilterSetting]) {
+                filterSetting: [FilterSpecification]) {
         self.groupingSetting = groupingSetting
         self.sortSetting = sortSetting
         self.filterSetting = filterSetting
-        self.filters = filters
+        self.filters = []
+        for filter in filterSetting {
+            filters.append(filter.getFilterType())
+        }
     }
 }
