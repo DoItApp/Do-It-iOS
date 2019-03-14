@@ -47,8 +47,15 @@ class CourseTableViewController: UIViewController {
                 for case let cell as DoItTableViewCell in tableView.visibleCells {
                     cell.checkmarkImageView.isHidden = true
                 }
+                navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                                                                           style: UIBarButtonItem.Style.plain,
+                                                                           target: self,
+                                                                           action: #selector(editButtonPressed))
             case .multiple:
-                navigationBarEditItem.setRightBarButtonItems([doneBarButtonItem], animated: true)
+                navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
+                                                                          style: UIBarButtonItem.Style.plain,
+                                                                          target: self,
+                                                                          action: #selector(editButtonPressed))
             }
         }
     }
@@ -72,11 +79,6 @@ class CourseTableViewController: UIViewController {
         visCourses.sort { (lhs: Course, rhs: Course) -> Bool in
             return lhs.name < rhs.name
         }
-
-        navigationBarEditItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
-                                                                   style: UIBarButtonItem.Style.plain,
-                                                                   target: self,
-                                                                   action: #selector(editButtonPressed))
 
         tableView.delegate = self
         tableView.dataSource = self
