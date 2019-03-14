@@ -1,73 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dEK-jB-7GE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kky-XH-V0t">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Do It Table View Controller-->
-        <scene sceneID="I5m-kx-Xsf">
+        <!--Do-Its-->
+        <scene sceneID="tW6-GH-QfD">
             <objects>
-                <viewController id="dEK-jB-7GE" customClass="DoItTableViewController" customModule="Do_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zhd-eY-E3e">
+                <tableViewController id="hlY-WW-Jxz" customClass="DoItTableViewController" customModule="Do_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oyc-0j-KV4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Do8-pr-Jzj">
-                                <rect key="frame" x="0.0" y="116" width="375" height="507"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-Zq-OpF">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="search" id="54n-Qn-wta">
-                                        <connections>
-                                            <action selector="searchButtonPressed" destination="dEK-jB-7GE" id="sFL-9I-Dfl"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ek1-e0-KUm"/>
-                                    <barButtonItem systemItem="compose" id="dsR-Lj-OvF">
-                                        <connections>
-                                            <action selector="composeButtonPressed" destination="dEK-jB-7GE" id="90H-N8-iWD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FC4-ng-KBy">
-                                <rect key="frame" x="0.0" y="20" width="375" height="96"/>
-                                <items>
-                                    <navigationItem title="Do-Its" id="FgR-3c-P6o"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Do8-pr-Jzj" firstAttribute="trailing" secondItem="NAo-NM-5Mi" secondAttribute="trailing" id="3Kj-MQ-7Xa"/>
-                            <constraint firstItem="FC4-ng-KBy" firstAttribute="top" secondItem="NAo-NM-5Mi" secondAttribute="top" id="6NA-1V-bnM"/>
-                            <constraint firstItem="tPt-Zq-OpF" firstAttribute="top" secondItem="Do8-pr-Jzj" secondAttribute="bottom" id="6eY-Az-lY4"/>
-                            <constraint firstItem="Do8-pr-Jzj" firstAttribute="top" secondItem="FC4-ng-KBy" secondAttribute="bottom" id="HKF-bB-glT"/>
-                            <constraint firstItem="tPt-Zq-OpF" firstAttribute="top" secondItem="Do8-pr-Jzj" secondAttribute="bottom" id="MkP-J7-NFq"/>
-                            <constraint firstItem="FC4-ng-KBy" firstAttribute="leading" secondItem="NAo-NM-5Mi" secondAttribute="leading" id="XKm-dl-MQJ"/>
-                            <constraint firstItem="FC4-ng-KBy" firstAttribute="trailing" secondItem="NAo-NM-5Mi" secondAttribute="trailing" id="alc-EM-DvG"/>
-                            <constraint firstItem="Do8-pr-Jzj" firstAttribute="leading" secondItem="NAo-NM-5Mi" secondAttribute="leading" id="cx2-HI-z5K"/>
-                            <constraint firstItem="tPt-Zq-OpF" firstAttribute="leading" secondItem="NAo-NM-5Mi" secondAttribute="leading" id="pgj-EB-QVa"/>
-                            <constraint firstItem="NAo-NM-5Mi" firstAttribute="bottom" secondItem="tPt-Zq-OpF" secondAttribute="bottom" id="qBB-8l-CMb"/>
-                            <constraint firstItem="tPt-Zq-OpF" firstAttribute="trailing" secondItem="NAo-NM-5Mi" secondAttribute="trailing" id="zxM-B8-QRa"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NAo-NM-5Mi"/>
-                    </view>
-                    <connections>
-                        <outlet property="navigationEditItem" destination="FgR-3c-P6o" id="bkN-Jl-6iG"/>
-                        <outlet property="tableView" destination="Do8-pr-Jzj" id="it8-Wl-FrI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eFg-DH-M8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="hlY-WW-Jxz" id="I6F-Lm-DMJ"/>
+                            <outlet property="delegate" destination="hlY-WW-Jxz" id="ZDQ-ie-I3P"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="search" id="IYk-DM-boq">
+                            <connections>
+                                <action selector="searchButtonPressed" destination="hlY-WW-Jxz" id="w39-Uh-wrV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="CoB-rq-4bD"/>
+                        <barButtonItem systemItem="compose" id="T1a-aW-FsG">
+                            <connections>
+                                <action selector="composeButtonPressed" destination="hlY-WW-Jxz" id="D0A-ao-cWw"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Do-Its" id="Ive-z4-yZc"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76x-6J-MXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="340" y="-716"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mdv-hB-bEq">
+            <objects>
+                <navigationController toolbarHidden="NO" id="Kky-XH-V0t" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="SWw-hb-NDu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K4h-iS-QRa">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="hlY-WW-Jxz" kind="relationship" relationship="rootViewController" id="Adj-j7-zOg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlQ-8Q-6SB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-518" y="-716"/>
         </scene>
     </scenes>
 </document>

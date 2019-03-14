@@ -9,7 +9,7 @@
 import UIKit
 import Do_ItCore
 
-class DoItTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DoItTableViewController: UITableViewController {
     enum InteractionMode {
         case standard
         case selectingToShare
@@ -19,7 +19,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
         didSet {
             switch interactionMode {
             case .standard:
-                navigationEditItem.setRightBarButtonItems([editBarButtonItem], animated: true)
+                navigationItem.setRightBarButtonItems([editBarButtonItem], animated: true)
 
                 selectedIndexPaths.removeAll()
                 // Off-screen cells will have checkmark when dequeued in `tableView(_:cellForRowAt:)`
@@ -27,7 +27,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
                     cell.checkmarkImageView.isHidden = true
                 }
             case .selectingToShare:
-                navigationEditItem.setRightBarButtonItems([doneBarButtonItem, shareBarButtonItem], animated: true)
+                navigationItem.setRightBarButtonItems([doneBarButtonItem, shareBarButtonItem], animated: true)
             }
         }
     }
@@ -44,8 +44,6 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     private var selectedIndexPaths: Set<IndexPath> = []
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var navigationEditItem: UINavigationItem!
     let formatter = DateComponentsFormatter()
 
     private let mockDoIts: [DoIt] = {
@@ -93,7 +91,7 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.registerNib(for: DoItTableViewCell.self)
 
-        navigationEditItem.rightBarButtonItem = editBarButtonItem
+        navigationItem.rightBarButtonItem = editBarButtonItem
 
         visibleDoIts = doIts
     }
@@ -101,15 +99,15 @@ class DoItTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
 // MARK: - Table view data source
 extension DoItTableViewController {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return visibleDoIts.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, as: DoItTableViewCell.self)
         let doIt = visibleDoIts[indexPath.row]
 
@@ -157,7 +155,7 @@ extension DoItTableViewController {
         return formatter.string(from: diffDateComponents)
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? DoItTableViewCell else {
             return
         }
@@ -181,9 +179,9 @@ extension DoItTableViewController {
         }
     }
 
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCell.EditingStyle,
-                   forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let removed = visibleDoIts.remove(at: indexPath.row)
             persistenceManager.deleteDoIt(matching: removed.identifier)
