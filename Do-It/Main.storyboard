@@ -27,7 +27,13 @@
                                 <action selector="searchButtonPressed" destination="hlY-WW-Jxz" id="w39-Uh-wrV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="CoB-rq-4bD"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="k8X-D5-SFG"/>
+                        <barButtonItem systemItem="organize" id="pL5-bu-OH4">
+                            <connections>
+                                <action selector="homeButtonPressed" destination="hlY-WW-Jxz" id="6M3-ce-Nhf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xgJ-Z3-d5a"/>
                         <barButtonItem systemItem="compose" id="T1a-aW-FsG">
                             <connections>
                                 <action selector="composeButtonPressed" destination="hlY-WW-Jxz" id="D0A-ao-cWw"/>

@@ -224,6 +224,13 @@ extension DoItTableViewController {
         createDoItVC.inputMode = .addNewDoIt
         present(parentNavigationVC!, animated: true)
     }
+
+    @IBAction func homeButtonPressed() {
+        organizationManager.organizationSettings.filterSetting = []
+        organizationManager.organizationSettings.groupingSetting = .dueDate
+        organizationManager.organizationSettings.sortSetting = nil
+        reorganizeDoIts()
+    }
 }
 
 // MARK: - Navigation
