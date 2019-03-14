@@ -18,7 +18,7 @@ class OrganizationTests: XCTestCase {
     var testArray3: [(String, [DoIt])] = []
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        // Put setup code here. This method is called before the invocation of each test method in the class. 
         courses = [Course(name: "CSC309"), Course(name: "ENGR234"),
                    Course(name: "BUS313"), Course(name: "CSC349")]
 
