@@ -138,28 +138,45 @@ class CreateDoItTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func save(_ sender: Any) {
+    func sendAlert() {
+        let alertController = UIAlertController(
+            title: "You're not done yet!",
+            message: "Please fill in all the required fields before adding the Do-It",
+            preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func isDoItComplete() -> Bool {
         if course.name == "" || name == "" {
-            let alertController = UIAlertController(title: "You're not done yet!",
-                                                    message: "Please fill in all the required fields before adding the Do-It", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        } else {
-            var doIt = DoIt(course: course, dueDate: date, description: desc,
-                            name: name, priority: priority, kind: .homework)
-            let notifManager = NotificationManager()
-            switch inputMode {
-            case .addNewDoIt?:
-                delegate?.createDoItViewController(self, didSaveDoIt: doIt)
-                notifManager.setTrigger(doIt, alertOption)
-            case .editDoIt(let doItToEdit)?:
-                notifManager.reschedule(doIt, alertOption)
-                doIt.identifier = doItToEdit.identifier
-                delegate?.createDoItViewController(self, didEditDoIt: doIt)
-            case .none:
-                fatalError("inputMode is not set!")
-            }
+            return false
+        }
+        return true
+    }
+
+    func saveDoIt() {
+        var doIt = DoIt(course: course, dueDate: date, description: desc,
+                        name: name, priority: priority, kind: .homework)
+        let notifManager = NotificationManager()
+        switch inputMode {
+        case .addNewDoIt?:
+            delegate?.createDoItViewController(self, didSaveDoIt: doIt)
+            notifManager.setTrigger(doIt, alertOption)
+        case .editDoIt(let doItToEdit)?:
+            notifManager.reschedule(doIt, alertOption)
+            doIt.identifier = doItToEdit.identifier
+            delegate?.createDoItViewController(self, didEditDoIt: doIt)
+        case .none:
+            fatalError("inputMode is not set!")
+        }
+    }
+
+    @IBAction func save(_ sender: Any) {
+        if isDoItComplete() {
+            saveDoIt()
             dismiss(animated: true)
+        } else {
+            sendAlert()
         }
     }
 
