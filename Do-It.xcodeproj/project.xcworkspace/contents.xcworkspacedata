@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/aberard/Desktop/currSchool/csc309/Do-It-iOS/Do-It/CourseTableViewController.storyboard">
+      location = "group:CourseTableViewController.storyboard">
    </FileRef>
    <FileRef
       location = "self:">
