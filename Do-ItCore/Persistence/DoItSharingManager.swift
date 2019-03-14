@@ -8,8 +8,17 @@
 
 import Foundation
 
+
+public enum DoItSharingError: Error {
+    case unexpectedFileType
+    case receivedFileTooLarge
+}
+
 public final class DoItSharingManager {
     public static let shared = DoItSharingManager()
+
+    // Files over 10MB are rejected
+    private static let maxAcceptedFileSizeInBytes = 10_000_000
 
     private var observers: [ObjectIdentifier: DoItSharingObserver] = [:]
 
@@ -32,6 +41,14 @@ public final class DoItSharingManager {
     private init() { }
 
     public func receiveDoIts(savedAt fileURL: URL) throws {
+        guard let fileSize = try fileURL.resourceValues(forKeys: [.fileSizeKey]).fileSize else {
+            throw DoItSharingError.unexpectedFileType
+        }
+
+        guard fileSize < DoItSharingManager.maxAcceptedFileSizeInBytes else {
+            throw DoItSharingError.receivedFileTooLarge
+        }
+
         let data = try Data(contentsOf: fileURL)
         let doIts = try JSONDecoder().decode([DoIt].self, from: data)
         notifyObservers(forReceptionOf: doIts)
