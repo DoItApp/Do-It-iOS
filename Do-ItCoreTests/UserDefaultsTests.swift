@@ -23,14 +23,13 @@ class UserDefaultsTests: XCTestCase {
         let priorityFilter = PriorityFilter(input: .high)
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.dueDate,
                                                             sortSetting: SortSetting.priority,
-                                                            filterSetting: [courseFilter, priorityFilter],
-                                                            filters: [.course, .priority])
+                                                            filterSetting: [courseFilter, priorityFilter])
         UserDefaults.standard.organizationSettings = nil
         UserDefaults.standard.organizationSettings = organizationSettings
         if let readSettings = UserDefaults.standard.organizationSettings {
             XCTAssertEqual(organizationSettings.groupingSetting, readSettings.groupingSetting)
             XCTAssertEqual(organizationSettings.sortSetting, readSettings.sortSetting)
-            XCTAssertEqual(organizationSettings.filters, readSettings.filters)
+            XCTAssertEqual(organizationSettings.getFilters(), readSettings.getFilters())
             XCTAssertEqual(organizationSettings.filterSetting.count, readSettings.filterSetting.count)
             for index in organizationSettings.filterSetting.indices {
                 switch organizationSettings.filterSetting[index] {
@@ -66,14 +65,13 @@ class UserDefaultsTests: XCTestCase {
         let courseFilter = CourseFilter(Course(name: courses[2].name))
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.priority,
                                                             sortSetting: SortSetting.dueDate,
-                                                            filterSetting: [courseFilter],
-                                                            filters: [.course])
+                                                            filterSetting: [courseFilter])
         UserDefaults.standard.organizationSettings = nil
         UserDefaults.standard.organizationSettings = organizationSettings
         if let readSettings = UserDefaults.standard.organizationSettings {
             XCTAssertEqual(organizationSettings.groupingSetting, readSettings.groupingSetting)
             XCTAssertEqual(organizationSettings.sortSetting, readSettings.sortSetting)
-            XCTAssertEqual(organizationSettings.filters, readSettings.filters)
+            XCTAssertEqual(organizationSettings.getFilters(), readSettings.getFilters())
             XCTAssertEqual(organizationSettings.filterSetting.count, readSettings.filterSetting.count)
             for index in organizationSettings.filterSetting.indices {
                 switch organizationSettings.filterSetting[index] {
@@ -108,14 +106,13 @@ class UserDefaultsTests: XCTestCase {
     func testUserDefaults3() {
         let organizationSettings = DoItOrganizationSettings(groupingSetting: GroupingSetting.course,
                                                             sortSetting: nil,
-                                                            filterSetting: [],
-                                                            filters: [])
+                                                            filterSetting: [])
         UserDefaults.standard.organizationSettings = nil
         UserDefaults.standard.organizationSettings = organizationSettings
         if let readSettings = UserDefaults.standard.organizationSettings {
             XCTAssertEqual(organizationSettings.groupingSetting, readSettings.groupingSetting)
             XCTAssertEqual(organizationSettings.sortSetting, readSettings.sortSetting)
-            XCTAssertEqual(organizationSettings.filters, readSettings.filters)
+            XCTAssertEqual(organizationSettings.getFilters(), readSettings.getFilters())
             XCTAssertEqual(organizationSettings.filterSetting.count, readSettings.filterSetting.count)
             for index in organizationSettings.filterSetting.indices {
                 switch organizationSettings.filterSetting[index] {

@@ -48,17 +48,10 @@ extension UserDefaults {
                     fatalError("Unknown sort setting")
                 }
             }
-            var filtersAsEnum: [FilterSetting] = []
-            for elm in filters {
-                if let value = FilterSetting(rawValue: elm) {
-                    filtersAsEnum.append(value)
-                }
-            }
             if let group = GroupingSetting(rawValue: group) {
                 return DoItOrganizationSettings(groupingSetting: group,
                                                 sortSetting: SortSetting(rawValue: sort),
-                                                filterSetting: filterSettings,
-                                                filters: filtersAsEnum)
+                                                filterSetting: filterSettings)
             }
             return nil
         }
@@ -91,7 +84,8 @@ extension UserDefaults {
                 set(dueDates, forKey: Key.dateOptions)
                 set(priorities, forKey: Key.priorityOptions)
                 var filtersAsInt: [Int] = []
-                for elm in settings.filters {
+                let filters = settings.getFilters()
+                for elm in filters {
                     filtersAsInt.append(elm.rawValue)
                 }
                 set(filtersAsInt, forKey: Key.filterSetting)
