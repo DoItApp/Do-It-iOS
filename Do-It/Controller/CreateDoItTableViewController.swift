@@ -141,8 +141,10 @@ class CreateDoItTableViewController: UITableViewController {
 
     @IBAction func save(_ sender: Any) {
         if course.name == "" || name == "" {
-            let alertController = UIAlertController(title: "You're not done yet!",
-                                                    message: "Please fill in all the required fields before adding the Do-It", preferredStyle: UIAlertController.Style.alert)
+            let alertController = UIAlertController(
+                title: "You're not done yet!",
+                message: "Please fill in all the required fields before adding the Do-It",
+                preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         } else {

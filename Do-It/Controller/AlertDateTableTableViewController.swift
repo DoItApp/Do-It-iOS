@@ -14,6 +14,7 @@ protocol AlertDateTableViewControllerDelegate: AnyObject {
                                       didSelectDate alertWhen: (DateComponents, String)?)
 }
 
+
 class AlertDateTableViewController: UITableViewController {
     var options: [Option] = []
 
@@ -28,6 +29,9 @@ class AlertDateTableViewController: UITableViewController {
     }
 
     func makeTimeOptions() {
+        var seconds = DateComponents()
+        seconds.second = -100
+
         var oneDay = DateComponents()
         oneDay.day = -1
 
@@ -43,6 +47,7 @@ class AlertDateTableViewController: UITableViewController {
         var oneMonth = DateComponents()
         oneMonth.month = -1
 
+        options.append(Option(description: "100 seconds", option: seconds))
         options.append(Option(description: "1 day", option: oneDay))
         options.append(Option(description: "3 days", option: threeDays))
         options.append(Option(description: "1 week", option: oneWeek))
@@ -72,8 +77,8 @@ class AlertDateTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.alertDateTableViewController(self,
-                                               didSelectDate: (options[indexPath.row].alertOption, options[indexPath.row].name))
+        delegate?.alertDateTableViewController(
+            self, didSelectDate: (options[indexPath.row].alertOption, options[indexPath.row].name))
         navigationController?.popViewController(animated: true)
     }
 }

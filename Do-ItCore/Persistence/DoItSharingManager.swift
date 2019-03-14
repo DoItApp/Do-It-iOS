@@ -50,6 +50,10 @@ public final class DoItSharingManager {
 
         let data = try Data(contentsOf: fileURL)
         let doIts = try JSONDecoder().decode([DoIt].self, from: data)
+        receiveDoIts(doIts)
+    }
+
+    public func receiveDoIts(_ doIts: [DoIt]) {
         notifyObservers(forReceptionOf: doIts)
     }
 }

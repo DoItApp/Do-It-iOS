@@ -35,4 +35,12 @@ public final class CoursePersistenceManager: PersistenceManager {
             courses = newValue
         }
     }
+
+    @discardableResult
+    public func deleteCourse(matching name: String) -> Course? {
+        guard let index = courses.firstIndex(where: { $0.name == name }) else {
+            return nil
+        }
+        return courses.remove(at: index)
+    }
 }

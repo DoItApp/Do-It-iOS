@@ -20,6 +20,12 @@ class CourseTableViewCell: UITableViewCell {
         }
     }
 
+    @IBOutlet var checkImage: UIImageView! {
+        didSet {
+            checkImage.isHidden = true
+        }
+    }
+
     func setUpCell(course: Course) {
         courseNameLabel.text = course.name
     }

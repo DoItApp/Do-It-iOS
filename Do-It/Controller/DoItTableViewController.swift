@@ -253,7 +253,11 @@ extension DoItTableViewController: DoItSharingObserver {
         receivedDoIts.forEach(persistenceManager.save)
         addNewRecievedCourses(recievedDoIts: receivedDoIts)
         visibleDoIts = doIts
-        tableView.reloadData()
+
+        if tableView != nil {
+            // `tableView` is `nil` only if the controller hasn't yet been presented on-screen
+            tableView.reloadData()
+        }
     }
 
     func addNewRecievedCourses(recievedDoIts: [DoIt]) {
