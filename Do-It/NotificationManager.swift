@@ -36,7 +36,8 @@ class NotificationManager {
     }
 
     func cancelNotification(_ doIt: DoIt) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [doIt.identifier.identifier.uuidString])
+        UNUserNotificationCenter.current().removePendingNotificationRequests(
+            withIdentifiers: [doIt.identifier.identifier.uuidString])
     }
 
     func reschedule(_ doIt: DoIt, _ newDueDate: DateComponents?) {
