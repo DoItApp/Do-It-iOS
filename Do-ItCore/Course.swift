@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Course: Codable, Equatable {
+public struct Course: Codable, Hashable {
     public var name: String
 
     public init(name: String) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct DoItId: Codable, Equatable {
+public struct DoItId: Codable, Hashable {
     public let identifier: UUID
 
     public init() {
