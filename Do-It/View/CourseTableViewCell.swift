@@ -30,6 +30,13 @@ class CourseTableViewCell: UITableViewCell {
         courseNameLabel.text = course.name
     }
 
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let courseColor = courseColorView.backgroundColor
+        super.setSelected(selected, animated: animated)
+        courseColorView.backgroundColor = courseColor
+        // Configure the view for the selected state
+    }
+
 }
 
 extension UIColor {

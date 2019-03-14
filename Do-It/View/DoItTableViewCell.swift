@@ -33,8 +33,9 @@ class DoItTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        let priorityColor = priorityView.backgroundColor
         super.setSelected(selected, animated: animated)
-
+        priorityView.backgroundColor = priorityColor
         // Configure the view for the selected state
     }
 
