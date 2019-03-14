@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public enum DoItSharingError: Error {
     case unexpectedFileType
     case receivedFileTooLarge
